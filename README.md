@@ -1,4 +1,4 @@
-# My react boilerplate
+# SMPED React App (Front-End)
 
 ## Dependencies
 
