@@ -17,6 +17,7 @@ app.listen(port, (err) => {
 	if(err) {
 		console.log(err);
 	} else {
-		console.log(`Server online - Listening to port ${port}`);
+		console.log(`---------------------------------------------------------------
+			\n\n\n\nServer online - Listening to port ${port}\n\n\n\n---------------------------------------------------------------`);
 	}
 });
