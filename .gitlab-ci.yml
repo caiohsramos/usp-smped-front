@@ -1,0 +1,28 @@
+image: node:latest
+
+stages:
+  - build
+  - test
+  - release
+
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+test_with_lab:
+  stage: test
+  script: npm test
+
+release:
+  stage: release
+  script: 
+    - npm install
+    - npm start
