@@ -9,7 +9,7 @@ stages:
   - deploy
 
 before_script:
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS" registry.gitlab.com
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS" registry.gitlab.com:5000
 
 build:
   stage: build
@@ -17,15 +17,15 @@ build:
     - master
     - dev
   script:
-    - docker pull registry.gitlab.com/labxp2018/smped-front/master
-    - docker build --cache-from registry.gitlab.com/labxp2018/smped-front/master -t registry.gitlab.com/labxp2018/smped-front/master .
-    - docker push registry.gitlab.com/labxp2018/smped-front/master
+    - docker pull registry.gitlab.com/labxp2018/smped-front:5000
+    - docker build --cache-from registry.gitlab.com/labxp2018/smped-front:5000 -t registry.gitlab.com/labxp2018/smped-front:5000 .
+    - docker push registry.gitlab.com/labxp2018/smped-front:5000
 
 # Test
 test:
   stage: test
   script:
-    - docker run --rm registry.gitlab.com/labxp2018/smped-front/master npm test
+    - docker run --rm registry.gitlab.com/labxp2018/smped-front:5000 npm test
 
 # Deploy
 deploy-front:
