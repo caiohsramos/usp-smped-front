@@ -1,28 +1,42 @@
-image: node:latest
+image: docker:latest
+
+services:
+  - docker:dind
 
 stages:
   - build
   - test
-  - release
+  - deploy
 
-cache:
-  paths:
-    - node_modules/
+before_script:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS" registry.gitlab.com
 
-install_dependencies:
+build:
   stage: build
+  only:
+    - master
+    - dev
   script:
-    - npm install
-  artifacts:
-    paths:
-      - node_modules/
+    - docker pull registry.gitlab.com/labxp2018/smped-front:latest
+    - docker build --cache-from registry.gitlab.com/labxp2018/smped-front:latest -t registry.gitlab.com/labxp2018/smped-front:latest .
+    - docker push registry.gitlab.com/labxp2018/smped-front:latest
 
-test_with_lab:
+# Test
+test:
   stage: test
-  script: npm test
+  script:
+    - docker run --rm registry.gitlab.com/labxp2018/smped-front:latest npm test
 
-release:
-  stage: release
-  script: 
-    - npm install
-    - npm start
+# Deploy
+deploy-front:
+  stage: deploy
+  only:
+    - master
+    - dev
+  #when: manual
+  script:
+    - docker pull registry.gitlab.com/labxp2018/smped-front:latest
+    - docker build
+      --cache-from registry.gitlab.com/labxp2018/smped-front:latest
+      -t "registry.gitlab.com/labxp2018/smped-front" .
+      - docker push registry.gitlab.com/labxp2018/smped-front
