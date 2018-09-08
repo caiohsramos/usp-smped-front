@@ -18,13 +18,13 @@ build:
     - dev
   script:
     - docker build -t registry.gitlab.com/labxp2018/smped-front:latest .
-    - docker push registry.gitlab.com/labxp2018/smped-front:latest
     - docker run --rm registry.gitlab.com/labxp2018/smped-front:latest npm run build
 
 # Test
 test:
   stage: test
   script:
+    - docker build -t registry.gitlab.com/labxp2018/smped-front:latest .
     - docker run --rm registry.gitlab.com/labxp2018/smped-front:latest npm test
 
 # Deploy
@@ -35,6 +35,5 @@ deploy-front:
     - dev
   #when: manual
   script:
-    - docker pull registry.gitlab.com/labxp2018/smped-front:latest
     - docker build -t "registry.gitlab.com/labxp2018/smped-front" .
-      - docker push registry.gitlab.com/labxp2018/smped-front
+    - docker run --rm registry.gitlab.com/labxp2018/smped-front npm start
