@@ -9,7 +9,7 @@ stages:
   - deploy
 
 before_script:
-  - docker login -u "$CI_DEPLOY_USER" -p "$CI_DEPLOY_PASSWORD" registry.gitlab.com
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS" registry.gitlab.com
 
 build:
   stage: build
