@@ -9,7 +9,7 @@ stages:
   - deploy
 
 before_script:
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS" registry.gitlab.com:5000
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASS" registry.gitlab.com
 
 build:
   stage: build
