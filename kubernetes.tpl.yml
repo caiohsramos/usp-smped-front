@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: test
-          image: registry.gitlab.com/LABXP2018/smped-front:_VERSION_
+          image: registry.gitlab.com/labxp2018/smped-front:_VERSION_
           imagePullPolicy: Always
           ports:
             - containerPort: 5000

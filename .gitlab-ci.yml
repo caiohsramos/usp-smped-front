@@ -7,7 +7,7 @@ stages:
   - deploy
 
 variables:
-  CONTAINER_DEV_IMAGE: registry.gitlab.com/LABXP2018/smped-front:$CI_COMMIT_SHA
+  CONTAINER_DEV_IMAGE: registry.gitlab.com/labxp2018/smped-front:$CI_COMMIT_SHA
 
 build_dev:
   stage: build
