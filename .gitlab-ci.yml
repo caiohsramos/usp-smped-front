@@ -14,7 +14,7 @@ build:
     - master
     - dev
   script:
-    - docker pull -t smped.ml/smped-front
+    - docker pull smped.ml/smped-front
     - docker build --cache-from smped.ml/smped-front -t smped.ml/smped-front .
     - docker push smped.ml/smped-front
 
