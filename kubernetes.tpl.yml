@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: _APP_NAME_
-
   # Pod template
   template:
     metadata:
@@ -34,8 +33,8 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 5000
-      targetPort: 5000
+    - port: 80
+      targetPort: 80
       protocol: TCP
       name: http
   selector:
