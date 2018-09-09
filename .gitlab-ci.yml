@@ -1,0 +1,40 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  only:
+    - master
+    - dev
+  script:
+    - docker pull -t smped.ml/smped-front
+    - docker build --cache-from smped.ml/smped-front -t smped.ml/smped-front .
+    - docker push smped.ml/smped-front
+
+# Test
+test:
+  stage: test
+  script:
+    - docker run --rm smped.ml/smped-front npm test
+
+# Deploy
+deploy-front:
+  stage: deploy
+  only:
+    - master
+    - dev
+  #when: manual
+  script:
+    - docker pull smped.ml/smped-front
+    - docker build
+      --cache-from smped.ml/smped-front
+      -t "smped.ml/smped-front" .
+    - docker push smped.ml/smped-front
+    - docker run --rm smped.ml/smped-front npm start
