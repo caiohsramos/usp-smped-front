@@ -2,11 +2,11 @@
 
 # Staging
 
-http://labxp2018-smped-front-staging.130.211.121.49.nip.io
+http://www.dev-smped.ml/
 
 # Production
 
-http://labxp2018-smped-front.130.211.121.49.nip.io
+http://www.dev-smped.ml/
 
 ## Dependencies
 
