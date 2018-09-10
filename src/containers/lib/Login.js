@@ -1,0 +1,56 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Container } from './Container';
+import { LoginController } from '../../controllers';
+import { LoginForm } from '../../components';
+
+class Login extends Container {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			EMAIL: '',
+			PASSWORD: '',
+			loginError_value: false
+		};
+
+		const toController = {
+			callback: this.callback,
+			getState: this.getState,
+			getProps: this.getProps,
+			router: props.router
+		};
+
+		this.controller = new LoginController(toController);
+	}
+
+	componentDidMount() {
+	}
+
+	componentWillReceiveProps(nextProps) {
+	}
+
+	componentDidUpdate() {
+	}
+	render() {
+		const { handleChangeAction, handleSubmitAction } = this.controller;
+		const { EMAIL, PASSWORD, loginError_value } = this.state;
+		return (
+    	<div className='login'>
+				<LoginForm
+					email={EMAIL}
+					password={PASSWORD}
+					loginError={loginError_value}
+					changeAction={handleChangeAction}
+					submitAction={handleSubmitAction}
+				/>
+			</div>
+		);
+	}
+}
+
+const mstp = state => {
+	return {}
+};
+
+export default connect(mstp, {})(Login);
