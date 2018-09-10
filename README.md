@@ -6,7 +6,7 @@ http://www.dev-smped.ml/
 
 # Production
 
-http://www.dev-smped.ml/
+http://www.smped.ml/
 
 ## Dependencies
 
