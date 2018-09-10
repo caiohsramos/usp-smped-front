@@ -40,7 +40,7 @@ class Home extends Container {
 }
 
 const mstp = state => {
-	return {}
+	return {};
 };
 
 export default connect(mstp, {})(Home);
