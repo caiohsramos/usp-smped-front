@@ -6,7 +6,7 @@ const Button = props => {
 	return (
 		<button
 			id={id}
-			className={`button`}
+			className={`btn btn-lg btn-primary btn-block`}
 			onClick={clickAction}
 			type={type || ""}
 			title={title}

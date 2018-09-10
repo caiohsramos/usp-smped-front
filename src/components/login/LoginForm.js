@@ -13,6 +13,7 @@ const LoginForm = props => {
 				label='E-MAIL'
 				value={email}
 				changeAction={changeAction}
+				placeholder='Endereço de email'
 			/>
 			<TextInput
 				type='password'
@@ -20,16 +21,12 @@ const LoginForm = props => {
 				label='SENHA'
 				value={password}
 				changeAction={changeAction}
+				placeholder='Senha'
 			/>
 			<Button
 				id='submit'
 				type='submit'
-				label='ENTRAR'
-				clickAction={submitAction}
-			/>
-			<Button
-				id='forgot-password'
-				label='Esqueci minha senha'
+				label='Entrar'
 				clickAction={submitAction}
 			/>
 		</form>

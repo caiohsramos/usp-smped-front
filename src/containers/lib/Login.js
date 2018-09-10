@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container } from './Container';
 import { LoginController } from '../../controllers';
-import { LoginForm } from '../../components';
+import { LoginForm, LoginLogo, LoginFooter } from '../../components';
 
 class Login extends Container {
 	constructor(props) {
@@ -37,6 +37,7 @@ class Login extends Container {
 		const { EMAIL, PASSWORD, loginError_value } = this.state;
 		return (
     	<div className='login'>
+				<LoginLogo />
 				<LoginForm
 					email={EMAIL}
 					password={PASSWORD}
@@ -44,13 +45,14 @@ class Login extends Container {
 					changeAction={handleChangeAction}
 					submitAction={handleSubmitAction}
 				/>
+				<LoginFooter/>
 			</div>
 		);
 	}
 }
 
 const mstp = state => {
-	return {}
+	return {};
 };
 
 export default connect(mstp, {})(Login);
