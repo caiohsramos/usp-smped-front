@@ -6,7 +6,7 @@ export class LoginController {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
-
+		
 		this.handleChangeAction = this.handleChangeAction.bind(this);
 		this.handleSubmitAction = this.handleSubmitAction.bind(this);
 	}
