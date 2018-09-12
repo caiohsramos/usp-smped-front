@@ -10,8 +10,7 @@ class Login extends Container {
 
 		this.state = {
 			EMAIL: '',
-			PASSWORD: '',
-			loginError_value: false
+			PASSWORD: ''
 		};
 
 		const toController = {
@@ -24,14 +23,6 @@ class Login extends Container {
 		this.controller = new LoginController(toController);
 	}
 
-	componentDidMount() {
-	}
-
-	componentWillReceiveProps(nextProps) {
-	}
-
-	componentDidUpdate() {
-	}
 	render() {
 		const { handleChangeAction, handleSubmitAction } = this.controller;
 		const { EMAIL, PASSWORD, loginError_value } = this.state;
