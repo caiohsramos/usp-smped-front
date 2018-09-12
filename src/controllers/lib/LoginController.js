@@ -1,4 +1,5 @@
 import { Navigator } from '../../helper';
+import store from '../../routes';
 
 export class LoginController {
 
@@ -6,7 +7,10 @@ export class LoginController {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
-		
+
+		this.store = store();
+		this.navigator = new Navigator(this.store.props.history);
+
 		this.handleChangeAction = this.handleChangeAction.bind(this);
 		this.handleSubmitAction = this.handleSubmitAction.bind(this);
 	}
@@ -18,7 +22,9 @@ export class LoginController {
 		to[id] = value;
 		this.callback(to);
 	}
-	handleSubmitAction () {
-		console.log("not implemented yet");
+	handleSubmitAction (e) {
+		e.preventDefault();
+		this.navigator.navigateTo('/dashboard');
+		console.log("Warning! Login not implemented yet ;)");
 	}
 }
