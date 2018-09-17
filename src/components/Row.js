@@ -1,12 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Edit, FormatAlignJustify, InsertLink, Visibility, Delete } from '@material-ui/icons';
 import IconButton from '@material-ui/core/IconButton';
@@ -14,7 +9,6 @@ import { Chips } from '../atoms';
 
 const Row = props => {
 	const { data } = props;
-	const { classes } = props;
 	return (
     <Card className='row'>
 			<CardContent className='content'>
@@ -26,19 +20,19 @@ const Row = props => {
 				</div>
 			</CardContent>
       <CardActions className='actions'>
-				<IconButton aria-label="Cart">
+				<IconButton aria-label="Editar Criação do Formulário">
 					<Edit/>
 				</IconButton>
-				<IconButton aria-label="Cart">
+				<IconButton aria-label="Visualizar Respostas do Formulário">
 					<FormatAlignJustify/>
 				</IconButton>
-				<IconButton aria-label="Cart">
+				<IconButton aria-label="Compartilhar Formulário">
 					<InsertLink/>
 				</IconButton>
-				<IconButton aria-label="Cart">
+				<IconButton aria-label="Visualizar Criação do Formulário">
 					<Visibility/>
 				</IconButton>
-				<IconButton aria-label="Cart">
+				<IconButton aria-label="Excluir Formulário">
 					<Delete/>
 				</IconButton>
       </CardActions>
