@@ -17,7 +17,7 @@ const Row = props => {
 	return (
     <Card className='row'>
       <CardActionArea>
-        <CardContent>
+        <CardContent className='text'>
           <Typography gutterBottom variant="headline" component="h2">
 						{data.name}
           </Typography>
@@ -26,7 +26,7 @@ const Row = props => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions className='actions'>
 				<IconButton aria-label="Cart">
 					<Edit/>
 				</IconButton>
