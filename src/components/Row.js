@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Edit, FormatAlignJustify, InsertLink, Visibility, Delete } from '@material-ui/icons';
 import IconButton from '@material-ui/core/IconButton';
+import { Chips } from '../atoms';
 
 const Row = props => {
 	const { data } = props;
@@ -18,9 +19,12 @@ const Row = props => {
     <Card className='row'>
       <CardActionArea>
         <CardContent className='text'>
-          <Typography gutterBottom variant="headline" component="h2">
-						{data.name}
-          </Typography>
+					<div className = 'header flex -sb'>
+	          <Typography gutterBottom variant="headline" component="h2">
+							{data.name}
+	          </Typography>
+						<Chips publish version='2'/>
+					</div>
           <Typography component="p">
             {data.description}
           </Typography>
