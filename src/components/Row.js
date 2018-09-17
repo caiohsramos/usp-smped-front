@@ -17,19 +17,14 @@ const Row = props => {
 	const { classes } = props;
 	return (
     <Card className='row'>
-      <CardActionArea>
-        <CardContent className='text'>
-					<div className = 'header flex -sb'>
-	          <Typography gutterBottom variant="headline" component="h2">
-							{data.name}
-	          </Typography>
-						<Chips publish version='2'/>
-					</div>
-          <Typography component="p">
-            {data.description}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
+			<CardContent className='content'>
+				<Typography gutterBottom variant="headline" component="h2">
+				{data.name}
+				</Typography>
+				<div className = 'header'>
+					<Chips version='2'/>
+				</div>
+			</CardContent>
       <CardActions className='actions'>
 				<IconButton aria-label="Cart">
 					<Edit/>
