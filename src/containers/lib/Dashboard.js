@@ -9,7 +9,7 @@ class Dashboard extends Container {
 		super(props);
 
 		this.state = {
-
+			name: "Teste"
 		};
 
 		const toController = {
