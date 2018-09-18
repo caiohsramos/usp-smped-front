@@ -22,10 +22,10 @@ class NewForm extends Container {
 
 	render() {
 
-	 return (
-		 <div>
-		 </div>
-	 );
+		return (
+			<div>
+			</div>
+		);
 	}
 }
 

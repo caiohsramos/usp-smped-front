@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container } from './Container';
 import { DashboardController } from '../../controllers';
+import { Button } from '../../atoms';
 
 class Dashboard extends Container {
 	constructor(props) {
@@ -21,12 +22,18 @@ class Dashboard extends Container {
 	}
 
 	render() {
+		const { handleClick } = this.controller;
 
-
-	 return (
-		 <div>
-		 </div>
-	 );
+		return (
+			<div className='new-form'>
+				<Button
+					id='button'
+					type='button'
+					label='Novo formulário'
+					clickAction={handleClick}
+				/>
+			</div>
+		);
 	}
 }
 

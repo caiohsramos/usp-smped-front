@@ -1,4 +1,5 @@
 import { Navigator } from '../../helper';
+import store from '../../routes';
 
 export class DashboardController {
 
@@ -7,14 +8,16 @@ export class DashboardController {
 		this.getState = getState;
 		this.getProps = getProps;
 
-		this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
-		this.handleDrawerClose = this.handleDrawerClose.bind(this);
-	}
-	handleDrawerOpen() {
-		this.callback({ open: true });
+		this.store = store();
+		this.navigator = new Navigator(this.store.props.history);
+
+		this.handleClick = this.handleClick.bind(this);
+
 	}
 
-	handleDrawerClose() {
-		this.callback({ open: false });
+	handleClick (e) {
+		e.preventDefault();
+		this.navigator.navigateTo('/newform');
 	}
+
 }
