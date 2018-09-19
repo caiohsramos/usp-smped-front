@@ -6,5 +6,10 @@ export class MainController {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
+
+		this.handleMenuOpen = this.handleMenuOpen.bind(this);
+	}
+	handleMenuOpen() {
+		
 	}
 }

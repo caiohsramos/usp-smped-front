@@ -12,9 +12,9 @@ export default store => {
 	return (
 		<Router history={browserHistory}>
 			<Route component={App} >
-				<Route path='/' component={Login} />
-				<Route path='/dashboard' component={Dashboard} />
+			<Route path='/' component={Login} />
 				<Route component={Main}>
+					<Route path='/dashboard' component={Dashboard} />
 				</Route>
 			</Route>
     </Router>);

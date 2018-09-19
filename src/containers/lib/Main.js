@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { Container } from './Container';
 import { MainController } from '../../controllers';
+import { Header } from '../../components';
 
 const actions = { };
 
@@ -12,6 +13,7 @@ class Main extends Container {
 		super(props);
 
 		this.state = {
+			profile_menu: false
 		};
 
 		const toController = {
@@ -31,9 +33,10 @@ class Main extends Container {
 	}
 
 	render() {
-
+		const { handleMenuOpen } = this.controller;
 		return (
       <section className="main">
+				<Header handleMenu={handleMenuOpen}/>
 				{this.props.children}
       </section>
 		);
