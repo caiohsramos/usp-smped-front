@@ -7,6 +7,8 @@ export class LoginController {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
+		// this.setToken = setToken;
+		// this.clearToken = clearToken;
 
 		this.store = store();
 		this.navigator = new Navigator(this.store.props.history);
