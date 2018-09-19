@@ -1,5 +1,4 @@
 import { Navigator } from '../../helper';
-import store from '../../routes';
 
 export class DashboardController {
 
@@ -7,12 +6,9 @@ export class DashboardController {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
-
-		this.store = store();
-		this.navigator = new Navigator(this.store.props.history);
+		this.navigator = new Navigator(router);
 
 		this.handleClick = this.handleClick.bind(this);
-
 	}
 
 	handleClick (e) {

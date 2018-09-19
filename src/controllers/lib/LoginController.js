@@ -1,5 +1,4 @@
 import { Navigator } from '../../helper';
-import store from '../../routes';
 
 export class LoginController {
 
@@ -7,9 +6,7 @@ export class LoginController {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
-
-		this.store = store();
-		this.navigator = new Navigator(this.store.props.history);
+		this.navigator = new Navigator(router);
 
 		this.handleChangeAction = this.handleChangeAction.bind(this);
 		this.handleSubmitAction = this.handleSubmitAction.bind(this);
