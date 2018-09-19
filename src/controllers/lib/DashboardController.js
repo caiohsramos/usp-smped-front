@@ -7,14 +7,21 @@ export class DashboardController {
 		this.getState = getState;
 		this.getProps = getProps;
 
-		this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
-		this.handleDrawerClose = this.handleDrawerClose.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleMenu = this.handleMenu.bind(this);
+		this.handleClose = this.handleClose.bind(this);
 	}
-	handleDrawerOpen() {
-		this.callback({ open: true });
+	handleChange(event){
+		this.callback({ auth: event.target.checked });
 	}
 
-	handleDrawerClose() {
-		this.callback({ open: false });
-	}
+	handleMenu(event) {
+		this.callback({ anchorEl: event.currentTarget });
+	};
+
+	handleClose(event) {
+		this.callback({ anchorEl: null });
+	};
+
+
 }
