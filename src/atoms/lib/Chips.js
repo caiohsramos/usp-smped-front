@@ -37,7 +37,7 @@ const Chips = props => {
 		        onClick={e => console.log(e)}
 		        onDelete={e => console.log(e)}
 		        className={`chip ${ publish ? 'publish': 'unpublish' }`}
-		        deleteIcon={publish ? <DoneIcon /> : ''}
+				deleteIcon={publish ? <DoneIcon /> : undefined}
 		      />
 				</div>
 				<Chip
