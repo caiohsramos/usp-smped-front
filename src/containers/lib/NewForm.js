@@ -1,13 +1,16 @@
 import React from 'react';
 import { Container } from './Container';
 import { NewFormController } from '../../controllers';
+import { FormItem } from '../../components'
 
 class NewForm extends Container {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-
+			fields: {
+				
+			}
 		};
 
 		const toController = {
@@ -23,8 +26,10 @@ class NewForm extends Container {
 	render() {
 
 		return (
-			<div>
-			</div>
+			<section className="container">
+				<FormItem name={this.state.name} handleChange={this.controller.handleChange} /> 
+
+			</section>
 		);
 	}
 }
