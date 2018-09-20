@@ -4,7 +4,6 @@ import { } from './middlewares';
 
 import App from './containers/lib/App';
 import Main from './containers/lib/Main';
-import Home from './containers/lib/Home';
 import Login from './containers/lib/Login';
 import Dashboard from './containers/lib/Dashboard';
 import NewForm from './containers/lib/NewForm';
