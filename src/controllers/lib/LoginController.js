@@ -3,12 +3,12 @@ import store from '../../routes';
 
 export class LoginController {
 
-	constructor({callback, getState, getProps, router}) {
+	constructor({callback, getState, getProps, router, setToken, clearToken}) {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
-		// this.setToken = setToken;
-		// this.clearToken = clearToken;
+		this.setToken = setToken;
+		this.clearToken = clearToken;
 
 		this.store = store();
 		this.navigator = new Navigator(this.store.props.history);
@@ -26,7 +26,8 @@ export class LoginController {
 	}
 	handleSubmitAction (e) {
 		e.preventDefault();
+		this.setToken('settoken');
 		this.navigator.navigateTo('/dashboard');
-		console.log("Warning! Login not implemented yet ;)");
+		//console.log("Warning! Login not implemented yetttttttttt ;)");
 	}
 }

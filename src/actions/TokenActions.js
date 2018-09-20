@@ -1,3 +1,5 @@
-export const setToken = (token) => ({type: 'TOKEN_SET', payload: token})
+export const setToken = (token) => {
+	return {type: 'TOKEN_SET', payload: token};
+};
 
-export const clearToken = () => ({type: 'TOKEN_CLEAR'})
+export const clearToken = () => ({type: 'TOKEN_CLEAR'});

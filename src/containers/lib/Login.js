@@ -4,30 +4,33 @@ import { Container } from './Container';
 import { LoginController } from '../../controllers';
 import { LoginForm, LoginLogo, LoginFooter } from '../../components';
 import { setToken, clearToken } from '../../actions/TokenActions';
+import { bindActionCreators } from 'redux'
 
 class Login extends Container {
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.state = {
-            EMAIL: '',
-            PASSWORD: ''
-        };
+		this.state = {
+			EMAIL: '',
+			PASSWORD: ''
+		};
 
-        const toController = {
-            callback: this.callback,
-            getState: this.getState,
-            getProps: this.getProps,
-            router: props.router
-        };
+		const toController = {
+			callback: this.callback,
+			getState: this.getState,
+			getProps: this.getProps,
+			router: props.router,
+			setToken: props.setToken,
+			clearToken: props.clearToken
+		};
 
-        this.controller = new LoginController(toController);
-    }
+		this.controller = new LoginController(toController);
+	}
 
-    render() {
-        const { handleChangeAction, handleSubmitAction } = this.controller;
-        const { EMAIL, PASSWORD, loginError_value } = this.state;
-        return (
+	render() {
+		const { handleChangeAction, handleSubmitAction } = this.controller;
+		const { EMAIL, PASSWORD, loginError_value } = this.state;
+		return (
         <div className='login'>
                 <LoginLogo />
                 <LoginForm
@@ -39,12 +42,15 @@ class Login extends Container {
                 />
                 <LoginFooter/>
             </div>
-        );
-    }
+		);
+	}
 }
 
 const mstp = state => {
-    return {};
+	return {};
 };
 
-export default connect(mstp, {})(Login);
+const mdtp = dispatch => 
+	bindActionCreators({setToken, clearToken}, dispatch);
+
+export default connect(mstp, mdtp)(Login);
