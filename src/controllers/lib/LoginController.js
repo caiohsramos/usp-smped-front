@@ -1,8 +1,9 @@
 import { Navigator } from '../../helper';
 import store from '../../routes';
-import axios from 'axios'
+import axios from 'axios';
+import Snackbar from '@material-ui/core/Snackbar';
 
-const URL = 'http://api-dev-smped.ml:5000'
+const URL = 'http://localhost:3001'
 
 export class LoginController {
 
@@ -32,24 +33,24 @@ export class LoginController {
 		//pegar o usuario e senha do this.getState
 		const user = this.getState().EMAIL
 		const password = this.getState().PASSWORD
-		//requisicao para o backend
-		/*axios.post(`${URL}auth/tokens`, {
-			username: user,
-			password: password
-		}).then(function(response){
-			console.log(response)
-		})
-		*/
+		
 		axios.post(`${URL}/auth/tokens`,{
 			username: user,
 			password: password
-		}).then((resp) => {
-			console.log(resp)
+		})
+		.then((resp) => {
+			console.log(resp);
+			const token = resp.data.access_token;
+			this.setToken(token);
+			this.navigator.navigateTo('/dashboard');
+		})
+		.catch ((e) => {
+			console.log (e.response.data._error);
+			const state = {...this.getState (), LOGINERROR: e.response.data._error.message};
+			this.callback (state);
 		})
 		//salvar no reducer
 		//redirecionamento (login ou retry)
-		this.setToken('settoken');
-		this.navigator.navigateTo('/dashboard');
 		//console.log("Warning! Login not implemented yetttttttttt ;)");
 	}
 }
