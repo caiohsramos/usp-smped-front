@@ -1,5 +1,3 @@
-import { Navigator } from '../../helper';
-
 export class DashboardController {
 
 	constructor({callback, getState, getProps, router}) {
@@ -10,6 +8,7 @@ export class DashboardController {
 		this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
 		this.handleDrawerClose = this.handleDrawerClose.bind(this);
 	}
+
 	handleDrawerOpen() {
 		this.callback({ open: true });
 	}

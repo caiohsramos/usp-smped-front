@@ -1,7 +1,6 @@
 import { Navigator } from '../../helper';
 import store from '../../routes';
 import axios from 'axios';
-import Snackbar from '@material-ui/core/Snackbar';
 
 const URL = 'http://localhost:3001'
 
