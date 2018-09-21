@@ -7,6 +7,7 @@ export class LoginController {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
+		this.navigator = new Navigator(router);
 
 		this.store = store();
 		this.navigator = new Navigator(this.store.props.history);
