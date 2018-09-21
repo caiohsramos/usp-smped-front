@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Container } from './Container';
 import { LoginController } from '../../controllers';
 import { LoginForm, LoginLogo, LoginFooter } from '../../components';
-import { setToken, clearToken } from '../../actions/TokenActions';
+import { setToken } from '../../actions/TokenActions';
 import { bindActionCreators } from 'redux'
 
 class Login extends Container {
@@ -22,7 +22,6 @@ class Login extends Container {
             getProps: this.getProps,
             router: props.router,
             setToken: props.setToken,
-            clearToken: props.clearToken
         };
 
         this.controller = new LoginController(toController);
@@ -52,6 +51,6 @@ const mstp = state => {
 };
 
 const mdtp = dispatch => 
-    bindActionCreators({setToken, clearToken}, dispatch);
+    bindActionCreators({setToken}, dispatch);
 
 export default connect(mstp, mdtp)(Login);

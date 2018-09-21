@@ -40,7 +40,10 @@ export class LoginController {
 		})
 		.then((resp) => {
 			console.log(resp);
-			const token = resp.data.access_token;
+			const token = {
+				access: resp.data.access_token,
+				refresh: resp.data.refresh_token
+			};
 			this.setToken(token);
 			this.navigator.navigateTo('/dashboard');
 		})
