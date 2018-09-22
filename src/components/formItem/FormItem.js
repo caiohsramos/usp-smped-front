@@ -4,52 +4,43 @@ import CardContent from '@material-ui/core/CardContent';
 import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+import TextField from '@material-ui/core/TextField';
 
 const FormItem = props => {
-    const formTypes = [
-        {
-            value: 'text',
-            label: 'Texto'
-        },
-        {
-            value: 'date',
-            label: 'Data'
-        },
-        {
-            value: 'number',
-            label: 'Numérico'
-        }
-    ]
+	const { field, handleChangeAction } = props;
     
 	return (
         <div className='form-item'>
             <Card>
                 <CardContent>
                     <FormControl>
-                        <InputLabel htmlFor="name-simple">Name</InputLabel>
-                        <Input id="name-simple" value={props.name} onChange={props.handleChange} />
+                        <InputLabel htmlFor="name-simple">Nome do campo</InputLabel>
+                        <Input id="name-simple" value={field.label} onChange={handleChangeAction('LABEL')} />
                     </FormControl>
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={field.required}
+                                onChange={handleChangeAction('REQUIRED')}
+                                value={"required"}
+                                color="primary"
+                            />
+                        }
+                        label="Obrigatório"
+                    />
                     <TextField
-                        id="select-field-type"
-                        select
-                        label="Tipo do campo"
-                        className={classes.textField}
-                        value={props.fieldType}
-                        onChange={this.handleChange('fields.field')}
-                        SelectProps={{
-                            MenuProps: {
-                            className: classes.menu,
-                            },
-                        }}
-                        helperText="Please select your currency"
+                        id="standard-number"
+                        label="Ordem"
+                        value={field.order}
+                        onChange={handleChangeAction('ORDER')}
+                        type="number"
+                        InputLabelProps={{
+                        	shrink: true,
+}}
                         margin="normal"
-                        >
-                        {formTypes.map(option => (
-                            <MenuItem key={option.value} value={option.value}>
-                            {option.label}
-                            </MenuItem>
-                        ))}
-                    </TextField>
+                    />
                 </CardContent>
             </Card>
         </div>

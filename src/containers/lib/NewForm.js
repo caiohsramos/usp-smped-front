@@ -1,15 +1,18 @@
 import React from 'react';
 import { Container } from './Container';
 import { NewFormController } from '../../controllers';
-import { FormItem } from '../../components'
+import { FormItem } from '../../components';
 
 class NewForm extends Container {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			fields: {
-				
+			FIELD: {
+				LABEL: '',
+				SELECTED_TYPE: '',
+				REQUIRED: false,
+				ORDER: null
 			}
 		};
 
@@ -27,7 +30,10 @@ class NewForm extends Container {
 
 		return (
 			<section className="container">
-				<FormItem name={this.state.name} handleChange={this.controller.handleChange} /> 
+				<FormItem 
+					field={this.state.FIELD} 
+					handleChangeAction={this.controller.handleChangeAction} 
+				/> 
 
 			</section>
 		);
