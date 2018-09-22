@@ -12,7 +12,7 @@ class NewForm extends Container {
 				LABEL: '',
 				SELECTED_TYPE: '',
 				REQUIRED: false,
-				ORDER: null
+				ORDER: ''
 			}
 		};
 
