@@ -13,7 +13,7 @@ class Main extends Container {
 		super(props);
 
 		this.state = {
-			profile_menu: false
+			profile_menu: ''
 		};
 
 		const toController = {
@@ -33,10 +33,15 @@ class Main extends Container {
 	}
 
 	render() {
-		const { handleMenuOpen } = this.controller;
+		const { handleMenuOpenAction, handleMenuCloseAction } = this.controller;
+		const { profile_menu } = this.state;
 		return (
       <section className="main">
-				<Header handleMenu={handleMenuOpen}/>
+				<Header
+				 handleMenuOpen={handleMenuOpenAction}
+				 handleMenuClose={handleMenuCloseAction}
+				 menuStatus={profile_menu}
+				/>
 				{this.props.children}
       </section>
 		);
