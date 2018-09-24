@@ -17,6 +17,7 @@ export default store => {
 				<Route path='/dashboard' component={Dashboard} />
 				<Route path='/newform' component={NewForm} />
 				<Route component={Main}>
+					<Route path='/dashboard' component={Dashboard} />
 				</Route>
 			</Route>
     </Router>);
