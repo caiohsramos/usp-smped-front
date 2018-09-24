@@ -1,10 +1,9 @@
 import { Navigator } from '../../helper';
 import store from '../../routes';
-import axios from 'axios';
-
-const URL = 'http://localhost:3001'
+import { SMPEDRepository } from '../../repositories';
 
 export class LoginController {
+
 
 	constructor({callback, getState, getProps, router, setToken, clearToken}) {
 		this.callback = callback;
@@ -15,6 +14,7 @@ export class LoginController {
 
 		this.store = store();
 		this.navigator = new Navigator(this.store.props.history);
+		this.smpedapi = new SMPEDRepository ();
 
 		this.handleChangeAction = this.handleChangeAction.bind(this);
 		this.handleSubmitAction = this.handleSubmitAction.bind(this);
@@ -29,14 +29,13 @@ export class LoginController {
 	}
 	handleSubmitAction (e) {
 		e.preventDefault();
-		//pegar o usuario e senha do this.getState
-		const user = this.getState().EMAIL
-		const password = this.getState().PASSWORD
-		
-		axios.post(`${URL}/auth/tokens`,{
-			username: user,
+		const user = this.getState().EMAIL;
+		const password = this.getState().PASSWORD;
+		const auth_body = {
+			username:  user,
 			password: password
-		})
+		};
+		this.smpedapi.post('auth/tokens', auth_body)
 		.then((resp) => {
 			console.log(resp);
 			const token = {
@@ -47,12 +46,10 @@ export class LoginController {
 			this.navigator.navigateTo('/dashboard');
 		})
 		.catch ((e) => {
+			console.log (e);
 			console.log (e.response.data._error);
 			const state = {...this.getState (), LOGINERROR: e.response.data._error.message};
 			this.callback (state);
 		})
-		//salvar no reducer
-		//redirecionamento (login ou retry)
-		//console.log("Warning! Login not implemented yetttttttttt ;)");
 	}
 }
