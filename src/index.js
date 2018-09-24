@@ -10,8 +10,8 @@ import Reducers from "./reducers/index";
 const store = createStore(Reducers);
 
 ReactDom.render(
-	<Provider store={store}>
-		{ Routes(store) }
-	</Provider>,
-	document.querySelector("[app-container]")
+    <Provider store={store}>
+        { Routes(store) }
+    </Provider>,
+    document.querySelector("[app-container]")
 );

@@ -8,41 +8,41 @@ const actions = { };
 
 class Main extends Container {
 
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.state = {
-		};
+        this.state = {
+        };
 
-		const toController = {
-			callback: this.callback,
-			getState: this.getState,
-			getProps: this.getProps,
-			router: props.router,
-		};
+        const toController = {
+            callback: this.callback,
+            getState: this.getState,
+            getProps: this.getProps,
+            router: props.router,
+        };
 
-		this.controller = new MainController(toController);
-	}
+        this.controller = new MainController(toController);
+    }
 
-	componentWillMount() {
-	}
+    componentWillMount() {
+    }
 
-	componentWillReceiveProps(nextProps) {
-	}
+    componentWillReceiveProps(nextProps) {
+    }
 
-	render() {
+    render() {
 
-		return (
+        return (
       <section className="main">
-				{this.props.children}
+                {this.props.children}
       </section>
-		);
-	}
+        );
+    }
 }
 
 const mstp = state => {
-	return {
-	};
+    return {
+    };
 };
 
 export default connect(mstp, actions)(Main);

@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 class App extends Component {
 
-	componentDidMount() {
-	}
+    componentDidMount() {
+    }
 
-	render() {
-		return this.props.children;
-	}
+    render() {
+        return this.props.children;
+    }
 }
 
 export default connect(null, {})(App);

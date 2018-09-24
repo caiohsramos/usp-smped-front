@@ -9,13 +9,13 @@ import Dashboard from './containers/lib/Dashboard';
 
 
 export default store => {
-	return (
-		<Router history={browserHistory}>
-			<Route component={App} >
-				<Route path='/' component={Login} />
-				<Route path='/dashboard' component={Dashboard} />
-				<Route component={Main}>
-				</Route>
-			</Route>
+    return (
+        <Router history={browserHistory}>
+            <Route component={App} >
+                <Route path='/' component={Login} />
+                <Route path='/dashboard' component={Dashboard} />
+                <Route component={Main}>
+                </Route>
+            </Route>
     </Router>);
 };
