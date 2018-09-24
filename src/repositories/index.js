@@ -1,1 +1,1 @@
-export { BaseRepository } from "./lib/BaseRepository";
+export { SMPEDRepository } from "./lib/SMPEDRepository";
