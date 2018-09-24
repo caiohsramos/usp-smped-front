@@ -1,3 +1,5 @@
+import { Navigator } from '../../helper';
+
 export class DashboardController {
 
 	constructor({callback, getState, getProps, router}) {
@@ -22,7 +24,7 @@ export class DashboardController {
 	handleClose(event) {
 		this.callback({ anchorEl: null });
 	};
-	
+
 	handleClick (e) {
 		e.preventDefault();
 		this.navigator.navigateTo('/newform');

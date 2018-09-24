@@ -50,6 +50,6 @@ export class LoginController {
 			console.log (e.response.data._error);
 			const state = {...this.getState (), LOGINERROR: e.response.data._error.message};
 			this.callback (state);
-		})
+		});
 	}
 }

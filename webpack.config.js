@@ -32,7 +32,7 @@ module.exports = {
 		}]
 	},
 	plugins,
-	watch: false,
+	watch: true,
 	node: {
 		fs: 'empty'
 	}

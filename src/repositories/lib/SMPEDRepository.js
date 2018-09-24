@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ROOT_URL = 'http://localhost:3001'
+const ROOT_URL = 'http://api-dev-smped.ml:3001';
 
 export class SMPEDRepository {
 
