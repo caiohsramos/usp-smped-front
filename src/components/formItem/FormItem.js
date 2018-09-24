@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Input from '@material-ui/core/Input';
@@ -21,7 +21,7 @@ const FormItem = props => {
 			label: 'Numérico'
 		}
 	];
-        
+
 	return (
         <div className='form-item'>
             <Card>
@@ -52,11 +52,11 @@ const FormItem = props => {
                             value={field.SELECTED_TYPE}
                             onChange={handleChangeAction('SELECTED_TYPE')}
                             margin="normal">
-                                {types.map(option => (
-                                    <MenuItem key={option.value} value={option.value}>
+                            {types.map(option => (
+                                <MenuItem key={option.value} value={option.value}>
                                     {option.label}
-                                    </MenuItem>
-                                ))}
+                                </MenuItem>
+                            ))}
                         </TextField>
                         <TextField
                             id="standard-number"
