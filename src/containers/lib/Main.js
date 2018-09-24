@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import { Container } from './Container';
 import { MainController } from '../../controllers';
+import { Header } from '../../components';
+import { setToken } from '../../actions/TokenActions';
 
 const actions = { };
 
@@ -20,11 +23,11 @@ class Main extends Container {
 			getProps: this.getProps,
 			router: props.router,
 		};
-
 		this.controller = new MainController(toController);
 	}
 
 	componentWillMount() {
+		this.controller.handleRefresh();	
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -45,4 +48,6 @@ const mstp = state => {
 	};
 };
 
-export default connect(mstp, actions)(Main);
+const mdtp = dispatch => bindActionCreators({setToken}, dispatch);
+
+export default connect(mstp, mdtp)(Main);
