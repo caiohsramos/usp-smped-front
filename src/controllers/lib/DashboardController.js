@@ -1,5 +1,3 @@
-import { Navigator } from '../../helper';
-
 export class DashboardController {
 
 	constructor({callback, getState, getProps, router}) {
