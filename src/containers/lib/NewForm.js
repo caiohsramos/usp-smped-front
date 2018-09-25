@@ -94,6 +94,20 @@ class NewForm extends Container {
 									onChange={this.controller.handleChange('ACTIVITY')} />
 							</FormControl>
 							
+							<div aria-live="polite">
+								{
+									this.state.FIELDS.map(formItem => (
+										<FormItem
+											key={formItem.ORDER}
+											formItem={formItem}
+											handleChangeFormItem={this.controller.handleChangeFormItem}
+											/> 
+										
+									))
+
+								
+							}
+							</div> 
 							<Button
 								id='novo-item'
 								type='button'
@@ -101,19 +115,6 @@ class NewForm extends Container {
 								clickAction={this.controller.addFormItem}
 							/>
 
-							<div aria-live="polite">
-
-								{
-									this.state.FIELDS.map(formItem => (
-										<FormItem
-											key={formItem.ORDER}
-											field={formItem}
-											handleChangeAction={this.controller.handleChangeAction}
-										/> 
-									))
-								}
-								
-							</div> 
 
 						</Paper>
 					</Grid>

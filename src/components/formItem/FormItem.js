@@ -10,7 +10,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const FormItem = props => {
-	const { field, handleChangeAction } = props;
+	const { formItem, handleChangeFormItem } = props;
 	const types = [
 		{
 			value: 'text',
@@ -22,22 +22,24 @@ const FormItem = props => {
 		}
 	];
 
+
 	return (
-        <div className='form-item'>
+        <div className='form-item' >
             <Card>
                 <CardContent>
                     <div className="row">
                         <FormControl className="field-name">
                             <InputLabel htmlFor="name-simple">Nome do campo</InputLabel>
-                            <Input id="name-simple" value={field.LABEL} onChange={handleChangeAction('LABEL')} />
+                            <Input id="simple-name" data-key={formItem.ORDER} value={formItem.LABEL} onChange={handleChangeFormItem('LABEL')} />
                         </FormControl>
                         <FormControlLabel
                             control={
                                 <Switch
-                                    checked={field.REQUIRED}
-                                    onChange={handleChangeAction('REQUIRED')}
+                                    checked={formItem.REQUIRED}
+                                    onChange={handleChangeFormItem('REQUIRED')}
                                     value={"required"}
                                     color="primary"
+                                    data-key={formItem.ORDER}
                                 />
                             }
                             label="Obrigatório"
@@ -46,11 +48,12 @@ const FormItem = props => {
                     <div className="row">
                         <TextField
                             id="standard-select"
+                            data-key={formItem.ORDER}
                             select
                             label="Tipo do campo"
                             className="select-type"
-                            value={field.SELECTED_TYPE}
-                            onChange={handleChangeAction('SELECTED_TYPE')}
+                            value={formItem.SELECTED_TYPE}
+                            onChange={handleChangeFormItem('SELECTED_TYPE')}
                             margin="normal">
                             {types.map(option => (
                                 <MenuItem key={option.value} value={option.value}>
@@ -60,9 +63,10 @@ const FormItem = props => {
                         </TextField>
                         <TextField
                             id="standard-number"
+                            data-key={formItem.ORDER}
                             label="Ordem"
-                            value={field.ORDER}
-                            onChange={handleChangeAction('ORDER')}
+                            value={formItem.ORDER}
+                            onChange={handleChangeFormItem('ORDER')}
                             type="number"
                             InputLabelProps={{
 	shrink: true,
