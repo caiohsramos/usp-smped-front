@@ -1,15 +1,20 @@
 import { Navigator } from '../../helper';
 import store from '../../routes';
+import { SMPEDRepository } from '../../repositories';
 
 export class LoginController {
 
-	constructor({callback, getState, getProps, router}) {
+
+	constructor({callback, getState, getProps, router, setToken, clearToken}) {
 		this.callback = callback;
 		this.getState = getState;
 		this.getProps = getProps;
+		this.setToken = setToken;
+		this.clearToken = clearToken;
 
 		this.store = store();
 		this.navigator = new Navigator(this.store.props.history);
+		this.smpedapi = new SMPEDRepository ();
 
 		this.handleChangeAction = this.handleChangeAction.bind(this);
 		this.handleSubmitAction = this.handleSubmitAction.bind(this);
