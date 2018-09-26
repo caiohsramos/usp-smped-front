@@ -42,6 +42,7 @@ export class LoginController {
 				access: resp.data.access_token,
 				refresh: resp.data.refresh_token
 			};
+			localStorage.setItem('refresh_token',token.refresh);
 			this.setToken(token);
 			this.navigator.navigateTo('/dashboard');
 		})

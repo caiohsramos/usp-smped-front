@@ -14,10 +14,9 @@ export default store => {
 		<Router history={browserHistory}>
 			<Route component={App} >
 				<Route path='/' component={Login} />
-				<Route path='/dashboard' component={Dashboard} />
-				<Route path='/newform' component={NewForm} />
 				<Route component={Main}>
 					<Route path='/dashboard' component={Dashboard} />
+					<Route path='/newform' component={NewForm} />
 				</Route>
 			</Route>
     </Router>);
