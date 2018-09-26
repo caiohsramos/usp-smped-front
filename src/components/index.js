@@ -4,3 +4,4 @@ export { LoginFooter } from './login/LoginFooter';
 export { Header } from './header/Header';
 export { Table } from './Table';
 export { Row } from './Row';
+export { FormItem } from './formItem/FormItem';
