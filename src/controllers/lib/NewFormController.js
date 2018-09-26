@@ -13,24 +13,34 @@ export class NewFormController {
 
 			const fields = this.getState().FIELDS;
 
+			//fields.map(field => {
+			//	if (field.ORDER == e.target.id.split('-').pop()) {
+			//		const value = propertyName == 'REQUIRED' ? e.target.checked : e.target.value; 
+			//		return Object.assign({}, field, { [propertyName]: value });
+			//	}
+			//	else
+			//})
+
+
 			this.callback({
 				FIELDS: fields.map(
 					field => {
-						if (field.ORDER == e.target.parentElement.dataset.key){
-							//return Object.assign(field, { description: "New Description" });
+						console.log(e.target);
+						
+						if (propertyName == 'SELECTED_TYPE' && (field.ORDER == e.target.name.split('-').pop())) {
+							const value = e.target.value; 
+							return Object.assign({}, field, { [propertyName]: value });
+						}
+						else if (field.ORDER == e.target.id.split('-').pop()){
 							const value = propertyName == 'REQUIRED' ? e.target.checked : e.target.value; 
 							return Object.assign({}, field, { [propertyName]: value });
-						} else{
+						} 
+						else{
 							return field;
 						}
 					}
 				)
 			});
-
-			// const value = propertyName == 'REQUIRED' ? e.target.checked : e.target.value;
-			// const newField = Object.assign({}, this.getState().FIELD, { [propertyName]: value });
-			// this.callback({ FIELD: newField });
-
 		};
 
 		this.orderManager = () => {
