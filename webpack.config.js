@@ -1,6 +1,6 @@
 const path = require('path');
 const UglifyJS = require('uglifyjs-webpack-plugin');
-const env = process.env.NODE_ENV || 'production';
+const env = process.env.NODE_ENV || 'local';
 const plugins = [];
 const webpack = require('webpack');
 
@@ -38,7 +38,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.AggressiveMergingPlugin()
   ],
-	watch: true,
+	watch: env == 'local',
 	node: {
 		fs: 'empty'
 	}
