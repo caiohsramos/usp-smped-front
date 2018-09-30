@@ -3,14 +3,19 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import { Edit, FormatAlignJustify, InsertLink, Visibility, Delete } from '@material-ui/icons';
+import Edit from '@material-ui/icons/Edit';
+import FormatAlignJustify from '@material-ui/icons/FormatAlignJustify';
+import InsertLink from '@material-ui/icons/InsertLink';
+import Visibility from '@material-ui/icons/Visibility';
+import Delete from '@material-ui/icons/Delete';
+
 import IconButton from '@material-ui/core/IconButton';
 import { Chips } from '../atoms';
 
 const Row = props => {
-	const { data } = props;
+	const { data, handleClick } = props;
 	return (
-    <Card className='row'>
+    <Card className='row flex -sb'>
 			<CardContent className='content'>
 				<Typography gutterBottom variant="headline" component="h2">
 				{data.name}
@@ -29,8 +34,8 @@ const Row = props => {
 				<IconButton aria-label="Compartilhar Formulário">
 					<InsertLink/>
 				</IconButton>
-				<IconButton aria-label="Visualizar Criação do Formulário">
-					<Visibility/>
+				<IconButton onClick={(e) => handleClick(e, 'BLA')} aria-label="Visualizar Criação do Formulário">
+					<Visibility />
 				</IconButton>
 				<IconButton aria-label="Excluir Formulário">
 					<Delete/>
