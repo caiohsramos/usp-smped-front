@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Container } from './Container';
 import { LoginController } from '../../controllers';
 import { LoginForm, LoginLogo, LoginFooter } from '../../components';
+import { setToken } from '../../actions/TokenActions';
+import { bindActionCreators } from 'redux';
 
 class Login extends Container {
 	constructor(props) {
@@ -10,14 +12,16 @@ class Login extends Container {
 
 		this.state = {
 			EMAIL: '',
-			PASSWORD: ''
+			PASSWORD: '',
+			LOGINERROR: '',
 		};
 
 		const toController = {
 			callback: this.callback,
 			getState: this.getState,
 			getProps: this.getProps,
-			router: props.router
+			router: props.router,
+			setToken: props.setToken,
 		};
 
 		this.controller = new LoginController(toController);
@@ -25,19 +29,19 @@ class Login extends Container {
 
 	render() {
 		const { handleChangeAction, handleSubmitAction } = this.controller;
-		const { EMAIL, PASSWORD, loginError_value } = this.state;
+		const { EMAIL, PASSWORD, LOGINERROR } = this.state;
 		return (
-    	<div className='login'>
-				<LoginLogo />
-				<LoginForm
-					email={EMAIL}
-					password={PASSWORD}
-					loginError={loginError_value}
-					changeAction={handleChangeAction}
-					submitAction={handleSubmitAction}
-				/>
-				<LoginFooter/>
-			</div>
+        <div className='login'>
+                <LoginLogo />
+                <LoginForm
+                    email={EMAIL}
+                    password={PASSWORD}
+                    loginError={LOGINERROR}
+                    changeAction={handleChangeAction}
+                    submitAction={handleSubmitAction}
+                />
+                <LoginFooter/>
+            </div>
 		);
 	}
 }
@@ -46,4 +50,7 @@ const mstp = state => {
 	return {};
 };
 
-export default connect(mstp, {})(Login);
+const mdtp = dispatch => 
+    bindActionCreators({setToken}, dispatch);
+
+export default connect(mstp, mdtp)(Login);

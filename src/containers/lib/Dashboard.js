@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container } from './Container';
 import { DashboardController } from '../../controllers';
+import { Button } from '../../atoms';
 import { Table } from '../../components';
-
 
 class Dashboard extends Container {
 	constructor(props) {
@@ -24,15 +24,23 @@ class Dashboard extends Container {
 		};
 		this.controller = new DashboardController(toController);
 	}
-	  render() {
-		const { classes } = this.props;
+
+	render() {
+		const { handleClick } = this.controller;
 		const { formsMock } = this.state;
-	    return (
-					<Table data={formsMock}/>
-	    );
 
-	  }
-
+		return (
+			<div className='new-form'>
+			    <Table data={formsMock}/>
+				<Button
+					id='button'
+					type='button'
+					label='Novo formulário'
+					clickAction={handleClick}
+				/>
+			</div>
+		);
+	}
 }
 
 const mstp = state => {

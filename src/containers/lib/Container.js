@@ -1,4 +1,5 @@
 import { Component } from "react";
+import store from "../../routes";
 
 export class Container extends Component {
 
@@ -9,6 +10,7 @@ export class Container extends Component {
 		this.getState = this.getState.bind(this);
 		this.getProps = this.getProps.bind(this);
 		this.auth = this.auth.bind(this);
+		this.router = store().props.history;
 	}
 	auth(auth) {
 		this.setState({ auth });
