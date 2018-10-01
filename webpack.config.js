@@ -4,10 +4,8 @@ const env = process.env.NODE_ENV || 'local';
 const plugins = [];
 const webpack = require('webpack');
 
-if (env != "local") {
-	plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: true }));
-	plugins.push(new webpack.EnvironmentPlugin(["API_ROOT_URL"]));
-}
+plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: true }));
+plugins.push(new webpack.EnvironmentPlugin(["API_ROOT_URL"]));
 
 module.exports = {
 	entry: [
@@ -31,8 +29,16 @@ module.exports = {
 			loader: 'style-loader!css-loader'
 		}]
 	},
-	plugins,
-	watch: false,
+	plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin()
+  ],
+	watch: env == 'local',
 	node: {
 		fs: 'empty'
 	}

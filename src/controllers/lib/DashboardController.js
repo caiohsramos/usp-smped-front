@@ -10,24 +10,24 @@ export class DashboardController {
 
 		this.handleClick = this.handleClick.bind(this);
 		this.handleChange = this.handleChange.bind(this);
-		this.handleMenu = this.handleMenu.bind(this);
-		this.handleClose = this.handleClose.bind(this);
+		this.handleTest = this.handleTest.bind(this);
+		this.handleExpandAction = this.handleExpandAction.bind(this);
 	}
 	handleChange(event){
 		this.callback({ auth: event.target.checked });
 	}
 
-	handleMenu(event) {
-		this.callback({ anchorEl: event.currentTarget });
-	};
-
-	handleClose(event) {
-		this.callback({ anchorEl: null });
-	};
-
 	handleClick (e) {
 		e.preventDefault();
 		this.navigator.navigateTo('/newform');
+	}
+	handleTest(e, id) {
+		e.preventDefault();
+	}
+	handleExpandAction(e, id){
+		let { expandedStatus } = this.getState();
+		expandedStatus.id = !expandedStatus.id;
+		this.callback({ expandedStatus });
 	}
 
 }
