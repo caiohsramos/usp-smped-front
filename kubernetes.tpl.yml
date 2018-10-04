@@ -51,5 +51,10 @@ spec:
       paths:
       - path: /*
         backend:
-          serviceName: dev-smped
+          serviceName: _APP_NAME_
           servicePort: 5000
+
+livenessProbe:
+        httpGet:
+          path: /
+          port: 80
