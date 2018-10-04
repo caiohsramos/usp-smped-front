@@ -31,10 +31,10 @@ class Home extends Container {
 	}
 	render() {
 		return (
-    	<div className='home'>
-				<h2>Bem-vindos ao sistema gerenciador de projetos SMPED. (Update)</h2>
-				<h4>[Alteração teste na dev]</h4>
-			</div>
+        <div className='home'>
+                <h2>Bem-vindos ao sistema gerenciador de projetos SMPED. (Update)</h2>
+                <h4>[Alteração teste na dev]</h4>
+            </div>
 		);
 	}
 }

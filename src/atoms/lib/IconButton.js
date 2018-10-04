@@ -35,15 +35,15 @@ const IconButton = props => {
 	const { icon, clickAction, quantBadge, aria, popup } = props;
 
 	return (
-		<div>
-		<MaterialIconButton aria-haspopup="true" aria-owns={aria} onClick={clickAction} className='buttons'>
-		{ quantBadge ?
-			<Badge badgeContent={quantBadge} color="secondary">
-				{iconSelected(icon)}
-			</Badge>
-		 : 	iconSelected(icon) }
-		</MaterialIconButton>
-		</div>
+        <div>
+        <MaterialIconButton aria-haspopup="true" aria-owns={aria} onClick={clickAction} className='buttons'>
+        { quantBadge ?
+            <Badge badgeContent={quantBadge} color="secondary">
+                {iconSelected(icon)}
+            </Badge>
+         :  iconSelected(icon) }
+        </MaterialIconButton>
+        </div>
 	);
 };
 

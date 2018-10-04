@@ -32,6 +32,7 @@ class Main extends Container {
 		this.controller.handleRefresh();
 	}
 
+
 	componentWillReceiveProps(nextProps) {
 	}
 
@@ -42,16 +43,16 @@ class Main extends Container {
 		let containerState = headerDrawer ? 'container' : 'container-closed';
 		return (
       <section className="main">
-				<Header
-				 handleMenuClick={handleMenuAction}
-				 menuStatus={headerMenu}
-				 headerStatus={headerDrawer}
-				 handleDrawerClick={handleDrawerAction}
-				 handleRedirect={redirectTo}
-				/>
-				<div className={containerState}>
-					{this.props.children}
-				</div>
+                <Header
+                 handleMenuClick={handleMenuAction}
+                 menuStatus={headerMenu}
+                 headerStatus={headerDrawer}
+                 handleDrawerClick={handleDrawerAction}
+                 handleRedirect={redirectTo}
+                />
+                <div className={containerState}>
+                    {this.props.children}
+                </div>
       </section>
 		);
 	}

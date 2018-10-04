@@ -67,14 +67,14 @@ const ListButton = props => {
 	const { icon, clickAction, quantBadge, text, id } = props;
 
 	return (
-		<div onClick={() => clickAction(id)}>
-			<ListItem button>
-				<ListItemIcon >
-					{iconSelected(id)}
-				</ListItemIcon>
-				<ListItemText primary={text} />
-			</ListItem>
-		</div>
+        <div onClick={() => clickAction(id)}>
+            <ListItem button>
+                <ListItemIcon >
+                    {iconSelected(id)}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+            </ListItem>
+        </div>
 	);
 };
 
