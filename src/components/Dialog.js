@@ -2,14 +2,14 @@ import React from 'react';
 
 const Dialog = props => {
 	const { id, title, content, state, clickAction,
-		 clickActionOne, clickActionTwo, buttonOne, buttonTwo,
-		 colorOne,  colorTwo } = props;
+         clickActionOne, clickActionTwo, buttonOne, buttonTwo,
+         colorOne,  colorTwo } = props;
 
 
 	return (
-		<div>
-		<Dialog
-			id={id}
+        <div>
+        <Dialog
+            id={id}
       open={state}
       onClose={(e) => clickAction(e, id)}
       aria-labelledby="alert-dialog-title"
@@ -17,7 +17,7 @@ const Dialog = props => {
       <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description">
-				{content}
+                {content}
         </DialogContentText>
       </DialogContent>
       <DialogActions>
@@ -29,7 +29,7 @@ const Dialog = props => {
         </Button> : null}
       </DialogActions>
     </Dialog>
-		</div>
+        </div>
 	);
 };
 

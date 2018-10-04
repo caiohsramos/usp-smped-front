@@ -45,27 +45,25 @@ export class MainController {
 		if (closed)
 			this.callback({headerMenu:null});
 		else
-			this.callback({headerMenu:e.currentTarget});
+            this.callback({headerMenu:e.currentTarget});
 	}
-
 	handleRefresh() {
 		const refresh = {
 			refresh_token: localStorage.getItem('refresh_token')
 		};
 		this.smpedapi.post('auth/refresh',refresh).
-		then((resp) => {
-			const token = {
-				access: resp.data.access_token,
-				refresh: localStorage.getItem('refresh_token')
-			};
-			this.getProps().setToken(token);
-		}).catch((e) => {
-			this.navigator.navigateTo('/');
-		});
+        then((resp) => {
+	const token = {
+		access: resp.data.access_token,
+		refresh: localStorage.getItem('refresh_token')
+	};
+	this.getProps().setToken(token);
+}).catch((e) => {
+	this.navigator.navigateTo('/');
+});
 	}
 	handleDrawerAction() {
 		const currentDrawerState = this.getState().headerDrawer;
 		this.callback({headerDrawer: !currentDrawerState});
-
 	}
 }

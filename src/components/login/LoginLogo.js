@@ -6,10 +6,10 @@ const LoginLogo = props => {
 	const { } = props;
 
 	return (
-		<div className='login-logo'>
-			<Logo/>
-			<div></div>
-		</div>
+        <div className='login-logo'>
+            <Logo/>
+            <div></div>
+        </div>
 	);
 };
 
