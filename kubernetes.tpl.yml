@@ -39,3 +39,17 @@ spec:
       name: http
   selector:
       app: _APP_NAME_
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "dev-smped.ml"
+spec:
+  rules:
+  - host: dev-smped.ml
+    http:
+      paths:
+      - path: /*
+        backend:
+          serviceName: _APP_NAME_
+          servicePort: 5000
