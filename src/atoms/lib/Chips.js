@@ -18,36 +18,36 @@ const Chips = props => {
 	else maker = 'Desconhecido';
 
 	return (
-		<div className='publish-chips flex -sb'>
-			<div className='default-chips'>
-				<Chip
-						avatar={
-							<Avatar>
-								<FaceIcon />
-							</Avatar>
-						}
-						color={'primary'}
-		        label={maker}
-		        onClick={e => console.log(e)}
-		        className='chip avatar'
-		      />
-				<Chip
-						color={'primary'}
-		        label={text}
-		        onClick={e => console.log(e)}
-		        onDelete={e => console.log(e)}
-		        className={`chip ${ publish ? 'publish': 'unpublish' }`}
-				deleteIcon={publish ? <DoneIcon /> : undefined}
-		      />
-				</div>
-				<Chip
-					label={`Version: ${version}`}
-					onClick={e => console.log(e)}
-					className='version'
-					onDelete={e => console.log(e)}
-					deleteIcon={<KeyboardArrowDown />}
-				/>
-			</div>
+        <div className='publish-chips flex -sb'>
+            <div className='default-chips'>
+                <Chip
+                    avatar={
+                        <Avatar>
+                        <FaceIcon />
+                        </Avatar>
+                    }
+                    color={'primary'}
+                    label={maker}
+                    onClick={e => console.log(e)}
+                    className='chip avatar'
+                />
+                <Chip
+                    color={'primary'}
+                    label={text}
+                    onClick={e => console.log(e)}
+                    onDelete={e => console.log(e)}
+                    className={`chip ${ publish ? 'publish': 'unpublish' }`}
+                    deleteIcon={publish ? <DoneIcon /> : undefined}
+                />
+            </div>
+            <Chip
+                label={`Version: ${version}`}
+                onClick={e => console.log(e)}
+                className='version'
+                onDelete={e => console.log(e)}
+                deleteIcon={<KeyboardArrowDown />}
+            />
+        </div>
 	);
 };
 

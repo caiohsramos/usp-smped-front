@@ -13,7 +13,6 @@ class Main extends Container {
 
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			profile_menu: ''
 		};
@@ -28,7 +27,7 @@ class Main extends Container {
 	}
 
 	componentWillMount() {
-		this.controller.handleRefresh();	
+		this.controller.handleRefresh();    
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -38,14 +37,14 @@ class Main extends Container {
 		const { handleMenuOpenAction, handleMenuCloseAction } = this.controller;
 		const { profile_menu } = this.state;
 		return (
-      <section className="main">
-				<Header
-				 handleMenuOpen={handleMenuOpenAction}
-				 handleMenuClose={handleMenuCloseAction}
-				 menuStatus={profile_menu}
-				/>
-				{this.props.children}
-      </section>
+            <section className="main">
+                <Header
+                    handleMenuOpen={handleMenuOpenAction}
+                    handleMenuClose={handleMenuCloseAction}
+                    menuStatus={profile_menu}
+                />
+                {this.props.children}
+            </section>
 		);
 	}
 }

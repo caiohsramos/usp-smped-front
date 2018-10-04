@@ -11,30 +11,30 @@ const Row = props => {
 	const { data } = props;
 	return (
     <Card className='row'>
-			<CardContent className='content'>
-				<Typography gutterBottom variant="headline" component="h2">
-				{data.name}
-				</Typography>
-				<div className = 'header'>
-					<Chips version='2'/>
-				</div>
-			</CardContent>
+            <CardContent className='content'>
+                <Typography gutterBottom variant="headline" component="h2">
+                {data.name}
+                </Typography>
+                <div className = 'header'>
+                    <Chips version='2'/>
+                </div>
+            </CardContent>
       <CardActions className='actions'>
-				<IconButton aria-label="Editar Criação do Formulário">
-					<Edit/>
-				</IconButton>
-				<IconButton aria-label="Visualizar Respostas do Formulário">
-					<FormatAlignJustify/>
-				</IconButton>
-				<IconButton aria-label="Compartilhar Formulário">
-					<InsertLink/>
-				</IconButton>
-				<IconButton aria-label="Visualizar Criação do Formulário">
-					<Visibility/>
-				</IconButton>
-				<IconButton aria-label="Excluir Formulário">
-					<Delete/>
-				</IconButton>
+                <IconButton aria-label="Editar Criação do Formulário">
+                    <Edit/>
+                </IconButton>
+                <IconButton aria-label="Visualizar Respostas do Formulário">
+                    <FormatAlignJustify/>
+                </IconButton>
+                <IconButton aria-label="Compartilhar Formulário">
+                    <InsertLink/>
+                </IconButton>
+                <IconButton aria-label="Visualizar Criação do Formulário">
+                    <Visibility/>
+                </IconButton>
+                <IconButton aria-label="Excluir Formulário">
+                    <Delete/>
+                </IconButton>
       </CardActions>
     </Card>
 	);

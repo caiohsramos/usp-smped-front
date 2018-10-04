@@ -13,9 +13,9 @@ const row = props => {
 const Table = props => {
 	const { data } = props;
 	return (
-		<div className='table'>
-			{row(data)}
-		</div>
+        <div className='table'>
+            {row(data)}
+        </div>
 	);
 };
 

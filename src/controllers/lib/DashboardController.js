@@ -13,6 +13,7 @@ export class DashboardController {
 		this.handleMenu = this.handleMenu.bind(this);
 		this.handleClose = this.handleClose.bind(this);
 	}
+    
 	handleChange(event){
 		this.callback({ auth: event.target.checked });
 	}
