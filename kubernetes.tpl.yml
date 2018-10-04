@@ -51,5 +51,5 @@ spec:
       paths:
       - path: /*
         backend:
-          serviceName: _APP_NAME_
+          serviceName: dev-smped
           servicePort: 5000
