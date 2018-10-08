@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container } from './Container';
+import { Container } from '../Container';
 import { NewFormController } from '../../controllers';
-import { FormItem } from '../../components';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input';
@@ -9,7 +8,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Button } from '../../atoms';
+import { Button } from '../../common';
+import { FormItem } from './components/FormItem';
 
 class NewForm extends Container {
     

@@ -1,5 +1,5 @@
 import { Component } from "react";
-import store from "../../routes";
+import store from "../routes";
 
 export class Container extends Component {
 

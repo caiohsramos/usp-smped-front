@@ -10,7 +10,7 @@ import Visibility from '@material-ui/icons/Visibility';
 import Delete from '@material-ui/icons/Delete';
 
 import IconButton from '@material-ui/core/IconButton';
-import { Chips } from '../atoms';
+import { Chips } from '..';
 
 const Row = props => {
 	const { data, handleClick } = props;

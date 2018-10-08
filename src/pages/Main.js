@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Container } from './Container';
-import { MainController } from '../../controllers';
-import { Header } from '../../components';
-import { setToken } from '../../actions/TokenActions';
+import { MainController } from '../controllers';
+import { Header } from '../common';
+import { setToken } from '../actions/TokenActions';
 
 const actions = { };
 

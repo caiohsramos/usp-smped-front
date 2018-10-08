@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, TextInput } from '../../atoms';
+import { Button, TextInput } from '../../../common';
 
 const LoginForm = props => {
 	const { email, password, loginError, changeAction, submitAction } = props;
