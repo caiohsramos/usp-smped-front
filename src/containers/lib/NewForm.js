@@ -54,11 +54,13 @@ class NewForm extends Container {
 	render() {
 
 		return (
-			<div className="container newFormContainer">
-				<Grid container spacing={24}>
-					<Grid item xs={12}>
-						<Paper>
-							<h1>Novo formulário</h1>
+			<div className="newFormContainer">
+				<Paper>
+					<Grid container spacing='16' alignItems="center" justify='space-evenly'>
+						<Grid item container justify='center'>
+							<Grid><h1>Novo formulário</h1></Grid>
+						</Grid>
+						<Grid item zeroMinWidth>
 							<FormControl className="field-name">
 								<InputLabel htmlFor="name-simple">Nome do formulário</InputLabel>
 								<Input 
@@ -66,6 +68,8 @@ class NewForm extends Container {
 								value={this.state.NAME} 
 								onChange={this.controller.handleChange('NAME')} />
 							</FormControl>
+						</Grid>
+						<Grid item>
 							<TextField
 								id="office"
 								select
@@ -80,6 +84,8 @@ class NewForm extends Container {
 									</MenuItem>
 								))}
 							</TextField>
+						</Grid>
+						<Grid item zeroMinWidth>
 							<FormControl className="field-name">
 								<InputLabel htmlFor="name-simple">Atividade</InputLabel>
 								<Input
@@ -87,40 +93,43 @@ class NewForm extends Container {
 									value={this.state.ACTIVITY}
 									onChange={this.controller.handleChange('ACTIVITY')} />
 							</FormControl>
-							
+						</Grid>
+						<Grid item container direction='column' >
 							<div aria-live="polite">
 								{
 									this.state.FIELDS.map(formItem => (
+										<Grid item >
 										<FormItem
 											key={formItem.ORDER}
 											formItem={formItem}
 											handleChangeFormItem={this.controller.handleChangeFormItem}
 											/> 
-										
+										</Grid>
 									))
 
 								
 							}
 							</div>
-							<div className="row">
-								<Button
-									id='novo-item'
-									variant='contained'
-									color='primary'
-									onClick={this.controller.addFormItem}>
-									Novo item
-								</Button>
-								<Button 
-									id='remover-item'
-									color='secondary'
-									variant='contained'
-									onClick={this.controller.removeFormItem}>
-									Remover Item
-								</Button>
-							</div>
-						</Paper>
+						</Grid>
 					</Grid>
-				</Grid>
+					<Grid container justify='space-evenly' alignItems='center'>
+						<Button
+							id='button-item'
+							variant='contained'
+							color='primary'
+							onClick={this.controller.addFormItem}>
+							Novo item
+						</Button>
+						<Button 
+							id='button-item'
+							color='secondary'
+							variant='contained'
+							disabled={ !(this.state.FIELDS.length) }
+							onClick={this.controller.removeFormItem}>
+							Remover Item
+						</Button>
+					</Grid>
+				</Paper>
 			</div>
 		);
 	}
