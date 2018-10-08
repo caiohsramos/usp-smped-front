@@ -14,7 +14,8 @@ class Main extends Container {
 	constructor(props) {
 		super(props);
 		this.state = {
-			profile_menu: ''
+			headerMenu: '',
+			headerDrawer: false
 		};
 
 		const toController = {
@@ -27,24 +28,30 @@ class Main extends Container {
 	}
 
 	componentWillMount() {
-		this.controller.handleRefresh();    
+		this.controller.handleRefresh();
 	}
 
 	componentWillReceiveProps(nextProps) {
 	}
 
 	render() {
-		const { handleMenuOpenAction, handleMenuCloseAction } = this.controller;
-		const { profile_menu } = this.state;
+		const { handleMenuAction, handleDrawerAction, redirectTo } = this.controller;
+		const { headerMenu, headerDrawer } = this.state;
+
+		let containerState = headerDrawer ? 'container' : 'container-closed';
 		return (
-            <section className="main">
-                <Header
-                    handleMenuOpen={handleMenuOpenAction}
-                    handleMenuClose={handleMenuCloseAction}
-                    menuStatus={profile_menu}
-                />
-                {this.props.children}
-            </section>
+      <section className="main">
+				<Header
+				 handleMenuClick={handleMenuAction}
+				 menuStatus={headerMenu}
+				 headerStatus={headerDrawer}
+				 handleDrawerClick={handleDrawerAction}
+				 handleRedirect={redirectTo}
+				/>
+				<div className={containerState}>
+					{this.props.children}
+				</div>
+      </section>
 		);
 	}
 }

@@ -8,12 +8,15 @@ export class MainController {
 		this.getState = getState;
 		this.getProps = getProps;
 
-		this.handleMenuCloseAction = this.handleMenuCloseAction.bind(this);
-		this.handleMenuOpenAction = this.handleMenuOpenAction.bind(this);
-		this.logout = this.logout.bind(this);
-		this.handleRefresh = this.handleRefresh.bind(this);
 		this.navigator = new Navigator(router);
-		this.smpedapi = new SMPEDRepository();
+		this.smpedapi  = new SMPEDRepository();
+
+		this.logout             = this.logout.bind(this);
+		this.redirectTo         = this.redirectTo.bind(this);
+		this.handleRefresh      = this.handleRefresh.bind(this);
+		this.handleMenuAction   = this.handleMenuAction.bind(this);
+		this.handleDrawerAction = this.handleDrawerAction.bind(this);
+
 	}
 
 	logout() {
@@ -21,16 +24,29 @@ export class MainController {
 		window.localStorage.setItem('user_id', '');
 		this.navigator.navigateTo('/');
 	}
-
-	handleMenuCloseAction(e) {
-		const button = e.target.id;
-
-		if (button === 'exit') this.logout();
-		this.callback({profile_menu:null});
+	redirectTo(id) {;
+		switch (id) {
+			case 'addbox':
+				this.navigator.navigateTo(`/newform`);
+				break;
+			case 'exit':
+				this.logout();
+				break;
+			case 'dashboard':
+				this.navigator.navigateTo(`/dashboard`);
+				break;
+			default:
+				this.navigator.navigateTo(`/dashboard`);
+				break;
+		}
 	}
-
-	handleMenuOpenAction(e) {
-		this.callback({profile_menu:e.currentTarget});
+	handleMenuAction(e, closed) {
+		console.log("DSADAS");
+		const button = e.target.id;
+		if (closed)
+			this.callback({headerMenu:null});
+		else
+			this.callback({headerMenu:e.currentTarget});
 	}
 
 	handleRefresh() {
@@ -38,16 +54,19 @@ export class MainController {
 			refresh_token: localStorage.getItem('refresh_token')
 		};
 		this.smpedapi.post('auth/refresh',refresh).
-        then((resp) => {
-	console.log(resp);
-	const token = {
-		access: resp.data.access_token,
-		refresh: localStorage.getItem('refresh_token')
-	};
-	this.getProps().setToken(token);
-}).catch((e) => {
-	console.log('refresh_token not valid');
-	this.navigator.navigateTo('/');
-});
+		then((resp) => {
+			const token = {
+				access: resp.data.access_token,
+				refresh: localStorage.getItem('refresh_token')
+			};
+			this.getProps().setToken(token);
+		}).catch((e) => {
+			this.navigator.navigateTo('/');
+		});
+	}
+	handleDrawerAction() {
+		const currentDrawerState = this.getState().headerDrawer;
+		this.callback({headerDrawer: !currentDrawerState});
+
 	}
 }
