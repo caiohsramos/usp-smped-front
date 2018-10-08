@@ -9,7 +9,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Button } from '../../atoms';
+import Button from '@material-ui/core/Button';
 
 class NewForm extends Container {
 	
@@ -20,15 +20,9 @@ class NewForm extends Container {
 			VERSION: 1,
 			OWNER: '',
 			NAME: '',
-			OFFICE: '',
+			OFFICE: 'smped',
 			ACTIVITY: '',
 			FIELDS: [],	
-			FIELD: {
-				LABEL: '',
-				SELECTED_TYPE: '',
-				REQUIRED: false,
-				ORDER: 1
-			}
 		};
 
 		const offices = [
@@ -107,15 +101,23 @@ class NewForm extends Container {
 
 								
 							}
-							</div> 
-							<Button
-								id='novo-item'
-								type='button'
-								label='Novo item'
-								clickAction={this.controller.addFormItem}
-							/>
-
-
+							</div>
+							<div className="row">
+								<Button
+									id='novo-item'
+									variant='contained'
+									color='primary'
+									onClick={this.controller.addFormItem}>
+									Novo item
+								</Button>
+								<Button 
+									id='remover-item'
+									color='secondary'
+									variant='contained'
+									onClick={this.controller.removeFormItem}>
+									Remover Item
+								</Button>
+							</div>
 						</Paper>
 					</Grid>
 				</Grid>

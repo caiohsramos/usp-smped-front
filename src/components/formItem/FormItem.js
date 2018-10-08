@@ -30,14 +30,14 @@ const FormItem = props => {
                     <div className="row">
                         <FormControl className="field-name">
                             <InputLabel htmlFor="name-simple">Nome do campo</InputLabel>
-                            <Input id={"item-name-"+formItem.ORDER} value={formItem.LABEL} onChange={handleChangeFormItem('LABEL')} />
+                            <Input id={"item-name-"+formItem.ORDER} value={formItem.LABEL} onChange={(e) => handleChangeFormItem('LABEL',e)} />
                         </FormControl>
                         <FormControlLabel
                             control={
                                 <Switch
                                     id={"item-switch-"+formItem.ORDER}
                                     checked={formItem.REQUIRED}
-                                    onChange={handleChangeFormItem('REQUIRED')}
+                                    onChange={(e) => handleChangeFormItem('REQUIRED',e)}
                                     value={"required"}
                                     color="primary"
                                 />
@@ -51,25 +51,15 @@ const FormItem = props => {
                             label="Tipo do campo"
                             className="select-type"
                             value={formItem.SELECTED_TYPE}
-                            onChange={handleChangeFormItem('SELECTED_TYPE')}
-                            margin="normal">
+                            onChange={(e) => handleChangeFormItem('SELECTED_TYPE',e)}
+                            margin="normal"
+                            name={"item-type-"+formItem.ORDER}>
                             {types.map(option => (
-                                <MenuItem name={"item-type-"+formItem.ORDER} key={option.value} value={option.value}>
+                                <MenuItem key={option.value} value={option.value}>
                                     {option.label}
                                 </MenuItem>
                             ))}
                         </TextField>
-                        <TextField
-                            id={"item-order-"+formItem.ORDER}
-                            label="Ordem"
-                            value={formItem.ORDER}
-                            onChange={handleChangeFormItem('ORDER')}
-                            type="number"
-                            InputLabelProps={{
-	shrink: true,
-}}
-                            margin="normal"
-                        />
                     </div>
                 </CardContent>
             </Card>
