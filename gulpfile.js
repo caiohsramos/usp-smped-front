@@ -15,14 +15,14 @@ gulp.task("default", ["style"], () => {
 });
 
 gulp.task("style", () => {
-	return gulp.src("stylesheets/index.styl")
-	.pipe(plumber())
-	.pipe(sourcemaps.init())
-	.pipe(stylus({compress: true, "include css": true}))
-	.pipe(postcss([ autoprefixer() ]))
-	.pipe(mmq())
-	.pipe(clean())
-	.pipe(rename("bundle.min.css"))
-	.pipe(sourcemaps.write())
-	.pipe(gulp.dest("public/build"));
+    return gulp.src("stylesheets/index.styl")
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(stylus({compress: true, "include css": true}))
+    .pipe(postcss([ autoprefixer() ]))
+    .pipe(mmq())
+    .pipe(clean())
+    .pipe(rename("bundle.min.css"))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest("public/build"));
 });

@@ -18,6 +18,7 @@ export class MainController {
 		this.handleDrawerAction = this.handleDrawerAction.bind(this);
 
 	}
+
 	logout() {
 		window.localStorage.setItem('session_token', '');
 		window.localStorage.setItem('user_id', '');

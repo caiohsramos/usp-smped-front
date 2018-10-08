@@ -8,13 +8,13 @@ import Routes from "./routes";
 import Reducers from "./reducers/index";
 
 const store = createStore(
-	Reducers,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    Reducers,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDom.render(
-	<Provider store={store}>
-		{ Routes(store) }
-	</Provider>,
-	document.querySelector("[app-container]")
+    <Provider store={store}>
+        { Routes(store) }
+    </Provider>,
+    document.querySelector("[app-container]")
 );

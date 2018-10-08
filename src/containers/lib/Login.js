@@ -9,7 +9,6 @@ import { bindActionCreators } from 'redux';
 class Login extends Container {
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			EMAIL: '',
 			PASSWORD: '',
@@ -31,7 +30,7 @@ class Login extends Container {
 		const { handleChangeAction, handleSubmitAction } = this.controller;
 		const { EMAIL, PASSWORD, LOGINERROR } = this.state;
 		return (
-        <div className='login'>
+            <div className='login'>
                 <LoginLogo />
                 <LoginForm
                     email={EMAIL}

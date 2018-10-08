@@ -13,7 +13,6 @@ class Main extends Container {
 
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			headerMenu: '',
 			headerDrawer: false

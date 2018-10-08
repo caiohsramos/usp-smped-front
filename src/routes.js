@@ -11,13 +11,13 @@ import NewForm from './containers/lib/NewForm';
 
 export default store => {
 	return (
-		<Router history={browserHistory}>
-			<Route component={App} >
-				<Route path='/' component={Login} />
-				<Route component={Main}>
-					<Route path='/dashboard' component={Dashboard} />
-					<Route path='/newform' component={NewForm} />
-				</Route>
-			</Route>
+        <Router history={browserHistory}>
+            <Route component={App} >
+                <Route path='/' component={Login} />
+                <Route component={Main}>
+                    <Route path='/dashboard' component={Dashboard} />
+                    <Route path='/newform' component={NewForm} />
+                </Route>
+            </Route>
     </Router>);
 };
