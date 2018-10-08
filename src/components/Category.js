@@ -18,16 +18,16 @@ const row = props => {
 const Category = props => {
 	const { state, clickAction, title, id } = props;
 	return (
-		<div>
-			<ExpansionPanel className='category' expanded={state.id}>
+        <div>
+            <ExpansionPanel className='category' expanded={state.id}>
           <ExpansionPanelSummary onClick={(e) => clickAction(e, id)} expandIcon={<ExpandMoreIcon />}>
-						{title}
+                        {title}
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className='category-details'>
             {row(props)}
           </ExpansionPanelDetails>
       </ExpansionPanel>
-		</div>
+        </div>
 	);
 };
 

@@ -18,6 +18,6 @@ app.listen(port, (err) => {
 		console.log(err);
 	} else {
 		console.log(`---------------------------------------------------------------
-			\n\n\n\nServer online - Listening to port ${port}\n\n\n\n---------------------------------------------------------------`);
+            \n\n\n\nServer online - Listening to port ${port}\n\n\n\n---------------------------------------------------------------`);
 	}
 });
