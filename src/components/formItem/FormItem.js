@@ -11,30 +11,34 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const FormItem = props => {
-    const { formItem, handleChangeFormItem } = props;
-    const types = [
-        {
-            value: 'text',
-            label: 'Texto',
-        },
-        {
-            value: 'number',
-            label: 'Numérico'
-        }
-    ];
+	const { formItem, handleChangeFormItem } = props;
+	const types = [
+		{
+			value: 'text',
+			label: 'Texto',
+		},
+		{
+			value: 'number',
+			label: 'Numérico'
+		}
+	];
 
 
-    return (
+	return (
         <div className='form-item' >
             <Card>
                 <CardContent>
                     <Grid container alignItems='center' justify='space-between'>
                         <Grid item container direction="column" sm={12} md={6}>
                             <Grid item>
-                                <FormControl className="field-name">
-                                    <InputLabel htmlFor="name-simple">Nome do campo</InputLabel>
-                                    <Input id={"item-name-"+formItem.ORDER} value={formItem.LABEL} onChange={(e) => handleChangeFormItem('LABEL',e)} />
-                                </FormControl>
+                                <TextField
+                                    id={"item-name-"+formItem.ORDER}
+                                    label="Nome do campo"
+                                    className="field-name"
+                                    value={formItem.LABEL}
+                                    onChange={(e) => handleChangeFormItem('LABEL',e)}
+                                    margin="normal"
+                                />
                             </Grid>
                             <Grid item>
                                 <TextField
@@ -56,6 +60,7 @@ const FormItem = props => {
                         <Grid item container justify='flex-end' sm={12} md={6}>
                             <Grid item>
                                 <FormControlLabel
+                                    label="Obrigatório"
                                     control={
                                         <Switch
                                             id={"item-switch-"+formItem.ORDER}
@@ -65,7 +70,6 @@ const FormItem = props => {
                                             color="primary"
                                         />
                                     }
-                                    label="Obrigatório"
                                 />
                             </Grid>
                         </Grid>
@@ -73,7 +77,7 @@ const FormItem = props => {
                 </CardContent>
             </Card>
         </div>
-    );
+	);
 
 };
 

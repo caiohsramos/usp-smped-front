@@ -13,47 +13,47 @@ import Button from '@material-ui/core/Button';
 
 class NewForm extends Container {
     
-    constructor(props) {
-        super(props);
+	constructor(props) {
+		super(props);
 
-        this.state = {
-            VERSION: 1,
-            OWNER: '',
-            NAME: '',
-            OFFICE: 'smped',
-            ACTIVITY: '',
-            FIELDS: [],	
-        };
+		this.state = {
+			VERSION: 1,
+			OWNER: '',
+			NAME: '',
+			OFFICE: 'smped',
+			ACTIVITY: '',
+			FIELDS: [],	
+		};
 
-        const offices = [
-            {
-                value: 'smped',
-                label: 'SMPED'
-            },
-            {
-                value: 'smdhc',
-                label: 'SMDHC'
-            }
-        ];
+		const offices = [
+			{
+				value: 'smped',
+				label: 'SMPED'
+			},
+			{
+				value: 'smdhc',
+				label: 'SMDHC'
+			}
+		];
 
-        const toController = {
-            callback: this.callback,
-            getState: this.getState,
-            getProps: this.getProps,
-            router: props.router
-        };
+		const toController = {
+			callback: this.callback,
+			getState: this.getState,
+			getProps: this.getProps,
+			router: props.router
+		};
 
-        this.controller = new NewFormController(toController);
-        this.offices = offices;
-    }
+		this.controller = new NewFormController(toController);
+		this.offices = offices;
+	}
 
-    componentDidUpdate(){
-        console.log(this.state);
-    }
+	componentDidUpdate(){
+		console.log(this.state);
+	}
 
-    render() {
+	render() {
 
-        return (
+		return (
             <div className="newFormContainer">
                 <Paper>
                     <Grid container spacing='16' alignItems="center" justify='space-evenly'>
@@ -61,13 +61,14 @@ class NewForm extends Container {
                             <Grid><h1>Novo formulário</h1></Grid>
                         </Grid>
                         <Grid item zeroMinWidth>
-                            <FormControl className="field-name">
-                                <InputLabel htmlFor="name-simple">Nome do formulário</InputLabel>
-                                <Input 
-                                id="form-name" 
-                                value={this.state.NAME} 
-                                onChange={this.controller.handleChange('NAME')} />
-                            </FormControl>
+                        <TextField
+                            id="form-name"
+                            label="Nome do formulário"
+                            className="field-name"
+                            value={this.state.NAME}
+                            onChange={this.controller.handleChange('NAME')}
+                            margin="normal"
+                        />
                         </Grid>
                         <Grid item>
                             <TextField
@@ -131,8 +132,8 @@ class NewForm extends Container {
                     </Grid>
                 </Paper>
             </div>
-        );
-    }
+		);
+	}
 
 
 }
