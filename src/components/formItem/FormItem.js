@@ -11,20 +11,20 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const FormItem = props => {
-	const { formItem, handleChangeFormItem } = props;
-	const types = [
-		{
-			value: 'text',
-			label: 'Texto',
-		},
-		{
-			value: 'number',
-			label: 'Numérico'
-		}
-	];
+    const { formItem, handleChangeFormItem } = props;
+    const types = [
+        {
+            value: 'text',
+            label: 'Texto',
+        },
+        {
+            value: 'number',
+            label: 'Numérico'
+        }
+    ];
 
 
-	return (
+    return (
         <div className='form-item' >
             <Card>
                 <CardContent>
@@ -73,7 +73,7 @@ const FormItem = props => {
                 </CardContent>
             </Card>
         </div>
-	);
+    );
 
 };
 
