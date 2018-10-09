@@ -87,13 +87,14 @@ class NewForm extends Container {
                             </TextField>
                         </Grid>
                         <Grid item zeroMinWidth>
-                            <FormControl className="field-name">
-                                <InputLabel htmlFor="name-simple">Atividade</InputLabel>
-                                <Input
-                                    id="form-activity"
-                                    value={this.state.ACTIVITY}
-                                    onChange={this.controller.handleChange('ACTIVITY')} />
-                            </FormControl>
+                            <TextField
+                                id="form-activity"
+                                label="Atividade"
+                                className="field-name"
+                                value={this.state.ACTIVITY}
+                                onChange={this.controller.handleChange('ACTIVITY')} 
+                                margin="normal"
+                            />
                         </Grid>
                         <Grid item container direction='column' >
                             <div aria-live="polite">
@@ -106,10 +107,8 @@ class NewForm extends Container {
                                             handleChangeFormItem={this.controller.handleChangeFormItem}
                                             /> 
                                         </Grid>
-                                    ))
-
-                                
-                            }
+                                    ))                                
+                                }
                             </div>
                         </Grid>
                     </Grid>

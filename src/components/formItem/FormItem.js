@@ -49,11 +49,11 @@ const FormItem = props => {
                                     onChange={(e) => handleChangeFormItem('SELECTED_TYPE',e)}
                                     margin="normal"
                                     name={"item-type-"+formItem.ORDER}>
-                                    {types.map(option => (
-                                        <MenuItem key={option.value} value={option.value}>
-                                            {option.label}
-                                        </MenuItem>
-                                    ))}
+                                        {types.map(option => (
+                                            <MenuItem key={option.value} value={option.value}>
+                                                {option.label}
+                                            </MenuItem>
+                                        ))}
                                 </TextField>
                             </Grid>
                         </Grid>
