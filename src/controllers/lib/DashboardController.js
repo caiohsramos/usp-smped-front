@@ -29,5 +29,4 @@ export class DashboardController {
 		expandedStatus.id = !expandedStatus.id;
 		this.callback({ expandedStatus });
 	}
-
 }

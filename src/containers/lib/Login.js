@@ -23,7 +23,6 @@ class Login extends Container {
 			router: props.router,
 			setToken: props.setToken,
 		};
-
 		this.controller = new LoginController(toController);
 	}
 
@@ -31,7 +30,7 @@ class Login extends Container {
 		const { handleChangeAction, handleSubmitAction } = this.controller;
 		const { EMAIL, PASSWORD, LOGINERROR } = this.state;
 		return (
-        <div className='login'>
+            <div className='login'>
                 <LoginLogo />
                 <LoginForm
                     email={EMAIL}
