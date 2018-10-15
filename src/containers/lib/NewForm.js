@@ -4,12 +4,10 @@ import { NewFormController } from '../../controllers';
 import { FormItem } from '../../components';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 class NewForm extends Container {
     
@@ -127,6 +125,17 @@ class NewForm extends Container {
                             disabled={ !(this.state.FIELDS.length) }
                             onClick={this.controller.removeFormItem}>
                             Remover Item
+                        </Button>
+                    </Grid>
+                    <Grid container justify='center'> 
+                        <Button 
+                            id='button-item'
+                            color='success'
+                            variant='contained'
+                            disabled={ !(this.state.FIELDS.length) }
+                            onClick={this.controller.submitForm}>
+                            Salvar formulário 
+                            <SaveIcon />
                         </Button>
                     </Grid>
                 </Paper>

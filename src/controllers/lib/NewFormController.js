@@ -49,6 +49,11 @@ export class NewFormController {
                 this.getState().FIELDS.pop()
             );
 		};
+        
+		this.submitForm = () => {
+			console.log("Not implemented yet!");
+            
+		};
 	}
 
 }
