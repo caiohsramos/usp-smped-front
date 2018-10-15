@@ -3,13 +3,11 @@ import { Container } from '../Container';
 import { NewFormController } from '../../controllers';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Button } from '../../common';
 import { FormItem } from './components/FormItem';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 class NewForm extends Container {
     
@@ -20,15 +18,9 @@ class NewForm extends Container {
 			VERSION: 1,
 			OWNER: '',
 			NAME: '',
-			OFFICE: '',
+			OFFICE: 'smped',
 			ACTIVITY: '',
-			FIELDS: [], 
-			FIELD: {
-				LABEL: '',
-				SELECTED_TYPE: '',
-				REQUIRED: false,
-				ORDER: 1
-			}
+			FIELDS: [],	
 		};
 
 		const offices = [
@@ -60,18 +52,23 @@ class NewForm extends Container {
 	render() {
 
 		return (
-            <div className="container newFormContainer">
-                <Grid container spacing={24}>
-                    <Grid item xs={12}>
-                        <Paper>
-                            <h1>Novo formulário</h1>
-                            <FormControl className="field-name">
-                                <InputLabel htmlFor="name-simple">Nome do formulário</InputLabel>
-                                <Input 
-                                id="form-name" 
-                                value={this.state.NAME} 
-                                onChange={this.controller.handleChange('NAME')} />
-                            </FormControl>
+            <div className="newFormContainer">
+                <Paper>
+                    <Grid container spacing='16' alignItems="center" justify='space-evenly'>
+                        <Grid item container justify='center'>
+                            <Grid><h1>Novo formulário</h1></Grid>
+                        </Grid>
+                        <Grid item zeroMinWidth>
+                        <TextField
+                            id="form-name"
+                            label="Nome do formulário"
+                            className="field-name"
+                            value={this.state.NAME}
+                            onChange={this.controller.handleChange('NAME')}
+                            margin="normal"
+                        />
+                        </Grid>
+                        <Grid item>
                             <TextField
                                 id="office"
                                 select
@@ -86,39 +83,62 @@ class NewForm extends Container {
                                     </MenuItem>
                                 ))}
                             </TextField>
-                            <FormControl className="field-name">
-                                <InputLabel htmlFor="name-simple">Atividade</InputLabel>
-                                <Input
-                                    id="form-activity"
-                                    value={this.state.ACTIVITY}
-                                    onChange={this.controller.handleChange('ACTIVITY')} />
-                            </FormControl>
-                            
+                        </Grid>
+                        <Grid item zeroMinWidth>
+                            <TextField
+                                id="form-activity"
+                                label="Atividade"
+                                className="field-name"
+                                value={this.state.ACTIVITY}
+                                onChange={this.controller.handleChange('ACTIVITY')} 
+                                margin="normal"
+                            />
+                        </Grid>
+                        <Grid item container direction='column' >
                             <div aria-live="polite">
                                 {
                                     this.state.FIELDS.map(formItem => (
+                                        <Grid item >
                                         <FormItem
                                             key={formItem.ORDER}
                                             formItem={formItem}
                                             handleChangeFormItem={this.controller.handleChangeFormItem}
                                             /> 
-                                        
-                                    ))
-
-                                
-                            }
-                            </div> 
-                            <Button
-                                id='novo-item'
-                                type='button'
-                                label='Novo item'
-                                clickAction={this.controller.addFormItem}
-                            />
-
-
-                        </Paper>
+                                        </Grid>
+                                    ))                                
+                                }
+                            </div>
+                        </Grid>
                     </Grid>
-                </Grid>
+                    <Grid container justify='space-evenly' alignItems='center'>
+                        <Button
+                            id='button-item'
+                            variant='contained'
+                            color='primary'
+                            onClick={this.controller.addFormItem}>
+                            Novo item
+                        </Button>
+                        <Button 
+                            id='button-item'
+                            color='secondary'
+                            variant='contained'
+                            disabled={ !(this.state.FIELDS.length) }
+                            onClick={this.controller.removeFormItem}>
+                            Remover Item
+                        </Button>
+                    </Grid>
+                    <Grid container justify='center'> 
+                        <Button 
+                            id='button-item'
+                            color='success'
+                            variant='contained'
+                            disabled={ !(this.state.FIELDS.length) }
+                            onClick={this.controller.submitForm}>
+                            Salvar formulário 
+                            <SaveIcon />
+                        </Button>
+                    </Grid>
+                </Paper>
             </div>
 		);
 	}
