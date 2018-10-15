@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export class NewFormController {
 
 	constructor({ callback, getState, getProps, router }) {
@@ -52,6 +54,8 @@ export class NewFormController {
         
 		this.submitForm = () => {
 			console.log("Not implemented yet!");
+			//getProps().accessToken
+			//getState().formulario
             
 		};
 	}
