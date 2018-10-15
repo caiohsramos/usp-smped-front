@@ -1,6 +1,5 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import { } from './middlewares';
 
 import App from './pages/App';
 import Main from './pages/Main';
