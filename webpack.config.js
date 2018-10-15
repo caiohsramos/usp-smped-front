@@ -38,8 +38,8 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.AggressiveMergingPlugin()
   ],
-  watch: env == 'local',
-  node: {
-    fs: 'empty'
-  }
+	watch: env == 'local',
+	node: {
+		fs: 'empty'
+	}
 };

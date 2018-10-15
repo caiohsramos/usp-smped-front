@@ -3,7 +3,7 @@ import React from 'react';
 import MaterialDrawer from '@material-ui/core/Drawer';
 import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
-import { IconButton, ListButton } from '../../atoms';
+import { IconButton, ListButton } from '..';
 
 
 

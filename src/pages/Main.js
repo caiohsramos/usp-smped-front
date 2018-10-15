@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Container } from './Container';
-import { MainController } from '../../controllers';
-import { Header } from '../../components';
-import { setToken } from '../../actions/TokenActions';
+import { MainController } from '../controllers';
+import { Header } from '../common';
+import { setToken } from '../actions/TokenActions';
 
 const actions = { };
 
@@ -13,7 +13,6 @@ class Main extends Container {
 
 	constructor(props) {
 		super(props);
-
 		this.state = {
 			headerMenu: '',
 			headerDrawer: false
@@ -32,7 +31,6 @@ class Main extends Container {
 		this.controller.handleRefresh();
 	}
 
-
 	componentWillReceiveProps(nextProps) {
 	}
 
@@ -43,16 +41,16 @@ class Main extends Container {
 		let containerState = headerDrawer ? 'container' : 'container-closed';
 		return (
       <section className="main">
-                <Header
-                 handleMenuClick={handleMenuAction}
-                 menuStatus={headerMenu}
-                 headerStatus={headerDrawer}
-                 handleDrawerClick={handleDrawerAction}
-                 handleRedirect={redirectTo}
-                />
-                <div className={containerState}>
-                    {this.props.children}
-                </div>
+				<Header
+				 handleMenuClick={handleMenuAction}
+				 menuStatus={headerMenu}
+				 headerStatus={headerDrawer}
+				 handleDrawerClick={handleDrawerAction}
+				 handleRedirect={redirectTo}
+				/>
+				<div className={containerState}>
+					{this.props.children}
+				</div>
       </section>
 		);
 	}

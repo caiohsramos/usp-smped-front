@@ -2,11 +2,9 @@ import React from 'react';
 
 import MaterialAppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 
-import { IconButton } from '../../atoms';
-import { Menu } from '..';
-import { Logo } from '../../molecules';
+import { IconButton, Logo } from '..';
+import { Menu } from '../../common'; 
 
 const headerButtons = props => {
 	const { handleMenu, menuState } = props;
