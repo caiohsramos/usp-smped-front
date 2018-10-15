@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Container } from '../Container';
 import { NewFormController } from '../../controllers';
 import Paper from '@material-ui/core/Paper';
@@ -50,7 +52,6 @@ class NewForm extends Container {
 	}
 
 	render() {
-
 		return (
             <div className="newFormContainer">
                 <Paper>
@@ -146,4 +147,13 @@ class NewForm extends Container {
 
 }
 
-export default (NewForm);
+const mstp = (state) => {
+	return {
+	    token: state.session.accessToken,
+	};
+};
+
+const mdtp = dispatch => 
+    bindActionCreators({}, dispatch);
+
+export default connect(mstp, mdtp)(NewForm);
