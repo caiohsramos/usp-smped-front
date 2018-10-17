@@ -17,12 +17,12 @@ class NewForm extends Container {
 		super(props);
 
 		this.state = {
-			VERSION: 1,
-			OWNER: '',
-			NAME: '',
-			OFFICE: 'smped',
-			ACTIVITY: '',
-			FIELDS: [],	
+			version: '1',
+			owner: '',
+			name: '',
+			office: 'smped',
+			activity: '',
+			fields: [],	
 		};
 
 		const offices = [
@@ -64,8 +64,8 @@ class NewForm extends Container {
                             id="form-name"
                             label="Nome do formulário"
                             className="field-name"
-                            value={this.state.NAME}
-                            onChange={this.controller.handleChange('NAME')}
+                            value={this.state.name}
+                            onChange={this.controller.handleChange('name')}
                             margin="normal"
                         />
                         </Grid>
@@ -75,8 +75,8 @@ class NewForm extends Container {
                                 select
                                 label="Secretaria"
                                 className="select-type"
-                                value={this.state.OFFICE}
-                                onChange={this.controller.handleChange('OFFICE')}
+                                value={this.state.office}
+                                onChange={this.controller.handleChange('office')}
                                 margin="normal">
                                 {this.offices.map(option => (
                                     <MenuItem key={option.value} value={option.value}>
@@ -90,18 +90,18 @@ class NewForm extends Container {
                                 id="form-activity"
                                 label="Atividade"
                                 className="field-name"
-                                value={this.state.ACTIVITY}
-                                onChange={this.controller.handleChange('ACTIVITY')} 
+                                value={this.state.activity}
+                                onChange={this.controller.handleChange('activity')} 
                                 margin="normal"
                             />
                         </Grid>
                         <Grid item container direction='column' >
                             <div aria-live="polite">
                                 {
-                                    this.state.FIELDS.map(formItem => (
+                                    this.state.fields.map(formItem => (
                                         <Grid item >
                                         <FormItem
-                                            key={formItem.ORDER}
+                                            key={formItem.order}
                                             formItem={formItem}
                                             handleChangeFormItem={this.controller.handleChangeFormItem}
                                             /> 
@@ -123,7 +123,7 @@ class NewForm extends Container {
                             id='button-item'
                             color='secondary'
                             variant='contained'
-                            disabled={ !(this.state.FIELDS.length) }
+                            disabled={ !(this.state.fields.length) }
                             onClick={this.controller.removeFormItem}>
                             Remover Item
                         </Button>
@@ -133,7 +133,7 @@ class NewForm extends Container {
                             id='button-item'
                             color='success'
                             variant='contained'
-                            disabled={ !(this.state.FIELDS.length) }
+                            disabled={ !(this.state.fields.length) }
                             onClick={this.controller.submitForm}>
                             Salvar formulário 
                             <SaveIcon />

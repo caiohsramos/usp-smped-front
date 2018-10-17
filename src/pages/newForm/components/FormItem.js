@@ -29,11 +29,11 @@ const FormItem = props => {
                         <Grid item container direction="column" sm={12} md={6}>
                             <Grid item>
                                 <TextField
-                                    id={"item-name-"+formItem.ORDER}
+                                    id={"item-name-"+formItem.order}
                                     label="Nome do campo"
                                     className="field-name"
-                                    value={formItem.LABEL}
-                                    onChange={(e) => handleChangeFormItem('LABEL',e)}
+                                    value={formItem.label}
+                                    onChange={(e) => handleChangeFormItem('label',e)}
                                     margin="normal"
                                 />
                             </Grid>
@@ -42,10 +42,10 @@ const FormItem = props => {
                                     select
                                     label="Tipo do campo"
                                     className="select-type"
-                                    value={formItem.SELECTED_TYPE}
-                                    onChange={(e) => handleChangeFormItem('SELECTED_TYPE',e)}
+                                    value={formItem.type}
+                                    onChange={(e) => handleChangeFormItem('type',e)}
                                     margin="normal"
-                                    name={"item-type-"+formItem.ORDER}>
+                                    name={"item-type-"+formItem.order}>
                                         {types.map(option => (
                                             <MenuItem key={option.value} value={option.value}>
                                                 {option.label}
@@ -60,9 +60,9 @@ const FormItem = props => {
                                     label="Obrigatório"
                                     control={
                                         <Switch
-                                            id={"item-switch-"+formItem.ORDER}
-                                            checked={formItem.REQUIRED}
-                                            onChange={(e) => handleChangeFormItem('REQUIRED',e)}
+                                            id={"item-switch-"+formItem.order}
+                                            checked={formItem.required}
+                                            onChange={(e) => handleChangeFormItem('required',e)}
                                             value={"required"}
                                             color="primary"
                                         />

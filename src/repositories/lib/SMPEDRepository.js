@@ -11,4 +11,15 @@ export class SMPEDRepository {
 	async post(endpoint, body) {
 		return await axios.post(`${ROOT_URL}/${endpoint}`, body);
 	}
+
+	async post_with_token(endpoint, body, token) {
+		return await axios.post(
+			`${ROOT_URL}/${endpoint}`, 
+			body,
+			{ 
+				headers: {
+					'Authorization': `Bearer ${token}`
+				}
+			});
+	}
 }
