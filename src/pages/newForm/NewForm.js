@@ -12,47 +12,47 @@ import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 
 class NewForm extends Container {
-    
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			version: '1',
-			owner: '',
-			name: '',
-			office: 'smped',
-			activity: '',
-			fields: [],	
-		};
+    constructor(props) {
+        super(props);
 
-		const offices = [
-			{
-				value: 'smped',
-				label: 'SMPED'
-			},
-			{
-				value: 'smdhc',
-				label: 'SMDHC'
-			}
-		];
+        this.state = {
+            version: '1',
+            owner: '',
+            name: '',
+            office: 'smped',
+            activity: '',
+            fields: [],
+        };
 
-		const toController = {
-			callback: this.callback,
-			getState: this.getState,
-			getProps: this.getProps,
-			router: props.router
-		};
+        const offices = [
+            {
+                value: 'smped',
+                label: 'SMPED'
+            },
+            {
+                value: 'smdhc',
+                label: 'SMDHC'
+            }
+        ];
 
-		this.controller = new NewFormController(toController);
-		this.offices = offices;
-	}
+        const toController = {
+            callback: this.callback,
+            getState: this.getState,
+            getProps: this.getProps,
+            router: props.router
+        };
 
-	componentDidUpdate(){
-		console.log(this.state);
-	}
+        this.controller = new NewFormController(toController);
+        this.offices = offices;
+    }
 
-	render() {
-		return (
+    componentDidUpdate() {
+        console.log(this.state);
+    }
+
+    render() {
+        return (
             <div className="newFormContainer">
                 <Paper>
                     <Grid container spacing='16' alignItems="center" justify='space-evenly'>
@@ -60,14 +60,14 @@ class NewForm extends Container {
                             <Grid><h1>Novo formulário</h1></Grid>
                         </Grid>
                         <Grid item zeroMinWidth>
-                        <TextField
-                            id="form-name"
-                            label="Nome do formulário"
-                            className="field-name"
-                            value={this.state.name}
-                            onChange={this.controller.handleChange('name')}
-                            margin="normal"
-                        />
+                            <TextField
+                                id="form-name"
+                                label="Nome do formulário"
+                                className="field-name"
+                                value={this.state.name}
+                                onChange={this.controller.handleChange('name')}
+                                margin="normal"
+                            />
                         </Grid>
                         <Grid item>
                             <TextField
@@ -91,7 +91,7 @@ class NewForm extends Container {
                                 label="Atividade"
                                 className="field-name"
                                 value={this.state.activity}
-                                onChange={this.controller.handleChange('activity')} 
+                                onChange={this.controller.handleChange('activity')}
                                 margin="normal"
                             />
                         </Grid>
@@ -100,13 +100,13 @@ class NewForm extends Container {
                                 {
                                     this.state.fields.map(formItem => (
                                         <Grid item >
-                                        <FormItem
-                                            key={formItem.order}
-                                            formItem={formItem}
-                                            handleChangeFormItem={this.controller.handleChangeFormItem}
-                                            /> 
+                                            <FormItem
+                                                key={formItem.order}
+                                                formItem={formItem}
+                                                handleChangeFormItem={this.controller.handleChangeFormItem}
+                                            />
                                         </Grid>
-                                    ))                                
+                                    ))
                                 }
                             </div>
                         </Grid>
@@ -119,41 +119,41 @@ class NewForm extends Container {
                             onClick={this.controller.addFormItem}>
                             Novo item
                         </Button>
-                        <Button 
+                        <Button
                             id='button-item'
                             color='secondary'
                             variant='contained'
-                            disabled={ !(this.state.fields.length) }
+                            disabled={!(this.state.fields.length)}
                             onClick={this.controller.removeFormItem}>
                             Remover Item
                         </Button>
                     </Grid>
-                    <Grid container justify='center'> 
-                        <Button 
+                    <Grid container justify='center'>
+                        <Button
                             id='button-item'
                             color='success'
                             variant='contained'
-                            disabled={ !(this.state.fields.length) }
+                            disabled={!(this.state.fields.length)}
                             onClick={this.controller.submitForm}>
-                            Salvar formulário 
+                            Salvar formulário
                             <SaveIcon />
                         </Button>
                     </Grid>
                 </Paper>
             </div>
-		);
-	}
+        );
+    }
 
 
 }
 
 const mstp = (state) => {
-	return {
-	    token: state.session.accessToken,
-	};
+    return {
+        token: state.session.accessToken,
+    };
 };
 
-const mdtp = dispatch => 
+const mdtp = dispatch =>
     bindActionCreators({}, dispatch);
 
 export default connect(mstp, mdtp)(NewForm);

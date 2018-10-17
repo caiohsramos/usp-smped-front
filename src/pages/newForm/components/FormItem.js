@@ -8,20 +8,20 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const FormItem = props => {
-	const { formItem, handleChangeFormItem } = props;
-	const types = [
-		{
-			value: 'text',
-			label: 'Texto',
-		},
-		{
-			value: 'number',
-			label: 'Numérico'
-		}
-	];
+    const { formItem, handleChangeFormItem } = props;
+    const types = [
+        {
+            value: 'text',
+            label: 'Texto',
+        },
+        {
+            value: 'number',
+            label: 'Numérico'
+        }
+    ];
 
 
-	return (
+    return (
         <div className='form-item' >
             <Card>
                 <CardContent>
@@ -29,11 +29,11 @@ const FormItem = props => {
                         <Grid item container direction="column" sm={12} md={6}>
                             <Grid item>
                                 <TextField
-                                    id={"item-name-"+formItem.order}
+                                    id={"item-name-" + formItem.order}
                                     label="Nome do campo"
                                     className="field-name"
                                     value={formItem.label}
-                                    onChange={(e) => handleChangeFormItem('label',e)}
+                                    onChange={(e) => handleChangeFormItem('label', e)}
                                     margin="normal"
                                 />
                             </Grid>
@@ -43,14 +43,14 @@ const FormItem = props => {
                                     label="Tipo do campo"
                                     className="select-type"
                                     value={formItem.type}
-                                    onChange={(e) => handleChangeFormItem('type',e)}
+                                    onChange={(e) => handleChangeFormItem('type', e)}
                                     margin="normal"
-                                    name={"item-type-"+formItem.order}>
-                                        {types.map(option => (
-                                            <MenuItem key={option.value} value={option.value}>
-                                                {option.label}
-                                            </MenuItem>
-                                        ))}
+                                    name={"item-type-" + formItem.order}>
+                                    {types.map(option => (
+                                        <MenuItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </MenuItem>
+                                    ))}
                                 </TextField>
                             </Grid>
                         </Grid>
@@ -60,9 +60,9 @@ const FormItem = props => {
                                     label="Obrigatório"
                                     control={
                                         <Switch
-                                            id={"item-switch-"+formItem.order}
+                                            id={"item-switch-" + formItem.order}
                                             checked={formItem.required}
-                                            onChange={(e) => handleChangeFormItem('required',e)}
+                                            onChange={(e) => handleChangeFormItem('required', e)}
                                             value={"required"}
                                             color="primary"
                                         />
@@ -74,7 +74,7 @@ const FormItem = props => {
                 </CardContent>
             </Card>
         </div>
-	);
+    );
 
 };
 
