@@ -35,6 +35,9 @@ export class MainController {
 			case 'dashboard':
 				this.navigator.navigateTo(`/dashboard`);
 				break;
+			case 'personadd':
+				this.navigator.navigateTo(`/invite`);
+				break;				
 			default:
 				this.navigator.navigateTo(`/dashboard`);
 				break;

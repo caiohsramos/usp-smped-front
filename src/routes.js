@@ -7,10 +7,11 @@ import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
 import NewForm from './pages/newForm/NewForm';
 import Form from './pages/form/Form'
+import Invite from './pages/invite/Invite';
 
 
 export default store => {
-	return (
+    return (
         <Router history={browserHistory}>
             <Route component={App} >
                 <Route path='/' component={Login} />
@@ -18,7 +19,8 @@ export default store => {
                     <Route path='/dashboard' component={Dashboard} />
                     <Route path='/newform' component={NewForm} />
                     <Route path='/form/:id' component={Form} />
+                    <Route path='/invite' component={Invite} />
                 </Route>
             </Route>
-    </Router>);
+        </Router>);
 };
