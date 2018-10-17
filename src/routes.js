@@ -6,6 +6,7 @@ import Main from './pages/Main';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
 import NewForm from './pages/newForm/NewForm';
+import Invite from './pages/invite/Invite';
 
 
 export default store => {
@@ -16,6 +17,7 @@ export default store => {
                 <Route component={Main}>
                     <Route path='/dashboard' component={Dashboard} />
                     <Route path='/newform' component={NewForm} />
+                    <Route path='/invite' component={Invite} />
                 </Route>
             </Route>
     </Router>);
