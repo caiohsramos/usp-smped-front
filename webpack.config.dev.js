@@ -37,7 +37,7 @@ module.exports = {
     new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.AggressiveMergingPlugin()
   ],
-    watch: false,
+    watch: true,
     node: {
         fs: 'empty'
     }

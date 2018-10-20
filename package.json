@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack --config webpack.config.js && gulp && gzip -c ./public/build/bundle.min.js >> ./public/build/bundle.min.js.gz && babel-node app.js",
     "build": "webpack --config webpack.config.js && gulp && gzip -c ./public/build/bundle.min.js >> ./public/build/bundle.min.js.gz",
-    "dev": "webpack --config webpack.config.dev.js && nodemon app.js --exec \"eslint src/ --fix && eslint server/ --fix && babel-node\"",
+    "dev": "webpack & nodemon app.js --exec \"eslint src/ --fix && eslint server/ --fix && babel-node\"",
     "gulp": "gulp",
     "webpack": "webpack",
     "lint": "eslint .",
