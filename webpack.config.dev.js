@@ -1,12 +1,13 @@
 const path = require('path');
-const UglifyJS = require('uglifyjs-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const plugins = [];
 const webpack = require('webpack');
 
-plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: true }));
+
 plugins.push(new webpack.EnvironmentPlugin(["API_ROOT_URL"]));
 
 module.exports = {
+  mode: 'development',
   entry: [
     'babel-polyfill',
     './src/index'
@@ -18,7 +19,7 @@ module.exports = {
     publicPath: '/public/'
   },
   module: {
-    loaders: [{
+    rules: [{ 
       test: /\.js$/,
       loaders: ['babel-loader'],
       include: path.join(__dirname, 'src')
@@ -31,14 +32,12 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('dev')
+        'NODE_ENV': JSON.stringify('development')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin()
   ],
-    watch: true,
-    node: {
-        fs: 'empty'
-    }
+  // optimization: {
+    // minimizer: [new UglifyJsPlugin({compress: true})]
+  // },
+  watch: true
 };
