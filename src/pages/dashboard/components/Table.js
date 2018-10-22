@@ -4,52 +4,45 @@ import { Category } from './Category';
 
 
 const Table = props => {
-	return (
-		<div className='table'>
-		<Category
-			id={1}
-			title={'Secretaria Direitos Humanos'}
-			data={props.data}
-			handleClick={props.handleClick}
-		 	state={props.expandedState}
-		 	clickAction={props.handleExpandClick}/>
-		<Category
-			id={2}
-			title={'Secretaria Deficientes'}
-			data={props.data}
-			handleClick={props.handleClick}
-		 	state={props.expandedState}
-		 	clickAction={props.handleExpandClick}/>
-		<Category
-			id={3}
-			title={'Secretaria de Defesa Contra as Artes das Trevas'}
-			data={props.data}
-			handleClick={props.handleClick}
-		 	state={props.expandedState}
-		 	clickAction={props.handleExpandClick}/>
-		<Category
-			id={4}
-			title={'Secretaria de Herbologia'}
-			data={props.data}
-			handleClick={props.handleClick}
-		 	state={props.expandedState}
-		 	clickAction={props.handleExpandClick}/>
-		<Category
-			id={5}
-			title={'Secretaria das Runas Antigas'}
-			data={props.data}
-			handleClick={props.handleClick}
-		 	state={props.expandedState}
-		 	clickAction={props.handleExpandClick}/>
-		<Category
-			id={6}
-			title={'Secretaria dos Feitiços'}
-			data={props.data}
-			handleClick={props.handleClick}
-		 	state={props.expandedState}
-		 	clickAction={props.handleExpandClick}/>
-		</div>
-	);
+
+    const filterBySecretary = (formList, sec) => {
+        return formList.filter(form => form.office == sec)
+    }
+
+    const filterByAxis = (formList, axis) => {
+        return formList.filter(form => form.axis == axis)
+    }
+
+    let categories;
+    if (props.filterType) {
+        categories = props.axisList.map ((axis, idx) => (
+            <Category
+                id={idx}
+                key={idx}
+                title={axis}
+                data={filterByAxis(props.data, axis)}
+                clickAction={props.handleExpandClick}/>
+            ))
+    }
+    else {
+        categories = 
+            <div>
+                <Category
+                    id={1}
+                    title={'Secretaria Municipal de Direitos Humanos'}
+                    data={filterBySecretary (props.data, 'smdhc')}/>
+                <Category
+                    id={2}
+                    title={'Secretaria Municipal da Pessoa com Deficiência'}
+                    data={filterBySecretary (props.data, 'smped')}/>
+            </div>
+    }
+
+    return (
+        <div className='table' role="list">
+            {categories}
+        </div>
+    );
 };
 
 export { Table };
