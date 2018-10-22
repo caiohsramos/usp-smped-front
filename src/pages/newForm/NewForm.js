@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Container } from '../Container';
 import { NewFormController } from '../../controllers';
 import Paper from '@material-ui/core/Paper';
@@ -10,48 +12,47 @@ import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 
 class NewForm extends Container {
-    
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			VERSION: 1,
-			OWNER: '',
-			NAME: '',
-			OFFICE: 'smped',
-			ACTIVITY: '',
-			FIELDS: [],	
-		};
+    constructor(props) {
+        super(props);
 
-		const offices = [
-			{
-				value: 'smped',
-				label: 'SMPED'
-			},
-			{
-				value: 'smdhc',
-				label: 'SMDHC'
-			}
-		];
+        this.state = {
+            version: '1',
+            owner: '',
+            name: '',
+            office: 'smped',
+            activity: '',
+            fields: [],
+        };
 
-		const toController = {
-			callback: this.callback,
-			getState: this.getState,
-			getProps: this.getProps,
-			router: props.router
-		};
+        const offices = [
+            {
+                value: 'smped',
+                label: 'SMPED'
+            },
+            {
+                value: 'smdhc',
+                label: 'SMDHC'
+            }
+        ];
 
-		this.controller = new NewFormController(toController);
-		this.offices = offices;
-	}
+        const toController = {
+            callback: this.callback,
+            getState: this.getState,
+            getProps: this.getProps,
+            router: props.router
+        };
 
-	componentDidUpdate(){
-		console.log(this.state);
-	}
+        this.controller = new NewFormController(toController);
+        this.offices = offices;
+    }
 
-	render() {
+    componentDidUpdate() {
+        console.log(this.state);
+    }
 
-		return (
+    render() {
+        return (
             <div className="newFormContainer">
                 <Paper>
                     <Grid container spacing='16' alignItems="center" justify='space-evenly'>
@@ -59,14 +60,14 @@ class NewForm extends Container {
                             <Grid><h1>Novo formulário</h1></Grid>
                         </Grid>
                         <Grid item zeroMinWidth>
-                        <TextField
-                            id="form-name"
-                            label="Nome do formulário"
-                            className="field-name"
-                            value={this.state.NAME}
-                            onChange={this.controller.handleChange('NAME')}
-                            margin="normal"
-                        />
+                            <TextField
+                                id="form-name"
+                                label="Nome do formulário"
+                                className="field-name"
+                                value={this.state.name}
+                                onChange={this.controller.handleChange('name')}
+                                margin="normal"
+                            />
                         </Grid>
                         <Grid item>
                             <TextField
@@ -74,8 +75,8 @@ class NewForm extends Container {
                                 select
                                 label="Secretaria"
                                 className="select-type"
-                                value={this.state.OFFICE}
-                                onChange={this.controller.handleChange('OFFICE')}
+                                value={this.state.office}
+                                onChange={this.controller.handleChange('office')}
                                 margin="normal">
                                 {this.offices.map(option => (
                                     <MenuItem key={option.value} value={option.value}>
@@ -89,23 +90,23 @@ class NewForm extends Container {
                                 id="form-activity"
                                 label="Atividade"
                                 className="field-name"
-                                value={this.state.ACTIVITY}
-                                onChange={this.controller.handleChange('ACTIVITY')} 
+                                value={this.state.activity}
+                                onChange={this.controller.handleChange('activity')}
                                 margin="normal"
                             />
                         </Grid>
                         <Grid item container direction='column' >
                             <div aria-live="polite">
                                 {
-                                    this.state.FIELDS.map(formItem => (
+                                    this.state.fields.map(formItem => (
                                         <Grid item >
-                                        <FormItem
-                                            key={formItem.ORDER}
-                                            formItem={formItem}
-                                            handleChangeFormItem={this.controller.handleChangeFormItem}
-                                            /> 
+                                            <FormItem
+                                                key={formItem.order}
+                                                formItem={formItem}
+                                                handleChangeFormItem={this.controller.handleChangeFormItem}
+                                            />
                                         </Grid>
-                                    ))                                
+                                    ))
                                 }
                             </div>
                         </Grid>
@@ -118,32 +119,41 @@ class NewForm extends Container {
                             onClick={this.controller.addFormItem}>
                             Novo item
                         </Button>
-                        <Button 
+                        <Button
                             id='button-item'
                             color='secondary'
                             variant='contained'
-                            disabled={ !(this.state.FIELDS.length) }
+                            disabled={!(this.state.fields.length)}
                             onClick={this.controller.removeFormItem}>
                             Remover Item
                         </Button>
                     </Grid>
-                    <Grid container justify='center'> 
-                        <Button 
+                    <Grid container justify='center'>
+                        <Button
                             id='button-item'
                             color='success'
                             variant='contained'
-                            disabled={ !(this.state.FIELDS.length) }
+                            disabled={!(this.state.fields.length)}
                             onClick={this.controller.submitForm}>
-                            Salvar formulário 
+                            Salvar formulário
                             <SaveIcon />
                         </Button>
                     </Grid>
                 </Paper>
             </div>
-		);
-	}
+        );
+    }
 
 
 }
 
-export default (NewForm);
+const mstp = (state) => {
+    return {
+        token: state.session.accessToken,
+    };
+};
+
+const mdtp = dispatch =>
+    bindActionCreators({}, dispatch);
+
+export default connect(mstp, mdtp)(NewForm);
