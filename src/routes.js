@@ -1,12 +1,11 @@
 import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-import { } from './middlewares';
 
-import App from './containers/lib/App';
-import Main from './containers/lib/Main';
-import Login from './containers/lib/Login';
-import Dashboard from './containers/lib/Dashboard';
-import NewForm from './containers/lib/NewForm';
+import App from './pages/App';
+import Main from './pages/Main';
+import Login from './pages/login/Login';
+import Dashboard from './pages/dashboard/Dashboard';
+import NewForm from './pages/newForm/NewForm';
 
 
 export default store => {

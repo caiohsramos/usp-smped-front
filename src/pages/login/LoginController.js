@@ -18,6 +18,7 @@ export class LoginController {
 		this.handleChangeAction = this.handleChangeAction.bind(this);
 		this.handleSubmitAction = this.handleSubmitAction.bind(this);
 	}
+
 	handleChangeAction (e) {
 		e.preventDefault();
 		const to    = {};
@@ -26,6 +27,7 @@ export class LoginController {
 		to[id] = value;
 		this.callback(to);
 	}
+
 	handleSubmitAction (e) {
 		e.preventDefault();
 		const user = this.getState().EMAIL;

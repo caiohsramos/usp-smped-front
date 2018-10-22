@@ -13,7 +13,7 @@ export class DashboardController {
 		this.handleTest = this.handleTest.bind(this);
 		this.handleExpandAction = this.handleExpandAction.bind(this);
 	}
-    
+
 	handleChange(event){
 		this.callback({ auth: event.target.checked });
 	}
