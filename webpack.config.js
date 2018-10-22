@@ -1,25 +1,24 @@
 const path = require('path');
-const UglifyJS = require('uglifyjs-webpack-plugin');
-const env = process.env.NODE_ENV || 'local';
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const plugins = [];
 const webpack = require('webpack');
 
-plugins.push(new webpack.optimize.UglifyJsPlugin({ compress: true }));
 plugins.push(new webpack.EnvironmentPlugin(["API_ROOT_URL"]));
 
 module.exports = {
+  mode: 'production',
   entry: [
     'babel-polyfill',
     './src/index'
   ],
-  devtool: 'cheap-module-source-map',
+  devtool: false,
   output: {
     path: path.join(__dirname, 'public/build'),
     filename: 'bundle.min.js',
     publicPath: '/public/'
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js$/,
       loaders: ['babel-loader'],
       include: path.join(__dirname, 'src')
@@ -35,11 +34,20 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin()
   ],
-	watch: env == 'local',
-	node: {
-		fs: 'empty'
-	}
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        sourceMap: false,
+        uglifyOptions: {
+          compress: {
+            inline: true
+          },
+          output: {
+            comments: false
+          }
+        }
+      })]
+  },
+  watch: false,
 };
