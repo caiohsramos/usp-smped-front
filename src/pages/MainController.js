@@ -1,5 +1,5 @@
-import { Navigator } from "../../helper";
-import { SMPEDRepository } from '../../repositories';
+import { Navigator } from "../helper";
+import { SMPEDRepository } from '../repositories';
 
 export class MainController {
 

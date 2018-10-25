@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { Container } from './Container';
-import { MainController } from '../controllers';
+import { MainController } from './MainController';
 import { Header } from '../common';
 import { setToken } from '../actions/TokenActions';
 

@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import FaceIcon from '@material-ui/icons/Face';
 import DoneIcon from '@material-ui/icons/Done';
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown';
-import Warning from '@material-ui/icons/Warning';
 
 const Chips = props => {
 	const { publish , version, author } = props;
