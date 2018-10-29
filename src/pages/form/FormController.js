@@ -1,9 +1,10 @@
 import { Navigator } from '../../helper';
 import store from '../../routes';
+import axios from 'axios'
 
 export class FormController {
 
-    constructor({callback, getState, getProps}) {
+    constructor({ callback, getState, getProps }) {
         this.callback = callback;
         this.getState = getState;
         this.getProps = getProps;
@@ -13,5 +14,14 @@ export class FormController {
 
     }
 
-	
+    loadForm(formId) {
+        console.log(formId)
+        axios.get(`http://api-dev-smped.ml:3001/forms/${formId}`)
+            .then((resp) => this.renderForm(resp.data)).catch((err) => console.log(err))
+    };
+
+    renderForm(form) {
+        console.log(form)
+        this.callback({ form })
+    };
 }
