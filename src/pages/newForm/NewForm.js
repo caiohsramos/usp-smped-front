@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container } from '../Container';
-import { NewFormController } from '../../controllers';
+import { NewFormController } from './NewFormController';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
