@@ -1,84 +1,82 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { Container } from '../Container';
-import { NewFormController } from '../../controllers';
+import { NewFormController } from './NewFormController';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import { Button } from '../../common';
 import { FormItem } from './components/FormItem';
+import Button from '@material-ui/core/Button';
+import SaveIcon from '@material-ui/icons/Save';
 
 class NewForm extends Container {
-    
-	constructor(props) {
-		super(props);
 
-		this.state = {
-			VERSION: 1,
-			OWNER: '',
-			NAME: '',
-			OFFICE: '',
-			ACTIVITY: '',
-			FIELDS: [], 
-			FIELD: {
-				LABEL: '',
-				SELECTED_TYPE: '',
-				REQUIRED: false,
-				ORDER: 1
-			}
-		};
+    constructor(props) {
+        super(props);
 
-		const offices = [
-			{
-				value: 'smped',
-				label: 'SMPED'
-			},
-			{
-				value: 'smdhc',
-				label: 'SMDHC'
-			}
-		];
+        this.state = {
+            version: '1',
+            owner: '',
+            name: '',
+            office: 'smped',
+            activity: '',
+            fields: [],
+        };
 
-		const toController = {
-			callback: this.callback,
-			getState: this.getState,
-			getProps: this.getProps,
-			router: props.router
-		};
+        const offices = [
+            {
+                value: 'smped',
+                label: 'SMPED'
+            },
+            {
+                value: 'smdhc',
+                label: 'SMDHC'
+            }
+        ];
 
-		this.controller = new NewFormController(toController);
-		this.offices = offices;
-	}
+        const toController = {
+            callback: this.callback,
+            getState: this.getState,
+            getProps: this.getProps,
+            router: props.router
+        };
 
-	componentDidUpdate(){
-		console.log(this.state);
-	}
+        this.controller = new NewFormController(toController);
+        this.offices = offices;
+    }
 
-	render() {
+    componentDidUpdate() {
+        console.log(this.state);
+    }
 
-		return (
-            <div className="container newFormContainer">
-                <Grid container spacing={24}>
-                    <Grid item xs={12}>
-                        <Paper>
-                            <h1>Novo formulário</h1>
-                            <FormControl className="field-name">
-                                <InputLabel htmlFor="name-simple">Nome do formulário</InputLabel>
-                                <Input 
-                                id="form-name" 
-                                value={this.state.NAME} 
-                                onChange={this.controller.handleChange('NAME')} />
-                            </FormControl>
+    render() {
+        return (
+            <div className="newFormContainer">
+                <Paper>
+                    <Grid container spacing='16' alignItems="center" justify='space-evenly'>
+                        <Grid item container justify='center'>
+                            <Grid><h1>Novo formulário</h1></Grid>
+                        </Grid>
+                        <Grid item zeroMinWidth>
+                            <TextField
+                                id="form-name"
+                                label="Nome do formulário"
+                                className="field-name"
+                                value={this.state.name}
+                                onChange={this.controller.handleChange('name')}
+                                margin="normal"
+                            />
+                        </Grid>
+                        <Grid item>
                             <TextField
                                 id="office"
                                 select
                                 label="Secretaria"
                                 className="select-type"
-                                value={this.state.OFFICE}
-                                onChange={this.controller.handleChange('OFFICE')}
+                                value={this.state.office}
+                                onChange={this.controller.handleChange('office')}
                                 margin="normal">
                                 {this.offices.map(option => (
                                     <MenuItem key={option.value} value={option.value}>
@@ -86,44 +84,76 @@ class NewForm extends Container {
                                     </MenuItem>
                                 ))}
                             </TextField>
-                            <FormControl className="field-name">
-                                <InputLabel htmlFor="name-simple">Atividade</InputLabel>
-                                <Input
-                                    id="form-activity"
-                                    value={this.state.ACTIVITY}
-                                    onChange={this.controller.handleChange('ACTIVITY')} />
-                            </FormControl>
-                            
+                        </Grid>
+                        <Grid item zeroMinWidth>
+                            <TextField
+                                id="form-activity"
+                                label="Atividade"
+                                className="field-name"
+                                value={this.state.activity}
+                                onChange={this.controller.handleChange('activity')}
+                                margin="normal"
+                            />
+                        </Grid>
+                        <Grid item container direction='column' >
                             <div aria-live="polite">
                                 {
-                                    this.state.FIELDS.map(formItem => (
-                                        <FormItem
-                                            key={formItem.ORDER}
-                                            formItem={formItem}
-                                            handleChangeFormItem={this.controller.handleChangeFormItem}
-                                            /> 
-                                        
+                                    this.state.fields.map(formItem => (
+                                        <Grid item >
+                                            <FormItem
+                                                key={formItem.order}
+                                                formItem={formItem}
+                                                handleChangeFormItem={this.controller.handleChangeFormItem}
+                                            />
+                                        </Grid>
                                     ))
-
-                                
-                            }
-                            </div> 
-                            <Button
-                                id='novo-item'
-                                type='button'
-                                label='Novo item'
-                                clickAction={this.controller.addFormItem}
-                            />
-
-
-                        </Paper>
+                                }
+                            </div>
+                        </Grid>
                     </Grid>
-                </Grid>
+                    <Grid container justify='space-evenly' alignItems='center'>
+                        <Button
+                            id='button-item'
+                            variant='contained'
+                            color='primary'
+                            onClick={this.controller.addFormItem}>
+                            Novo item
+                        </Button>
+                        <Button
+                            id='button-item'
+                            color='secondary'
+                            variant='contained'
+                            disabled={!(this.state.fields.length)}
+                            onClick={this.controller.removeFormItem}>
+                            Remover Item
+                        </Button>
+                    </Grid>
+                    <Grid container justify='center'>
+                        <Button
+                            id='button-item'
+                            color='success'
+                            variant='contained'
+                            disabled={!(this.state.fields.length)}
+                            onClick={this.controller.submitForm}>
+                            Salvar formulário
+                            <SaveIcon />
+                        </Button>
+                    </Grid>
+                </Paper>
             </div>
-		);
-	}
+        );
+    }
 
 
 }
 
-export default (NewForm);
+const mstp = (state) => {
+    return {
+        token: state.session.accessToken,
+    };
+};
+
+const mdtp = dispatch =>
+    bindActionCreators({}, dispatch);
+
+export default connect(mstp, mdtp)(NewForm);

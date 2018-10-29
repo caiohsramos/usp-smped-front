@@ -20,7 +20,7 @@ export class DashboardController {
 
 	handleClick (e) {
 		e.preventDefault();
-		this.navigator.navigateTo('/newform');
+		this.navigator.navigateTo('./newform');
 	}
 	handleTest(e, id) {
 		e.preventDefault();

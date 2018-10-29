@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container } from '../Container';
-import { DashboardController } from '../../controllers';
-import { Button, Table} from '../../common';
+import { DashboardController } from './DashboardController';
+import { Button } from '../../common';
+import { Table } from './components/Table';
 
 class Dashboard extends Container {
 	constructor(props) {
