@@ -1,6 +1,9 @@
 import React from 'react';
 import { Container } from '../Container';
 import { FormController } from './FormController'
+import Paper from '@material-ui/core/Paper'
+import FormHeader from './components/FormHeader'
+import FormQuestions from './components/FormQuestions'
 
 export default class Form extends Container {
     constructor(props) {
@@ -20,7 +23,11 @@ export default class Form extends Container {
 
     render() {
         return (
-            this.state.form ? <h1>{this.state.form.name}</h1> : <h1>Carregando...</h1>
+            !this.state.form ||
+            <Paper className="form-container">
+                <FormHeader form={this.state.form} />
+                <FormQuestions fields={this.state.form.fields} edit={false} />
+            </Paper>
         )
     }
 }
