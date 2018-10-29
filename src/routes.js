@@ -10,7 +10,7 @@ import Invite from './pages/invite/Invite';
 
 
 export default store => {
-	return (
+    return (
         <Router history={browserHistory}>
             <Route component={App} >
                 <Route path='/' component={Login} />
@@ -20,5 +20,5 @@ export default store => {
                     <Route path='/invite' component={Invite} />
                 </Route>
             </Route>
-    </Router>);
+        </Router>);
 };
