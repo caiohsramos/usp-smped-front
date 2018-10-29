@@ -8,7 +8,7 @@ export default props => (
             <h1>{props.form.name}</h1>
         </Grid>
         <Grid item container justify="center">
-            <Grid item sm='6'>
+            <Grid item sm={6}>
                 <TextField
                     id="standard-read-only-input"
                     label="Atividade"
@@ -18,7 +18,7 @@ export default props => (
                     }}
                 />
             </Grid>
-            <Grid item sm='3' spacing='40' container direction="column">
+            <Grid item sm={3} spacing={16} container direction="column">
                 <Grid item>
                     <TextField
                         id="standard-read-only-input"

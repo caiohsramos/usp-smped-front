@@ -24,7 +24,7 @@ export default class Form extends Container {
     render() {
         return (
             !this.state.form ||
-            <Paper className="form-container">
+            <Paper spacing={16} className="form-container">
                 <FormHeader form={this.state.form} />
                 <FormQuestions fields={this.state.form.fields} edit={false} />
             </Paper>

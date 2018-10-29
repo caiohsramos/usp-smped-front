@@ -1,9 +1,17 @@
 import React from 'react'
+import Grid from '@material-ui/core/Grid'
+import TextField from '@material-ui/core/TextField'
 
 export default props => (
-    <div>
-        <h2>{props.label}</h2>
-        <h2>{props.type}</h2>
-        <h2>{props.required}</h2>
-    </div>
+    <Grid item>
+        <TextField
+            id="standard-read-only-input"
+            label={props.label}
+            InputProps={{
+                readOnly: !props.edit,
+            }}
+            helperText={props.type}
+            required={props.required}
+        />
+    </Grid>
 )
