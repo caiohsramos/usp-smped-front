@@ -23,4 +23,3 @@ const CenteredTabs = props => {
 }
 
 export default CenteredTabs;
-

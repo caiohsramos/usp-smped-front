@@ -6,12 +6,12 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const row = props => {
-    const { data, handleClick } = props;
-    var arr = [];
-    for (let i = 0; i < data.length; i++) {
-        arr.push(<div className="table-row"><Row handleClick={handleClick} data={data[i]}/></div>);
-    }
-    return arr;
+	const { data } = props;
+	var arr = [];
+	for (let i = 0; i < data.length; i++) {
+		arr.push(<div className="table-row"><Row data={data[i]}/></div>);
+	}
+	return arr;
 };
 
 const Category = props => {
