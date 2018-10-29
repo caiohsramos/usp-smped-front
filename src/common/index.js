@@ -12,5 +12,5 @@ export { Table } from './lib/Table';
 export { Row } from './lib/Row';
 export { Dialog } from './lib/Dialog';
 export { Category } from './lib/Category';
-
+export { SelectButton } from './lib/SelectButton';
 
