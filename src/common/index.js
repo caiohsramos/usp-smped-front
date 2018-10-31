@@ -7,9 +7,6 @@ export { Header } from './lib/Header';
 export { Drawer } from './lib/Drawer';
 export { AppBar } from './lib/AppBar';
 export { Menu } from './lib/Menu';
-export { Table } from './lib/Table';
-export { Row } from './lib/Row';
-export { Category } from './lib/Category';
 export { SelectButton } from './lib/SelectButton';
 
 
