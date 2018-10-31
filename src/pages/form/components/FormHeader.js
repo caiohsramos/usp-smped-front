@@ -10,34 +10,35 @@ export default props => (
         <Grid item container justify="center">
             <Grid item sm={6}>
                 <TextField
-                    id="standard-read-only-input"
-                    label="Atividade"
+                    id="activity"
+                    label="Atividade / Eixo"
                     defaultValue={props.form.activity}
                     InputProps={{
                         readOnly: true,
                     }}
                 />
             </Grid>
-            <Grid item sm={3} spacing={16} container direction="column">
+            <Grid item sm={4} spacing={16} container direction="column">
                 <Grid item>
                     <TextField
-                        id="standard-read-only-input"
+                        id="office"
                         label="Secretaria"
                         defaultValue={props.form.office}
                         InputProps={{
                             readOnly: true,
                         }}
+                        fullWidth
                     />
                 </Grid>
                 <Grid item>
                     <TextField
-                        id="standard-read-only-input"
-                        label="Criado por"
+                        id="standart-owner-input"
+                        label={`Criado em ${props.form._created} por`}
                         defaultValue={props.form.owner}
-                        helperText={`Em ${props.form._created}`}
                         InputProps={{
                             readOnly: true,
                         }}
+                        fullWidth
                     />
                 </Grid>
             </Grid>

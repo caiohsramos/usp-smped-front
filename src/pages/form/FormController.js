@@ -1,6 +1,6 @@
 import { Navigator } from '../../helper';
 import store from '../../routes';
-import axios from 'axios'
+import { SMPEDRepository } from '../../repositories';
 
 export class FormController {
 
@@ -11,12 +11,13 @@ export class FormController {
 
         this.store = store();
         this.navigator = new Navigator(this.store.props.history);
+        this.smpedapi = new SMPEDRepository();
 
     }
 
     loadForm(formId) {
         console.log(formId)
-        axios.get(`http://api-dev-smped.ml:3001/forms/${formId}`)
+        this.smpedapi.get(`/forms/${formId}`)
             .then((resp) => this.renderForm(resp.data)).catch((err) => console.log(err))
     };
 

@@ -6,6 +6,7 @@ function renderQuestions(fields, edit) {
     fields.sort((field1, field2) => field1.order - field2.order)
     return fields.map(field => (
         <Field
+            id={field.order}
             label={field.label}
             type={field.type}
             required={field.required}
@@ -15,7 +16,7 @@ function renderQuestions(fields, edit) {
 }
 
 export default props => (
-    <Grid container direction="column" spacing={16}>
+    <Grid container item direction="column" sm={6} spacing={16}>
         <h1>Perguntas</h1>
         {renderQuestions(props.fields, props.edit)}
     </Grid>
