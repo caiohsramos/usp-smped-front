@@ -4,8 +4,6 @@ import { Container } from '../Container';
 import { DashboardController } from './DashboardController';
 import { Button } from '../../common';
 import { Table } from './components/Table';
-import { formList } from '../../common/mocks/FormListMock';
-import CenteredTabs from './Tabs'
 
 class Dashboard extends Container {
 	constructor(props) {
