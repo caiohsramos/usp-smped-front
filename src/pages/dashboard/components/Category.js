@@ -6,10 +6,10 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const row = props => {
-	const { data } = props;
+	const { data, handleClick } = props;
 	var arr = [];
 	for (let i = 0; i < data.length; i++) {
-		arr.push(<div className="table-row"><Row data={data[i]}/></div>);
+		arr.push(<div className="table-row"><Row handleClick={handleClick} data={data[i]}/></div>);
 	}
 	return arr;
 };
