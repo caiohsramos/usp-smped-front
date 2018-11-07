@@ -8,7 +8,6 @@ import { Button } from '../../common';
 import { Table } from './components/Table';
 
 class Dashboard extends Container {
-
     constructor(props) {
         super(props);
 
@@ -38,24 +37,29 @@ class Dashboard extends Container {
 
         return (
             <div className='new-form'>
+                <h1>Relatórios de atividades</h1>
+                <CenteredTabs 
+                    tabState={tabState}
+                    handleChangeTab={(tabState) => this.callback ({...this.state, ...{tabState}})}
+                />
                 <Table
-                        data={formsMock}
-                        handleClick={handleTest}
-                        expandedState={expandedStatus}
-                        handleExpandClick={handleExpandAction}/>
-                    <Button
-                        id='button'
-                        type='button'
-                        label='Novo formulário'
-                        clickAction={handleClick}
-                    />
+                    data={formsMock}
+                    axisList={axisList}
+                    filterType={tabState}
+                />
+                <Button
+                    id='button'
+                    type='button'
+                    label='Novo formulário'
+                    clickAction={handleClick}
+                />
             </div>
-		);
-	}
+        );
+    }
 }
 
 const mstp = state => {
-	return {};
+    return {};
 };
 
 
