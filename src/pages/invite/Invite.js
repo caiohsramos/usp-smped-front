@@ -64,7 +64,9 @@ class Invite extends Container {
 }
 
 const mstp = state => {
-    return {};
+    return {
+        token: state.session.accessToken,
+    };
 };
 
 
