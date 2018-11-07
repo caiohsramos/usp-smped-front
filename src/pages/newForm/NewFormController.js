@@ -1,4 +1,3 @@
-
 import { SMPEDRepository } from '../../repositories';
 
 export class NewFormController {
