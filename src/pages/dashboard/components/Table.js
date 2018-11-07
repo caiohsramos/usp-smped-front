@@ -17,11 +17,9 @@ const Table = props => {
     if (props.filterType) {
         categories = props.axisList.map ((axis, idx) => (
             <Category
-                id={idx}
                 key={idx}
                 title={axis}
-                data={filterByAxis(props.data, axis)}
-                clickAction={props.handleExpandClick}/>
+                data={filterByAxis(props.data, axis)} />
             ))
     }
     else {
