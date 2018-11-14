@@ -42,7 +42,7 @@ class NewForm extends Container {
             getProps: this.getProps,
             router: props.router
         };
-
+        
         this.controller = new NewFormController(toController);
         this.offices = offices;
     }
@@ -113,14 +113,14 @@ class NewForm extends Container {
                     </Grid>
                     <Grid container justify='space-evenly' alignItems='center'>
                         <Button
-                            id='button-item'
+                            id='novo-btn'
                             variant='contained'
                             color='primary'
                             onClick={this.controller.addFormItem}>
                             Novo item
                         </Button>
                         <Button
-                            id='button-item'
+                            id='remover-btn'
                             color='secondary'
                             variant='contained'
                             disabled={!(this.state.fields.length)}
@@ -130,7 +130,7 @@ class NewForm extends Container {
                     </Grid>
                     <Grid container justify='center'>
                         <Button
-                            id='button-item'
+                            id='salvar-btn'
                             color='primary'
                             variant='contained'
                             disabled={!(this.state.fields.length)}

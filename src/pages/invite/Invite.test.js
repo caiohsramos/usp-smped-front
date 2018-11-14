@@ -1,5 +1,5 @@
 import React from 'react';
-import Dashboard from './Dashboard';
+import Invite from './Invite';
 import renderer from 'react-test-renderer';
 import { createStore } from 'redux';
 import reducer from '../../reducers';
@@ -8,7 +8,7 @@ const store = createStore(reducer);
 
 it('renders correctly', () => {
     const tree = renderer
-        .create(<Dashboard store={store} />)
+        .create(<Invite store={store} />)
         .toJSON();
     expect(tree).toMatchSnapshot();
 });
