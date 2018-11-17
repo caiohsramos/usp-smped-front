@@ -3,7 +3,7 @@ import NewForm from './NewForm';
 import renderer from 'react-test-renderer';
 import { createStore } from 'redux';
 import reducer from '../../reducers';
-import { mount } from 'enzyme';
+import { mount, shallow, simulate } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -18,22 +18,12 @@ it('renders correctly', () => {
 });
 
 it('should render one form field when click new field button', () => {
-    // const tree = renderer
-    //     .create(<NewForm store={store} />);
-    const wrapper = mount(<NewForm store={store} />);
-
-
-    let createItemBtn = wrapper.find('#novo-btn')
-
-    console.log(createItemBtn);
+    // To understand the next line, see this:
+    // https://github.com/airbnb/enzyme/issues/431
+    const wrapper = mount(shallow(<NewForm store={store} />).get(0));
+    let createItemBtn = wrapper.find('#novo-btn').hostNodes();
     createItemBtn.simulate('click');
-    expect(wrapper.state().fields.length).to.equal(1)
-
-    /* expect(wrapper.find('.clicks-0').length).to.equal(1);
-    wrapper.find('a').simulate('click');
-    expect(wrapper.find('.clicks-1').length).to.equal(1);
- */
-    // console.log(tree.toJSON().props)
+    createItemBtn.simulate('click');
+    let fieldsSize = wrapper.state().fields.length
+    expect(fieldsSize).toBe(2);
 })
-
-

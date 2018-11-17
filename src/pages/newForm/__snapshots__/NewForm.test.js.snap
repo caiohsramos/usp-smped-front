@@ -203,6 +203,7 @@ exports[`renders correctly 1`] = `
     </div>
     <div
       className="MuiGrid-container-28 MuiGrid-justify-xs-center-45"
+      id="fields-grid"
     >
       <button
         className="MuiButtonBase-root-223 MuiButtonBase-disabled-224 MuiButton-root-197 MuiButton-contained-208 MuiButton-containedPrimary-209 MuiButton-raised-211 MuiButton-raisedPrimary-212 MuiButton-disabled-217"

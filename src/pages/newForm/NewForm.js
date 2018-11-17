@@ -48,7 +48,6 @@ class NewForm extends Container {
     }
 
     componentDidUpdate() {
-        console.log(this.state);
     }
 
     render() {
