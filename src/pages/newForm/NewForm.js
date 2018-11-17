@@ -99,7 +99,7 @@ class NewForm extends Container {
                             <div aria-live="polite">
                                 {
                                     this.state.fields.map(formItem => (
-                                        <Grid item >
+                                        <Grid item key={formItem.order} >
                                             <FormItem
                                                 key={formItem.order}
                                                 formItem={formItem}
@@ -128,7 +128,7 @@ class NewForm extends Container {
                             Remover Item
                         </Button>
                     </Grid>
-                    <Grid container justify='center'>
+                    <Grid container id='fields-grid' justify='center'>
                         <Button
                             id='salvar-btn'
                             color='primary'
