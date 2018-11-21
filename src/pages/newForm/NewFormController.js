@@ -32,6 +32,20 @@ export class NewFormController {
             });
         };
 
+        this.snackHandleClose = () => {
+            let state = this.getState();
+            state.snack.open = false;
+            this.callback(state);
+        };
+
+        this.snackHandleOpen = (msg) => {
+            let state = this.getState();
+            state.snack.open = true;
+            state.snack.msg = msg;
+            this.callback(state);
+
+        };
+
         this.orderManager = () => {
             return this.getState().fields.length + 1;
         };
@@ -55,39 +69,49 @@ export class NewFormController {
 
         this.validateFields = () => {
             const form = this.getState();
+            let status = true;
             form.errors = {};
             form.fields.map((x) => {
                 if (!x.label) {
                     let str = 'item-name-' + x.order;
                     form.errors[str] = true;
+                    status = false;
                 }
             });
             if (!form.name) {
                 let str = 'form-name';
                 form.errors[str] = true;
+                status = false;
             }
             if (!form.activity) {
                 let str = 'form-activity';
                 form.errors[str] = true;
+                status = false;
             }
             this.callback(form);
-            return true;
+            return status;
         };
 
         this.submitForm = () => {
             //call verify required
             if (!this.validateFields()) {
-                console.log('problemas com o form');
+                this.snackHandleOpen('Verificar os campos em branco!');                
                 return;
             }
+        
             const token = this.getProps().token;
             const token_decoded = JSON.parse(atob(token.split('.')[1]));
             const form = this.getState();
             form.owner = token_decoded.username;
             this.smpedapi.post_with_token('forms', form, token)
-                .then((resp) => { console.log(resp); })
+                .then((resp) => { 
+                    console.log(resp); 
+                    this.snackHandleOpen('Formulário salvo com sucesso!'); })
                 .catch((error) => { console.log(error); });
+
         };
+
+        
     }
 
 }
