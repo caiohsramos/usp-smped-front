@@ -10,7 +10,7 @@ const Table = props => {
     }
 
     const filterByAxis = (formList, axis) => {
-        return formList.filter(form => form.axis == axis)
+        return formList.filter(form => form.activity == axis)
     }
 
     let categories;
