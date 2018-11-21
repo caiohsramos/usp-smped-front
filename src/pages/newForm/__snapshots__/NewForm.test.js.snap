@@ -1,0 +1,250 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="newFormContainer"
+>
+  <div
+    className="MuiPaper-root-1 MuiPaper-elevation2-5 MuiPaper-rounded-2"
+  >
+    <div
+      className="MuiGrid-container-28 MuiGrid-spacing-xs-16-51 MuiGrid-align-items-xs-center-36 MuiGrid-justify-xs-space-evenly-49"
+    >
+      <div
+        className="MuiGrid-container-28 MuiGrid-item-29 MuiGrid-justify-xs-center-45"
+      >
+        <div
+          className=""
+        >
+          <h1>
+            Novo formulário
+          </h1>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-item-29 MuiGrid-zeroMinWidth-30"
+      >
+        <div
+          className="MuiFormControl-root-125 MuiFormControl-marginNormal-126 field-name"
+        >
+          <label
+            className="MuiFormLabel-root-140 MuiInputLabel-root-129 MuiInputLabel-formControl-134 MuiInputLabel-animated-137"
+            data-shrink={false}
+            htmlFor="form-name"
+          >
+            Nome do formulário
+          </label>
+          <div
+            className="MuiInputBase-root-160 MuiInput-root-147 MuiInput-underline-151 MuiInputBase-formControl-161 MuiInput-formControl-148"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              className="MuiInputBase-input-170 MuiInput-input-155"
+              disabled={false}
+              id="form-name"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={false}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-item-29"
+      >
+        <div
+          className="MuiFormControl-root-125 MuiFormControl-marginNormal-126 select-type"
+        >
+          <label
+            className="MuiFormLabel-root-140 MuiFormLabel-filled-144 MuiInputLabel-root-129 MuiInputLabel-formControl-134 MuiInputLabel-animated-137 MuiInputLabel-shrink-136"
+            data-shrink={true}
+            htmlFor="office"
+          >
+            Secretaria
+          </label>
+          <div
+            className="MuiInputBase-root-160 MuiInput-root-147 MuiInput-underline-151 MuiInputBase-formControl-161 MuiInput-formControl-148"
+            onClick={[Function]}
+          >
+            <div
+              className="MuiSelect-root-177"
+            >
+              <div
+                aria-haspopup="true"
+                aria-pressed="false"
+                className="MuiSelect-select-178 MuiSelect-selectMenu-181 MuiInputBase-input-170 MuiInput-input-155"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                role="button"
+                tabIndex={0}
+              >
+                SMPED
+              </div>
+              <input
+                id="office"
+                type="hidden"
+                value="smped"
+              />
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root-184 MuiSelect-icon-183"
+                focusable="false"
+                role="presentation"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 10l5 5 5-5z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-item-29 MuiGrid-zeroMinWidth-30"
+      >
+        <div
+          className="MuiFormControl-root-125 MuiFormControl-marginNormal-126 field-name"
+        >
+          <label
+            className="MuiFormLabel-root-140 MuiInputLabel-root-129 MuiInputLabel-formControl-134 MuiInputLabel-animated-137"
+            data-shrink={false}
+            htmlFor="form-activity"
+          >
+            Atividade
+          </label>
+          <div
+            className="MuiInputBase-root-160 MuiInput-root-147 MuiInput-underline-151 MuiInputBase-formControl-161 MuiInput-formControl-148"
+            onClick={[Function]}
+          >
+            <input
+              aria-invalid={false}
+              className="MuiInputBase-input-170 MuiInput-input-155"
+              disabled={false}
+              id="form-activity"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              required={false}
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-container-28 MuiGrid-item-29 MuiGrid-direction-xs-column-31"
+      >
+        <div
+          aria-live="polite"
+        />
+      </div>
+    </div>
+    <div
+      className="MuiGrid-container-28 MuiGrid-align-items-xs-center-36 MuiGrid-justify-xs-space-evenly-49"
+    >
+      <button
+        className="MuiButtonBase-root-223 MuiButton-root-197 MuiButton-contained-208 MuiButton-containedPrimary-209 MuiButton-raised-211 MuiButton-raisedPrimary-212"
+        disabled={false}
+        id="novo-btn"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-198"
+        >
+          Novo item
+        </span>
+        <span
+          className="MuiTouchRipple-root-226"
+        />
+      </button>
+      <button
+        className="MuiButtonBase-root-223 MuiButtonBase-disabled-224 MuiButton-root-197 MuiButton-contained-208 MuiButton-containedSecondary-210 MuiButton-raised-211 MuiButton-raisedSecondary-213 MuiButton-disabled-217"
+        disabled={true}
+        id="remover-btn"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-198"
+        >
+          Remover Item
+        </span>
+      </button>
+    </div>
+    <div
+      className="MuiGrid-container-28 MuiGrid-justify-xs-center-45"
+      id="fields-grid"
+    >
+      <button
+        className="MuiButtonBase-root-223 MuiButtonBase-disabled-224 MuiButton-root-197 MuiButton-contained-208 MuiButton-containedPrimary-209 MuiButton-raised-211 MuiButton-raisedPrimary-212 MuiButton-disabled-217"
+        disabled={true}
+        id="salvar-btn"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="-1"
+        type="button"
+      >
+        <span
+          className="MuiButton-label-198"
+        >
+          Salvar formulário
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root-184"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M0 0h24v24H0z"
+              fill="none"
+            />
+            <path
+              d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

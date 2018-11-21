@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="login"
+>
+  <div
+    className="login-logo"
+  >
+    <div
+      className="logo"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Bras%C3%A3o_da_cidade_de_S%C3%A3o_Paulo.svg/200px-Bras%C3%A3o_da_cidade_de_S%C3%A3o_Paulo.svg.png"
+      />
+    </div>
+    <div />
+  </div>
+  <form
+    className="login-form"
+  >
+    <div
+      className="text-input"
+      id="text-input-EMAIL"
+    >
+      <input
+        className="input"
+        id="EMAIL"
+        onChange={[Function]}
+        placeholder="Endereço de email"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="text-input"
+      id="text-input-PASSWORD"
+    >
+      <input
+        className="input"
+        id="PASSWORD"
+        onChange={[Function]}
+        placeholder="Senha"
+        type="password"
+        value=""
+      />
+    </div>
+    <button
+      className="btn btn-lg btn-primary btn-block"
+      id="submit"
+      onClick={[Function]}
+      type="submit"
+    >
+       
+      Entrar
+       
+    </button>
+  </form>
+  <div
+    className="login-foot"
+  >
+    LabXP IME-USP © 2018
+  </div>
+</div>
+`;
