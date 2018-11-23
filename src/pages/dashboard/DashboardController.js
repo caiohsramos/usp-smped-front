@@ -12,6 +12,7 @@ export class DashboardController {
         this.handleChange = this.handleChange.bind(this);
         this.fetchForms = this.fetchForms.bind(this);
         this.repository = new SMPEDRepository();
+        this.handleFormView = this.handleFormView.bind(this);
     }
 
     handleChange(event){
@@ -29,5 +30,9 @@ export class DashboardController {
             this.callback ({... this.getState (), formsList: response.data._items});
         })
         .catch((e) => console.log(e))
+    }
+
+    handleFormView (id) {
+        this.navigator.navigateTo(`/form/${id}`);
     }
 }

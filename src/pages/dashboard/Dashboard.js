@@ -29,7 +29,7 @@ class Dashboard extends Container {
     }
 
     render() {
-        const { handleClick } = this.controller;
+        const { handleClick, handleFormView } = this.controller;
         const { formsList, tabState } = this.state;
         const axisList = this.getAxes (formsList);
 
@@ -44,6 +44,7 @@ class Dashboard extends Container {
                     data={formsList}
                     axisList={axisList}
                     filterType={tabState}
+                    handleFormView={handleFormView}
                 />
                 <Button
                     id='button'
