@@ -1,4 +1,5 @@
 import { Navigator } from '../../helper';
+import { SMPEDRepository } from '../../repositories';
 
 export class DashboardController {
 
@@ -9,6 +10,8 @@ export class DashboardController {
         this.navigator = new Navigator(router);
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.fetchForms = this.fetchForms.bind(this);
+        this.repository = new SMPEDRepository();
     }
 
     handleChange(event){
@@ -18,5 +21,13 @@ export class DashboardController {
     handleClick (e) {
         e.preventDefault();
         this.navigator.navigateTo('/newform');
+    }
+
+    fetchForms () {
+        this.repository.get('/forms')
+        .then((response) => {
+            this.callback ({... this.getState (), formsList: response.data._items});
+        })
+        .catch((e) => console.log(e))
     }
 }
