@@ -5,10 +5,15 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const row = data => {
+const row = props => {
+    const { data, handleFormView } = props;
     var arr = [];
     for (let i = 0; i < data.length; i++) {
-        arr.push(<div className="table-row" key={i}><Row data={data[i]}/></div>);
+        arr.push(
+            <div className="table-row" key={i}>
+                <Row form={data[i]} handleFormView={handleFormView}/>
+            </div>
+        );
     }
     return arr;
 };
@@ -22,7 +27,7 @@ const Category = props => {
                     {title}
                 </ExpansionPanelSummary>
                 <ExpansionPanelDetails className='category-details'>
-                    {row(props.data)}
+                    {row(props)}
                 </ExpansionPanelDetails>
             </ExpansionPanel>
         </div>

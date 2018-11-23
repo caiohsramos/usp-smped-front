@@ -8,17 +8,15 @@ import FormatAlignJustify from '@material-ui/icons/FormatAlignJustify';
 import InsertLink from '@material-ui/icons/InsertLink';
 import Visibility from '@material-ui/icons/Visibility';
 import Delete from '@material-ui/icons/Delete';
-
 import IconButton from '@material-ui/core/IconButton';
-import { Chips } from './Chips';
 
 const Row = props => {
-	const { data, handleClick } = props;
+	const { form, handleFormView } = props;
 	return (
     <Card className='row flex -sb'>
         <CardContent className='content'>
             <Typography gutterBottom variant="headline" component="h2">
-                {data.name}
+                {form.name}
             </Typography>
         </CardContent>
         <CardActions className='actions'>
@@ -31,7 +29,8 @@ const Row = props => {
             <IconButton aria-label="Compartilhar Formulário">
                 <InsertLink/>
             </IconButton>
-            <IconButton aria-label="Visualizar Criação do Formulário">
+            <IconButton aria-label="Visualizar Criação do Formulário"
+                        onClick={() => handleFormView(form._id)}>
                 <Visibility/>
             </IconButton>
             <IconButton aria-label="Excluir Formulário">

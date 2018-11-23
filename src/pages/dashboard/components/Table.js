@@ -19,7 +19,8 @@ const Table = props => {
             <Category
                 key={idx}
                 title={axis}
-                data={filterByAxis(props.data, axis)} />
+                data={filterByAxis(props.data, axis)} 
+                handleFormView={props.handleFormView}/>
             ))
     }
     else {
@@ -28,11 +29,13 @@ const Table = props => {
                 <Category
                     id={1}
                     title={'Secretaria Municipal de Direitos Humanos'}
-                    data={filterBySecretary (props.data, 'smdhc')}/>
+                    data={filterBySecretary (props.data, 'smdhc')}
+                    handleFormView={props.handleFormView}/>
                 <Category
                     id={2}
                     title={'Secretaria Municipal da Pessoa com Deficiência'}
-                    data={filterBySecretary (props.data, 'smped')}/>
+                    data={filterBySecretary (props.data, 'smped')}
+                    handleFormView={props.handleFormView}/>
             </div>
     }
 
