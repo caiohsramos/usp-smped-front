@@ -22,6 +22,24 @@ export class InviteController {
         this.callback({ open: true });
 
     };
+    
+    removeAcento (text)
+    {       
+        text = text.replace(new RegExp('[ÁÀÂÃÄ]','g'), 'A');
+        text = text.replace(new RegExp('[ÉÈÊË]','g'), 'E');
+        text = text.replace(new RegExp('[ÍÌÎÏ]','g'), 'I');
+        text = text.replace(new RegExp('[ÓÒÔÕÖ]','g'), 'O');
+        text = text.replace(new RegExp('[ÚÙÛÜ]','g'), 'U');
+        text = text.replace(new RegExp('[Ç]','g'), 'C');
+        text = text.replace(new RegExp('[áàâãä]','g'), 'a');
+        text = text.replace(new RegExp('[éèêë]','g'), 'e');
+        text = text.replace(new RegExp('[íìîï]','g'), 'i');
+        text = text.replace(new RegExp('[óòôõö]','g'), 'o');
+        text = text.replace(new RegExp('[úùûü]','g'), 'u');
+        text = text.replace(new RegExp('[ç]','g'), 'c');
+        text = text.replace(new RegExp('[`~^´]','g'), '');
+        return text;                 
+    }
 
     handleChange(event) {
         if (event.target.id == 'EMAIL') {
@@ -29,6 +47,9 @@ export class InviteController {
         }
         else if (event.target.id == 'NAME') {
             this.callback({ NAME: event.target.value });
+        }
+        else if (event.target.id == 'MENSAGEM') {
+            this.callback({ MENSAGEM: this.removeAcento(event.target.value) });
         }
         else {
             this.callback({ USERTYPE: event.target.value });
@@ -48,6 +69,9 @@ export class InviteController {
         }
         else if (!re.test(state.EMAIL)) {
             error = 'Email não é valido'
+        }
+        else if (state.MENSAGEM == '') {
+            error = 'Mensagem não pode ser vazia'
         }
         else if (state.USERTYPE == 0) {
             error = 'Selecione um tipo de usuário'
@@ -69,7 +93,7 @@ export class InviteController {
         let payloadEmail = {};
         payloadEmail.emails = [state.EMAIL];
         payloadEmail.subject = "Voce foi convidado(a) para SMPED";
-        payloadEmail.message = "Voce foi convidado(a) para SMPED";
+        payloadEmail.message = state.MENSAGEM; 
         //Não colocar acento, pois ocorre erro. Temos que tratar depois no Back.
 
         await this.smpedapi.post_with_token('email', payloadEmail, token)
