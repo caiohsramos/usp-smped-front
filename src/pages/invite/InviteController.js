@@ -36,7 +36,7 @@ export class InviteController {
 
     };
 
-    async handleSubmit(event) {
+    handleSubmit(event) {
         const state = this.getState();
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         var error = ''
@@ -63,18 +63,21 @@ export class InviteController {
         payload.roles = ['user'];
         let token = this.getProps().token;
         console.log(token);
-        await this.smpedapi.post_with_token('accounts', payload, token)
-            .then((resp) => { })
-            .catch(e => { console.log(e); })
-        let payloadEmail = {};
-        payloadEmail.emails = [state.EMAIL];
-        payloadEmail.subject = "Voce foi convidado(a) para SMPED";
-        payloadEmail.message = "Voce foi convidado(a) para SMPED";
-        //Não colocar acento, pois ocorre erro. Temos que tratar depois no Back.
+        this.smpedapi.post_with_token('accounts', payload, token)
+            .then((resp) => {
+                let payloadEmail = {};
+                payloadEmail.emails = [state.EMAIL];
+                payloadEmail.subject = "Voce foi convidado(a) para SMPED";
+                payloadEmail.message = "O seu Id e " + resp.data._id + ", para acessar o SMPED clique no link abaixo: ";
+                //Não colocar acento, pois ocorre erro. Temos que tratar depois no Back.
 
-        await this.smpedapi.post_with_token('email', payloadEmail, token)
-            .then((resp2) => { console.log("resp2, ", resp2); })
-            .catch(e => { console.log("-->", e); });
+                this.smpedapi.post_with_token('email', payloadEmail, token)
+                    .then((resp2) => { console.log("resp2, ", resp2); })
+                    .catch(e => { console.log("-->", e); });
+
+
+            })
+            .catch(e => { console.log(e); })
 
 
 
