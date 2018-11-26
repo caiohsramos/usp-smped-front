@@ -157,3 +157,12 @@ div.select-type{
     top:80px;
     width:calc(100% - 140px)
 }
+
+.snack-success > div {
+  background-color: #43a047;
+  font-size: 13pt;
+}
+.snack-fail > div {
+  background-color: #ee4355;
+  font-size: 13pt;
+}

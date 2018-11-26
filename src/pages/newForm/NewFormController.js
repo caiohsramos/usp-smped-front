@@ -42,10 +42,11 @@ export class NewFormController {
             this.callback(state);
         };
 
-        this.snackHandleOpen = (msg) => {
+        this.snackHandleOpen = (msg, success) => {
             let state = this.getState();
             state.snack.open = true;
             state.snack.msg = msg;
+            state.snack.success = success;
             this.callback(state);
 
         };
@@ -96,28 +97,32 @@ export class NewFormController {
             return status;
         };
 
+
         this.submitForm = () => {
             //call verify required
             if (!this.validateFields()) {
-                this.snackHandleOpen('Verificar os campos em branco!');                
+                this.snackHandleOpen('Verificar os campos em branco!', false);
                 return;
             }
-        
+
             const token = this.getProps().token;
             const token_decoded = JSON.parse(atob(token.split('.')[1]));
             const form = this.getState();
+            delete form['errors']
+            delete form['snack']
             form.owner = token_decoded.username;
+            console.log(form);
+            console.log(token);
             this.smpedapi.post_with_token('forms', form, token)
-                .then((resp) => { 
-                    console.log(resp); 
+                .then((resp) => {
+                    this.snackHandleOpen('Formulário salvo com sucesso!', true);
                     this.navigator.navigateTo('/dashboard');
-                    this.snackHandleOpen('Formulário salvo com sucesso!'); 
                 })
                 .catch((error) => { console.log(error); });
 
         };
 
-        
+
     }
 
 }

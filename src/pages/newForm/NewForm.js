@@ -25,7 +25,7 @@ class NewForm extends Container {
             activity: '',
             fields: [],
             errors: {},
-            snack: { open: false, msg:''}
+            snack: { open: false, msg:'', success: false }
         };
 
         const offices = [
@@ -45,7 +45,7 @@ class NewForm extends Container {
             getProps: this.getProps,
             router: props.router
         };
-        
+
         this.controller = new NewFormController(toController);
         this.offices = offices;
     }
@@ -61,6 +61,7 @@ class NewForm extends Container {
                     anchorOrigin={{ vertical:'top', horizontal:'right' }}
                     open={this.state.snack.open}
                     onClose={snackHandleClose}
+                    className={this.state.snack.success ? 'snack-success' : 'snack-fail' }
                     ContentProps={{
                         'aria-describedby': 'message-id',
                     }}

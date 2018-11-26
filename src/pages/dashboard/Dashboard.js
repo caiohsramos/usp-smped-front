@@ -10,7 +10,7 @@ import { Table } from './components/Table';
 class Dashboard extends Container {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             formsMock: formList,
             tabState: 0
@@ -38,7 +38,7 @@ class Dashboard extends Container {
         return (
             <div className='new-form'>
                 <h1>Relatórios de atividades</h1>
-                <CenteredTabs 
+                <CenteredTabs
                     tabState={tabState}
                     handleChangeTab={(tabState) => this.callback ({...this.state, ...{tabState}})}
                 />
