@@ -23,6 +23,7 @@ class NewForm extends Container {
             office: 'smped',
             activity: '',
             fields: [],
+            errors: {}
         };
 
         const offices = [
@@ -66,6 +67,7 @@ class NewForm extends Container {
                                 value={this.state.name}
                                 onChange={this.controller.handleChange('name')}
                                 margin="normal"
+                                error={this.state.errors["form-name"]}
                             />
                         </Grid>
                         <Grid item>
@@ -92,6 +94,7 @@ class NewForm extends Container {
                                 value={this.state.activity}
                                 onChange={this.controller.handleChange('activity')}
                                 margin="normal"
+                                error={this.state.errors["form-activity"]}
                             />
                         </Grid>
                         <Grid item container direction='column' >
@@ -103,6 +106,7 @@ class NewForm extends Container {
                                                 key={formItem.order}
                                                 formItem={formItem}
                                                 handleChangeFormItem={this.controller.handleChangeFormItem}
+                                                errors={this.state.errors}
                                             />
                                         </Grid>
                                     ))

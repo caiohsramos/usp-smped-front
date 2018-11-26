@@ -55,12 +55,27 @@ export class NewFormController {
 
         this.validateFields = () => {
             const form = this.getState();
+            let status = true;
+            form.errors = {};
             form.fields.map((x) => {
-                if (!x.label) return false;
+                if (!x.label) {
+                    let str = 'item-name-' + x.order;
+                    form.errors[str] = true;
+                    status = false;
+                }
             });
-            if (!form.name) return false;
-            if (!form.activity) return false;
-            return true;
+            if (!form.name) {
+                let str = 'form-name';
+                form.errors[str] = true;
+                status = false;
+            }
+            if (!form.activity) {
+                let str = 'form-activity';
+                form.errors[str] = true;
+                status = false;
+            }
+            this.callback(form);
+            return status;
         };
 
         this.submitForm = () => {

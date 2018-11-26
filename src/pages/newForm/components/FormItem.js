@@ -8,7 +8,7 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 
 const FormItem = props => {
-    const { formItem, handleChangeFormItem } = props;
+    const { formItem, handleChangeFormItem, errors } = props;
     const types = [
         {
             value: 'text',
@@ -35,6 +35,7 @@ const FormItem = props => {
                                     value={formItem.label}
                                     onChange={(e) => handleChangeFormItem('label', e)}
                                     margin="normal"
+                                    error={errors["item-name-" + formItem.order]}
                                 />
                             </Grid>
                             <Grid item>
