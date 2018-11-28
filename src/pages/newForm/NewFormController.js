@@ -19,9 +19,9 @@ export class NewFormController {
             this.callback({
                 fields: fields.map(
                     field => {
-                        const order = propertyName == 'type' ? e.target.name.split('-').pop() : e.target.id.split('-').pop();
-                        if (field.order == order) {
-                            const value = propertyName == 'required' ? e.target.checked : e.target.value;
+                        const order = propertyName === 'type' ? e.target.name.split('-').pop() : e.target.id.split('-').pop();
+                        if (field.order === Number(order)) {
+                            const value = propertyName === 'required' ? e.target.checked : e.target.value;
                             return Object.assign({}, field, { [propertyName]: value });
                         }
                         else {
@@ -57,6 +57,7 @@ export class NewFormController {
             const form = this.getState();
             form.fields.map((x) => {
                 if (!x.label) return false;
+                return true
             });
             if (!form.name) return false;
             if (!form.activity) return false;

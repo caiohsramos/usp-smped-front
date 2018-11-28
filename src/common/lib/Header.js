@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, Drawer } from '../../common';
 
 const Header = props => {
-	const { data, handleMenuClick, menuStatus, handleDrawerClick, headerStatus, handleRedirect } = props;
+	const { handleMenuClick, menuStatus, handleDrawerClick, headerStatus, handleRedirect } = props;
 	return (
             <div>
                 <AppBar

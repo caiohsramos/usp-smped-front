@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from '../Container';
 import { InviteController } from './InviteController';
-import { bindActionCreators } from 'redux';
 import { SelectButton, TextInput } from '../../common';
 import InputLabel from '@material-ui/core/InputLabel'
 import Button from '@material-ui/core/Button';
