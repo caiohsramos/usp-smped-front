@@ -12,7 +12,9 @@ export class FormController {
         this.store = store();
         this.navigator = new Navigator(this.store.props.history);
         this.smpedapi = new SMPEDRepository();
-
+        this.goBack = this.goBack.bind(this);
+        this.loadForm = this.loadForm.bind(this);
+        this.renderForm = this.renderForm.bind(this);
     }
 
     loadForm(formId) {
@@ -25,4 +27,8 @@ export class FormController {
         console.log(form)
         this.callback({ form })
     };
+
+    goBack() {
+        this.navigator.navigateTo('/dashboard');
+    }
 }
