@@ -25,29 +25,11 @@ const leftButtonList = props => {
             </List>
             <List>
                 <ListButton
-                    id="favorite"
-                    text="Favoritos"
-                    clickAction={redirectTo} />
-            </List>
-            <List>
-                <ListButton
-                    id="email"
-                    text="Enviar emails"
-                    clickAction={redirectTo} />
-            </List>
-            <List>
-                <ListButton
                     id="personadd"
                     text="Convidar usuário"
                     clickAction={redirectTo} />
             </List>
             <Divider/>
-            <List>
-                <ListButton
-                    id="settings"
-                    text="Configurações"
-                    clickAction={redirectTo} />
-            </List>
             <List>
                 <ListButton
                     id="exit"
