@@ -88,8 +88,13 @@ export class InviteController {
                 let payloadEmail = {};
                 console.log("entrou no then")
                 payloadEmail.emails = [state.EMAIL];
-                payloadEmail.subject = "Voce foi convidado(a) para SMPED";
-                payloadEmail.message = state.MENSAGEM + "\nO seu Id e " + resp.data._id + ", para acessar o SMPED clique no link abaixo: ";
+                payloadEmail.subject = "Oi," + state.NAME + " foi convidado(a) para SMPED";
+                payloadEmail.message = state.MENSAGEM +
+                    "\nO seu Id e " + resp.data._id +
+                    ", para acessar o sistema SMPED clique no link abaixo para cadastrar a sua senha" +
+                    "\nhttp://localhost:3000/newuser/" + resp.data._id +
+                    "\nO seu usuario: " + state.NAME;
+
                 //Não colocar acento, pois ocorre erro. Temos que tratar depois no Back.
                 this.smpedapi.post_with_token('email', payloadEmail, token)
                     .then((resp2) => {
@@ -97,7 +102,7 @@ export class InviteController {
                     })
                     .catch(e => {
                         console.log(e);
-                        //alert('Não foi possivel enviar email ao usuário.')
+                        alert('Não foi possivel enviar email ao usuário.')
                     });
             })
             .catch(e => {

@@ -8,6 +8,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import NewForm from './pages/newForm/NewForm';
 import Form from './pages/form/Form'
 import Invite from './pages/invite/Invite';
+import NewUser from './pages/newuser/Newuser';
 
 export default store => {
     return (
@@ -18,6 +19,7 @@ export default store => {
                     <Route path='/dashboard' component={Dashboard} />
                     <Route path='/newform' component={NewForm} />
                     <Route path='/invite' component={Invite} />
+                    <Route path='/newuser/:iduser' component={NewUser} />
                     <Route path='/form/:id' component={Form} />
                 </Route>
             </Route>
