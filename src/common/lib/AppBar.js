@@ -11,14 +11,6 @@ const headerButtons = props => {
 	return (
         <div className='header-buttons'>
             <IconButton
-                icon='notifications'
-                quantBadge={8}
-                clickAction={()=> console.log('not yet implemented')}/>
-            <IconButton
-                icon='mail'
-                quantBadge={5}
-                clickAction={()=> console.log('not yet implemented')}/>
-            <IconButton
                 icon='account'
                 aria={'simple-menu'}
                 popup
