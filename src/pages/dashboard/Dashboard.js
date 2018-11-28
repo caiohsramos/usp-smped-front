@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from '../Container';
-import { formList } from '../../common/mocks/FormListMock';
-import CenteredTabs from './components/Tabs'
+import CenteredTabs from './components/Tabs';
 import { DashboardController } from './DashboardController';
 import { Button } from '../../common';
 import { Table } from './components/Table';
@@ -10,12 +9,10 @@ import { Table } from './components/Table';
 class Dashboard extends Container {
     constructor(props) {
         super(props);
-
         this.state = {
-            formsMock: formList,
+            formsList: [],
             tabState: 0
         };
-
         const toController = {
             callback: this.callback,
             getState: this.getState,
@@ -23,17 +20,18 @@ class Dashboard extends Container {
             router: props.router
         };
         this.controller = new DashboardController(toController);
+        this.controller.fetchForms ();
     }
 
     getAxes (formList) {
-        let allAxis = formList.map ((form) => form.axis);
+        let allAxis = formList.map ((form) => form.activity);
         return allAxis.filter ((axisName, idx) => allAxis.indexOf (axisName) == idx && axisName != "");
     }
 
     render() {
-        const { handleClick } = this.controller;
-        const { formsMock, tabState } = this.state;
-        const axisList = this.getAxes (formsMock);
+        const { handleClick, handleFormView } = this.controller;
+        const { formsList, tabState } = this.state;
+        const axisList = this.getAxes (formsList);
 
         return (
             <div className='new-form'>
@@ -43,9 +41,10 @@ class Dashboard extends Container {
                     handleChangeTab={(tabState) => this.callback ({...this.state, ...{tabState}})}
                 />
                 <Table
-                    data={formsMock}
+                    data={formsList}
                     axisList={axisList}
                     filterType={tabState}
+                    handleFormView={handleFormView}
                 />
                 <Button
                     id='button'
