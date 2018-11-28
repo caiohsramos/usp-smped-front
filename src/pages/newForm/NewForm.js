@@ -11,6 +11,7 @@ import { FormItem } from './components/FormItem';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import Snackbar from '@material-ui/core/Snackbar';
+import { setMsg } from '../../actions/MessageActions';
 
 class NewForm extends Container {
 
@@ -43,7 +44,8 @@ class NewForm extends Container {
             callback: this.callback,
             getState: this.getState,
             getProps: this.getProps,
-            router: props.router
+            router: props.router,
+            setMsg: props.setMsg
         };
 
         this.controller = new NewFormController(toController);
@@ -170,6 +172,6 @@ const mstp = (state) => {
 };
 
 const mdtp = dispatch =>
-    bindActionCreators({}, dispatch);
+    bindActionCreators({setMsg}, dispatch);
 
 export default connect(mstp, mdtp)(NewForm);

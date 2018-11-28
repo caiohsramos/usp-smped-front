@@ -5,6 +5,8 @@ import CenteredTabs from './components/Tabs';
 import { DashboardController } from './DashboardController';
 import { Button } from '../../common';
 import { Table } from './components/Table';
+import { clearMsg } from '../../actions/MessageActions';
+import Snackbar from '@material-ui/core/Snackbar';
 
 class Dashboard extends Container {
     constructor(props) {
@@ -21,6 +23,7 @@ class Dashboard extends Container {
         };
         this.controller = new DashboardController(toController);
         this.controller.fetchForms ();
+        this.clearMsg = clearMsg;
     }
 
     getAxes (formList) {
@@ -32,9 +35,19 @@ class Dashboard extends Container {
         const { handleClick, handleFormView } = this.controller;
         const { formsList, tabState } = this.state;
         const axisList = this.getAxes (formsList);
-
+        console.log(this.props.message)
         return (
             <div className='new-form'>
+            <Snackbar
+                anchorOrigin={{ vertical:'top', horizontal:'right' }}
+                open={this.props.message.success}
+                onClose={this.clearMsg}
+                className={this.props.message.success ? 'snack-success' : 'snack-fail' }
+                ContentProps={{
+                    'aria-describedby': 'message-id',
+                }}
+                message={<span id="message-id">{this.props.message.msg}</span>}
+            />
                 <h1>Relatórios de atividades</h1>
                 <CenteredTabs
                     tabState={tabState}
@@ -58,7 +71,10 @@ class Dashboard extends Container {
 }
 
 const mstp = state => {
-    return {};
+    console.log("->", state);
+    return {
+      message: state.message
+    };
 };
 
 

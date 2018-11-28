@@ -2,12 +2,14 @@ import { SMPEDRepository } from '../../repositories';
 import store from '../../routes';
 import { Navigator } from '../../helper';
 
+
 export class NewFormController {
 
-    constructor({ callback, getState, getProps, router }) {
+    constructor({ callback, getState, getProps, router, setMsg }) {
         this.callback = callback;
         this.getState = getState;
         this.getProps = getProps;
+        this.setMsg = setMsg;
 
         this.store = store();
         this.navigator = new Navigator(this.store.props.history);
@@ -115,6 +117,7 @@ export class NewFormController {
             console.log(token);
             this.smpedapi.post_with_token('forms', form, token)
                 .then((resp) => {
+                    this.setMsg('Formulário salvo com sucesso!', 'snack-success', 'true')
                     this.snackHandleOpen('Formulário salvo com sucesso!', true);
                     this.navigator.navigateTo('/dashboard');
                 })
