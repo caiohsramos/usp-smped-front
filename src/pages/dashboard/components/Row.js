@@ -11,34 +11,37 @@ import Delete from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 
 const Row = props => {
-	const { form, handleFormView } = props;
-	return (
-    <Card className='row flex -sb'>
-        <CardContent className='content'>
-            <Typography gutterBottom variant="headline" component="h2">
-                {form.name}
-            </Typography>
-        </CardContent>
-        <CardActions className='actions'>
-            <IconButton aria-label="Editar Criação do Formulário">
-                <Edit/>
-            </IconButton>
-            <IconButton aria-label="Visualizar Respostas do Formulário">
-                <FormatAlignJustify/>
-            </IconButton>
-            <IconButton aria-label="Compartilhar Formulário">
-                <InsertLink/>
-            </IconButton>
-            <IconButton aria-label="Visualizar Criação do Formulário"
-                        onClick={() => handleFormView(form._id)}>
-                <Visibility/>
-            </IconButton>
-            <IconButton aria-label="Excluir Formulário">
-                <Delete/>
-            </IconButton>
-      </CardActions>
-    </Card>
-	);
+    const { form, handleFormView, handleFormDelete } = props;
+    return (
+        <Card className='row flex -sb'>
+            <CardContent className='content'>
+                <Typography gutterBottom variant="headline" component="h2">
+                    {form.name}
+                </Typography>
+            </CardContent>
+            <CardActions className='actions'>
+                <IconButton aria-label="Editar Criação do Formulário">
+                    <Edit />
+                </IconButton>
+                <IconButton aria-label="Visualizar Respostas do Formulário">
+                    <FormatAlignJustify />
+                </IconButton>
+                <IconButton aria-label="Compartilhar Formulário">
+                    <InsertLink />
+                </IconButton>
+                <IconButton
+                    aria-label="Visualizar Criação do Formulário"
+                    onClick={() => handleFormView(form._id)}>
+                    <Visibility />
+                </IconButton>
+                <IconButton
+                    aria-label="Excluir Formulário"
+                    onClick={() => handleFormDelete(form._id)}>
+                    <Delete />
+                </IconButton>
+            </CardActions>
+        </Card>
+    );
 };
 
 export { Row };

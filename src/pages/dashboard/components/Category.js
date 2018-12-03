@@ -6,12 +6,15 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const row = props => {
-    const { data, handleFormView } = props;
+    const { data, handleFormView, handleFormDelete } = props;
     var arr = [];
     for (let i = 0; i < data.length; i++) {
         arr.push(
             <div className="table-row" key={i}>
-                <Row form={data[i]} handleFormView={handleFormView}/>
+                <Row
+                    form={data[i]}
+                    handleFormView={handleFormView}
+                    handleFormDelete={handleFormDelete} />
             </div>
         );
     }

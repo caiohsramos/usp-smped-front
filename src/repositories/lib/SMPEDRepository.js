@@ -26,4 +26,14 @@ export class SMPEDRepository {
     async patch(endpoint, id, body) {
         return await axios.patch(`${ROOT_URL}/${endpoint}/${id}`, body);
     }
+
+    async delete_with_token(endpoint, token) {
+        return await axios.delete(
+            `${ROOT_URL}/${endpoint}`,
+            {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+    }
 }

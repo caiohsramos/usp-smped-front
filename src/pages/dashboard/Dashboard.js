@@ -5,7 +5,7 @@ import CenteredTabs from './components/Tabs';
 import { DashboardController } from './DashboardController';
 import { Button } from '../../common';
 import { Table } from './components/Table';
-import { clearMsg } from '../../actions/MessageActions';
+import { setMsg, clearMsg } from '../../actions/MessageActions';
 import Snackbar from '@material-ui/core/Snackbar';
 import { bindActionCreators } from 'redux';
 
@@ -32,7 +32,7 @@ class Dashboard extends Container {
     }
 
     render() {
-        const { handleClick, handleFormView } = this.controller;
+        const { handleClick, handleFormView, handleFormDelete } = this.controller;
         const { formsList, tabState } = this.state;
         const axisList = this.getAxes(formsList);
         return (
@@ -57,6 +57,7 @@ class Dashboard extends Container {
                     axisList={axisList}
                     filterType={tabState}
                     handleFormView={handleFormView}
+                    handleFormDelete={handleFormDelete}
                 />
                 <Button
                     id='button'
@@ -71,11 +72,12 @@ class Dashboard extends Container {
 
 const mstp = state => {
     return {
-        message: state.message
+        message: state.message,
+        token: state.session.accessToken
     };
 };
 
 const mdtp = dispatch =>
-    bindActionCreators({ clearMsg }, dispatch);
+    bindActionCreators({ setMsg, clearMsg }, dispatch);
 
 export default connect(mstp, mdtp)(Dashboard);

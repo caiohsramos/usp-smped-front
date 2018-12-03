@@ -15,27 +15,29 @@ const Table = props => {
 
     let categories;
     if (props.filterType) {
-        categories = props.axisList.map ((axis, idx) => (
+        categories = props.axisList.map((axis, idx) => (
             <Category
                 key={idx}
                 title={axis}
-                data={filterByAxis(props.data, axis)} 
-                handleFormView={props.handleFormView}/>
-            ))
+                data={filterByAxis(props.data, axis)}
+                handleFormView={props.handleFormView} />
+        ))
     }
     else {
-        categories = 
+        categories =
             <div>
                 <Category
                     id={1}
                     title={'Secretaria Municipal de Direitos Humanos'}
-                    data={filterBySecretary (props.data, 'smdhc')}
-                    handleFormView={props.handleFormView}/>
+                    data={filterBySecretary(props.data, 'smdhc')}
+                    handleFormView={props.handleFormView}
+                    handleFormDelete={props.handleFormDelete} />
                 <Category
                     id={2}
                     title={'Secretaria Municipal da Pessoa com Deficiência'}
-                    data={filterBySecretary (props.data, 'smped')}
-                    handleFormView={props.handleFormView}/>
+                    data={filterBySecretary(props.data, 'smped')}
+                    handleFormView={props.handleFormView}
+                    handleFormDelete={props.handleFormDelete} />
             </div>
     }
 
