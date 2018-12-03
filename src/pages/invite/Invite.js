@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from '../Container';
 import { InviteController } from './InviteController';
-import { bindActionCreators } from 'redux';
-import { SelectButton, TextInput } from '../../common';
+import { SelectButton, TextInput, TextArea } from '../../common';
 import InputLabel from '@material-ui/core/InputLabel'
 import Button from '@material-ui/core/Button';
 
@@ -14,8 +13,8 @@ class Invite extends Container {
             NAME: '',
             EMAIL: '',
             USERTYPE: 0,
+            MENSAGEM: 'Voce foi convidado(a) para SMPED',
             open: false,
-            error: ''
         };
 
         const toController = {
@@ -29,7 +28,7 @@ class Invite extends Container {
 
     render() {
         const { handleChange, handleOpen, handleClose, handleSubmit } = this.controller;
-        const { NAME, EMAIL, USERTYPE, open } = this.state;
+        const { NAME, EMAIL, USERTYPE, MENSAGEM, open } = this.state;
         return (
             <div className='invite'>
                 <InputLabel htmlFor="name-simple">Nome</InputLabel>
@@ -51,6 +50,13 @@ class Invite extends Container {
                     handleChange={handleChange}
                     userType={USERTYPE}
                     dropDownState={open}
+                />
+
+                <InputLabel htmlFor="name-simple">Mensagem de convite</InputLabel>
+                <TextArea
+                    id='MENSAGEM'
+                    value={MENSAGEM}
+                    changeAction={handleChange}
                 />
                 <div>
                     <Button variant="contained" color="primary" className='button-submit' onClick={handleSubmit}>
