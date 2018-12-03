@@ -13,26 +13,21 @@ const iconSelected = icon => {
 	switch (icon) {
 		case 'chevronleft':
 			return (<ChevronLeft/>);
-			break;
 		case 'notifications':
 			return (<Notifications/>);
-			break;
 		case 'mail':
 			return (<Mail/>);
-			break;
 		case 'menu':
 			return (<Menu/>);
-			break;
 		case 'account':
 			return (<AccountCircle/>);
-			break;
 		default:
 			return (<Menu/>);
 	}
 };
 
 const IconButton = props => {
-	const { icon, clickAction, quantBadge, aria, popup } = props;
+	const { icon, clickAction, quantBadge, aria } = props;
 
 	return (
         <div>

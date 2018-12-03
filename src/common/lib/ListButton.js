@@ -1,6 +1,5 @@
 import React from 'react';
 
-import MaterialIconButton  from '@material-ui/core/IconButton';
 import Menu from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Mail from '@material-ui/icons/Mail';
@@ -14,7 +13,6 @@ import Favorite from '@material-ui/icons/Favorite';
 import Email from '@material-ui/icons/Email';
 import AddBox from '@material-ui/icons/AddBox';
 
-import Badge from '@material-ui/core/Badge';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -24,47 +22,35 @@ const iconSelected = id => {
 	switch (id) {
 		case 'email':
 			return (<Email/>);
-			break;
 		case 'addbox':
 			return (<AddBox/>);
-			break;
 		case 'favorite':
 			return (<Favorite/>);
-			break;
 		case 'personadd':
 			return (<PersonAdd/>);
-			break;
 		case 'settings':
 			return (<Settings/>);
-			break;
 		case 'dashboard':
 			return (<Dashboard/>);
-			break;
 		case 'exit':
 			return (<ExitToApp/>);
-			break;
 		case 'chevronleft':
 			return (<ChevronLeft/>);
-			break;
 		case 'notifications':
 			return (<Notifications/>);
-			break;
 		case 'mail':
 			return (<Mail/>);
-			break;
 		case 'menu':
 			return (<Menu/>);
-			break;
 		case 'account':
 			return (<AccountCircle/>);
-			break;
 		default:
 			return (<Menu/>);
 	}
 };
 
 const ListButton = props => {
-	const { icon, clickAction, quantBadge, text, id } = props;
+	const { clickAction, text, id } = props;
 
 	return (
         <div onClick={() => clickAction(id)}>

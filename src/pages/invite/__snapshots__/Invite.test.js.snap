@@ -91,6 +91,23 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
   </div>
+  <label
+    className="MuiFormLabel-root-12 MuiInputLabel-root-1 MuiInputLabel-animated-9"
+    htmlFor="name-simple"
+  >
+    Mensagem de convite
+  </label>
+  <div
+    id="text-input-MENSAGEM"
+  >
+    <textarea
+      className="input"
+      id="MENSAGEM"
+      onChange={[Function]}
+      type="text"
+      value="Voce foi convidado(a) para SMPED"
+    />
+  </div>
   <div>
     <button
       className="MuiButtonBase-root-99 MuiButton-root-73 MuiButton-contained-84 MuiButton-containedPrimary-85 MuiButton-raised-87 MuiButton-raisedPrimary-88 button-submit"

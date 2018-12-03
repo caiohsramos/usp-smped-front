@@ -27,7 +27,7 @@ export class DashboardController {
     fetchForms () {
         this.repository.get('/forms')
         .then((response) => {
-            this.callback ({... this.getState (), formsList: response.data._items});
+            this.callback ({...this.getState (), formsList: response.data._items});
         })
         .catch((e) => console.log(e))
     }

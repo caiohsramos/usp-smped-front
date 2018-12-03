@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from '../Container';
 import { LoginController } from './LoginController';
@@ -8,8 +8,6 @@ import { bindActionCreators } from 'redux';
 import { Logo } from '../../common';
 
 const LoginLogo = props => {
-	const { } = props;
-
 	return (
         <div className='login-logo'>
             <Logo/>
@@ -19,8 +17,6 @@ const LoginLogo = props => {
 };
 
 const LoginFooter = props => {
-	const { } = props;
-
 	return (
         <div className='login-foot'>
             LabXP IME-USP © 2018
