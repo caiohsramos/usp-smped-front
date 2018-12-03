@@ -6,11 +6,11 @@ import { Category } from './Category';
 const Table = props => {
 
     const filterBySecretary = (formList, sec) => {
-        return formList.filter(form => form.office == sec)
+        return formList.filter(form => form.office === sec)
     }
 
     const filterByAxis = (formList, axis) => {
-        return formList.filter(form => form.activity == axis)
+        return formList.filter(form => form.activity === axis)
     }
 
     let categories;

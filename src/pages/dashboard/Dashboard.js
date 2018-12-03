@@ -25,7 +25,7 @@ class Dashboard extends Container {
 
     getAxes (formList) {
         let allAxis = formList.map ((form) => form.activity);
-        return allAxis.filter ((axisName, idx) => allAxis.indexOf (axisName) == idx && axisName != "");
+        return allAxis.filter ((axisName, idx) => allAxis.indexOf (axisName) === idx && axisName !== "");
     }
 
     render() {

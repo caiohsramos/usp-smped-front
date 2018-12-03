@@ -15,7 +15,7 @@ const headerButtons = props => {
                 aria={'simple-menu'}
                 popup
                 clickAction={handleMenu}/>
-            <Menu state={menuState} close={handleMenu}/>
+            { menuState && <Menu state={menuState} close={handleMenu}/> }
         </div>
 	);
 };

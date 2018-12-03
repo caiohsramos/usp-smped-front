@@ -41,13 +41,13 @@ export class InviteController {
     }
 
     handleChange(event) {
-        if (event.target.id == 'EMAIL') {
+        if (event.target.id === 'EMAIL') {
             this.callback({ EMAIL: event.target.value });
         }
-        else if (event.target.id == 'NAME') {
+        else if (event.target.id === 'NAME') {
             this.callback({ NAME: event.target.value });
         }
-        else if (event.target.id == 'MENSAGEM') {
+        else if (event.target.id === 'MENSAGEM') {
             this.callback({ MENSAGEM: this.removeAcento(event.target.value) });
         }
         else {
@@ -58,24 +58,6 @@ export class InviteController {
 
     handleSubmit(event) {
         const state = this.getState();
-        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var error = ''
-
-        if (state.NAME == '') {
-            error = 'Nome não pode ser vazio'
-        }
-        else if (state.EMAIL == '') {
-            error = 'Email não pode ser vazio'
-        }
-        else if (!re.test(state.EMAIL)) {
-            error = 'Email não é valido'
-        }
-        else if (state.MENSAGEM == '') {
-            error = 'Mensagem não pode ser vazia'
-        }
-        else if (state.USERTYPE == 0) {
-            error = 'Selecione um tipo de usuário'
-        }
 
         let payload = {};
         payload.email = state.EMAIL;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -6,8 +6,6 @@ import { Container } from '../Container';
 import MainController from './MainController';
 import { Header } from '../../common';
 import { setToken } from '../../actions/TokenActions';
-
-const actions = { };
 
 class Main extends Container {
 

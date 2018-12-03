@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
 import App from './pages/App';
-import Main from './pages/Main';
+import Main from './pages/main/Main';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
 import NewForm from './pages/newForm/NewForm';
