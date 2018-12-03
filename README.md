@@ -1,44 +1,38 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Documentação do Sistema de Monitoramento da [SMPED](https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia/) de São Paulo
 
-## Available Scripts
+**Mais detalhes:**  
+[Sistema de Monitoramento da SMPED](https://tecs.ime.usp.br/MAC0213/projeto-1.pdf?fbclid=IwAR1Y-Ak710FLiXDv8FHAdmFotZllZrNcI2GXricxreO1dNVCbSVcYzIXmRY)
 
-In the project directory, you can run:
+## Pré-requisitos
+Este projeto foi feito com [Create React App](https://github.com/facebook/create-react-app).  
 
-### `npm start`
+Para executar este projeto você precisa ter instalado o [Nodejs](https://nodejs.org/en/) em seu computador, versão 8 ou superior.  
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Na pasta do projeto, no terminal, execute o comando `npm install` para instalar as dependências (serão baixadas dentro da pasta node_modules que não fica versionada);
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Após isto execute o comando `npm start`.
 
-### `npm test`
+### Iniciando a aplicação com `npm start`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este comando irá inicializar a aplicação em modo de desenvolvimento.<br>
+Abra no navegador a url [http://localhost:3000](http://localhost:3000) para ver a aplicação em seu computador.
 
-### `npm run build`
+A cada modificação no código fonte, o navegador será recarregado automaticamente (live-reload).<br>
+Também você poderá ver os erros no console do navegador.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Usuário padrão do sistema
+O usuário padrão é `admin` e senha `password`. Utilize ele para o ambiente de desenvolvimento.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Testes com `npm test`
 
-### `npm run eject`
+Este comando executa os testes de maneira interativa e fica observando modificações. Estamos usando Jest, que basicamente é uma comparação de alterações de tela usando snapshots.  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para mais detalhes sobre o Jest e testes, veja [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Integração contínua com Kuberbetes
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Quando um commit é feito na master, a integração contínua faz o deploy da aplicação neste endereço para homologação:
+[http://labxp2018-smped-front.35.238.186.104.nip.io/](http://labxp2018-smped-front.35.238.186.104.nip.io/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
