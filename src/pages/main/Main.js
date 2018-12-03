@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { Container } from '../Container';
 import MainController from './MainController';
 import { Header } from '../../common';
-import { setToken } from '../../actions/TokenActions';
+import { setToken, clearToken } from '../../actions/TokenActions';
 
 class Main extends Container {
 
@@ -38,18 +38,18 @@ class Main extends Container {
 
 		let containerState = headerDrawer ? 'container' : 'container-closed';
 		return (
-      <section className="main">
+			<section className="main">
 				<Header
-				 handleMenuClick={handleMenuAction}
-				 menuStatus={headerMenu}
-				 headerStatus={headerDrawer}
-				 handleDrawerClick={handleDrawerAction}
-				 handleRedirect={redirectTo}
+					handleMenuClick={handleMenuAction}
+					menuStatus={headerMenu}
+					headerStatus={headerDrawer}
+					handleDrawerClick={handleDrawerAction}
+					handleRedirect={redirectTo}
 				/>
 				<div className={containerState}>
 					{this.props.children}
 				</div>
-      </section>
+			</section>
 		);
 	}
 }
@@ -59,6 +59,6 @@ const mstp = state => {
 	};
 };
 
-const mdtp = dispatch => bindActionCreators({setToken}, dispatch);
+const mdtp = dispatch => bindActionCreators({ setToken, clearToken }, dispatch);
 
 export default connect(mstp, mdtp)(Main);

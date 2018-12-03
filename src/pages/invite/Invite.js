@@ -31,7 +31,7 @@ class Invite extends Container {
         const { NAME, EMAIL, USERTYPE, MENSAGEM, open } = this.state;
         return (
             <div className='invite'>
-                <InputLabel htmlFor="name-simple">Nome</InputLabel>
+                <InputLabel htmlFor="name-simple">Usuário</InputLabel>
                 <TextInput
                     id='NAME'
                     value={NAME}

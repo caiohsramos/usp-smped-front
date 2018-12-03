@@ -20,8 +20,8 @@ export default class MainController {
     }
 
     logout() {
-        window.localStorage.setItem('session_token', '');
-        window.localStorage.setItem('user_id', '');
+        this.getProps().clearToken();
+        window.localStorage.setItem('refresh_token', '');
         this.navigator.navigateTo('/');
     }
     redirectTo(id) {
@@ -54,8 +54,8 @@ export default class MainController {
         const refresh = {
             refresh_token: localStorage.getItem('refresh_token')
         };
-		this.smpedapi.post('auth/refresh', refresh)
-		.then((resp) => {
+        this.smpedapi.post('auth/refresh', refresh)
+            .then((resp) => {
                 const token = {
                     access: resp.data.access_token,
                     refresh: localStorage.getItem('refresh_token')

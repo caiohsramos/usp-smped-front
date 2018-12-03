@@ -8,7 +8,7 @@ exports[`renders correctly 1`] = `
     className="MuiFormLabel-root-12 MuiInputLabel-root-1 MuiInputLabel-animated-9"
     htmlFor="name-simple"
   >
-    Nome
+    Usuário
   </label>
   <div
     className="text-input"

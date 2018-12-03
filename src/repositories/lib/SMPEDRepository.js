@@ -22,4 +22,8 @@ export class SMPEDRepository {
                 }
             });
     }
+
+    async patch(endpoint, id, body) {
+        return await axios.patch(`${ROOT_URL}/${endpoint}/${id}`, body);
+    }
 }

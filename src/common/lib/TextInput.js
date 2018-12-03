@@ -1,10 +1,10 @@
 import React from 'react';
 
 const TextInput = props => {
-	const { id, type, value, placeholder, changeAction } = props;
+    const { id, type, value, placeholder, changeAction, read } = props;
 
-	return (
-        <div id={`text-input-${id}`} className='text-input'>
+    return (
+        <div id={`text-input-${id}`} className='text-input' >
             <input
                 className={`input`}
                 onChange={changeAction}
@@ -12,9 +12,10 @@ const TextInput = props => {
                 id={id}
                 value={value}
                 placeholder={placeholder}
+                readonly={read}
             />
         </div>
-	);
+    );
 };
 
 export { TextInput };
