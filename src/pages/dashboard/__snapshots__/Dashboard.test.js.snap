@@ -8,13 +8,13 @@ exports[`renders correctly 1`] = `
     Relatórios de atividades
   </h1>
   <div
-    className="MuiTabs-root-1"
+    className="MuiTabs-root-8"
   >
     <div
-      className="MuiTabs-flexContainer-2"
+      className="MuiTabs-flexContainer-9"
     >
       <div
-        className="MuiTabs-scroller-4 MuiTabs-fixed-5"
+        className="MuiTabs-scroller-11 MuiTabs-fixed-12"
         onScroll={[Function]}
         role="tablist"
         style={
@@ -24,11 +24,11 @@ exports[`renders correctly 1`] = `
         }
       >
         <div
-          className="MuiTabs-flexContainer-2 MuiTabs-centered-3"
+          className="MuiTabs-flexContainer-9 MuiTabs-centered-10"
         >
           <button
             aria-selected={true}
-            className="MuiButtonBase-root-22 MuiTab-root-10 MuiTab-textColorPrimary-13 MuiTab-selected-15"
+            className="MuiButtonBase-root-29 MuiTab-root-17 MuiTab-textColorPrimary-20 MuiTab-selected-22"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -46,25 +46,25 @@ exports[`renders correctly 1`] = `
             type="button"
           >
             <span
-              className="MuiTab-wrapper-18"
+              className="MuiTab-wrapper-25"
             >
               <span
-                className="MuiTab-labelContainer-19"
+                className="MuiTab-labelContainer-26"
               >
                 <span
-                  className="MuiTab-label-20"
+                  className="MuiTab-label-27"
                 >
                   Secretarias
                 </span>
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-84"
+              className="MuiTouchRipple-root-91"
             />
           </button>
           <button
             aria-selected={false}
-            className="MuiButtonBase-root-22 MuiTab-root-10 MuiTab-textColorPrimary-13"
+            className="MuiButtonBase-root-29 MuiTab-root-17 MuiTab-textColorPrimary-20"
             disabled={false}
             onBlur={[Function]}
             onClick={[Function]}
@@ -82,25 +82,25 @@ exports[`renders correctly 1`] = `
             type="button"
           >
             <span
-              className="MuiTab-wrapper-18"
+              className="MuiTab-wrapper-25"
             >
               <span
-                className="MuiTab-labelContainer-19"
+                className="MuiTab-labelContainer-26"
               >
                 <span
-                  className="MuiTab-label-20"
+                  className="MuiTab-label-27"
                 >
                   Eixos
                 </span>
               </span>
             </span>
             <span
-              className="MuiTouchRipple-root-84"
+              className="MuiTouchRipple-root-91"
             />
           </button>
         </div>
         <span
-          className="MuiPrivateTabIndicator-root-25 MuiPrivateTabIndicator-colorPrimary-26 MuiTabs-indicator-9"
+          className="MuiPrivateTabIndicator-root-32 MuiPrivateTabIndicator-colorPrimary-33 MuiTabs-indicator-16"
           style={
             Object {
               "left": 0,
@@ -118,11 +118,11 @@ exports[`renders correctly 1`] = `
     <div>
       <div>
         <div
-          className="MuiPaper-root-31 MuiPaper-elevation1-34 MuiExpansionPanel-root-28 category"
+          className="MuiPaper-root-38 MuiPaper-elevation1-41 MuiExpansionPanel-root-35 category"
         >
           <div
             aria-expanded={false}
-            className="MuiButtonBase-root-22 MuiExpansionPanelSummary-root-58"
+            className="MuiButtonBase-root-29 MuiExpansionPanelSummary-root-65"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -138,13 +138,13 @@ exports[`renders correctly 1`] = `
             tabIndex="0"
           >
             <div
-              className="MuiExpansionPanelSummary-content-62"
+              className="MuiExpansionPanelSummary-content-69"
             >
               Secretaria Municipal de Direitos Humanos
             </div>
             <div
               aria-hidden="true"
-              className="MuiButtonBase-root-22 MuiIconButton-root-64 MuiExpansionPanelSummary-expandIcon-63"
+              className="MuiButtonBase-root-29 MuiIconButton-root-71 MuiExpansionPanelSummary-expandIcon-70"
               onBlur={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
@@ -159,11 +159,11 @@ exports[`renders correctly 1`] = `
               tabIndex={-1}
             >
               <span
-                className="MuiIconButton-label-69"
+                className="MuiIconButton-label-76"
               >
                 <svg
                   aria-hidden="true"
-                  className="MuiSvgIcon-root-70"
+                  className="MuiSvgIcon-root-77"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 24 24"
@@ -178,13 +178,13 @@ exports[`renders correctly 1`] = `
                 </svg>
               </span>
               <span
-                className="MuiTouchRipple-root-84"
+                className="MuiTouchRipple-root-91"
               />
             </div>
           </div>
           <div
             aria-hidden="true"
-            className="MuiCollapse-container-79"
+            className="MuiCollapse-container-86"
             style={
               Object {
                 "minHeight": "0px",
@@ -192,13 +192,13 @@ exports[`renders correctly 1`] = `
             }
           >
             <div
-              className="MuiCollapse-wrapper-81"
+              className="MuiCollapse-wrapper-88"
             >
               <div
-                className="MuiCollapse-wrapperInner-82"
+                className="MuiCollapse-wrapperInner-89"
               >
                 <div
-                  className="MuiExpansionPanelDetails-root-83 category-details"
+                  className="MuiExpansionPanelDetails-root-90 category-details"
                 />
               </div>
             </div>
@@ -207,11 +207,11 @@ exports[`renders correctly 1`] = `
       </div>
       <div>
         <div
-          className="MuiPaper-root-31 MuiPaper-elevation1-34 MuiExpansionPanel-root-28 category"
+          className="MuiPaper-root-38 MuiPaper-elevation1-41 MuiExpansionPanel-root-35 category"
         >
           <div
             aria-expanded={false}
-            className="MuiButtonBase-root-22 MuiExpansionPanelSummary-root-58"
+            className="MuiButtonBase-root-29 MuiExpansionPanelSummary-root-65"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -227,13 +227,13 @@ exports[`renders correctly 1`] = `
             tabIndex="0"
           >
             <div
-              className="MuiExpansionPanelSummary-content-62"
+              className="MuiExpansionPanelSummary-content-69"
             >
               Secretaria Municipal da Pessoa com Deficiência
             </div>
             <div
               aria-hidden="true"
-              className="MuiButtonBase-root-22 MuiIconButton-root-64 MuiExpansionPanelSummary-expandIcon-63"
+              className="MuiButtonBase-root-29 MuiIconButton-root-71 MuiExpansionPanelSummary-expandIcon-70"
               onBlur={[Function]}
               onFocus={[Function]}
               onKeyDown={[Function]}
@@ -248,11 +248,11 @@ exports[`renders correctly 1`] = `
               tabIndex={-1}
             >
               <span
-                className="MuiIconButton-label-69"
+                className="MuiIconButton-label-76"
               >
                 <svg
                   aria-hidden="true"
-                  className="MuiSvgIcon-root-70"
+                  className="MuiSvgIcon-root-77"
                   focusable="false"
                   role="presentation"
                   viewBox="0 0 24 24"
@@ -267,13 +267,13 @@ exports[`renders correctly 1`] = `
                 </svg>
               </span>
               <span
-                className="MuiTouchRipple-root-84"
+                className="MuiTouchRipple-root-91"
               />
             </div>
           </div>
           <div
             aria-hidden="true"
-            className="MuiCollapse-container-79"
+            className="MuiCollapse-container-86"
             style={
               Object {
                 "minHeight": "0px",
@@ -281,13 +281,13 @@ exports[`renders correctly 1`] = `
             }
           >
             <div
-              className="MuiCollapse-wrapper-81"
+              className="MuiCollapse-wrapper-88"
             >
               <div
-                className="MuiCollapse-wrapperInner-82"
+                className="MuiCollapse-wrapperInner-89"
               >
                 <div
-                  className="MuiExpansionPanelDetails-root-83 category-details"
+                  className="MuiExpansionPanelDetails-root-90 category-details"
                 />
               </div>
             </div>

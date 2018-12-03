@@ -39,9 +39,9 @@ class Dashboard extends Container {
             <div className='new-form'>
                 <Snackbar
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                    open={this.props.message.success}
+                    open={Boolean(this.props.message.success)}
                     onClose={this.props.clearMsg}
-                    className={this.props.message.success != '' ? this.props.message.success ? 'snack-success' : 'snack-fail' : 'snack-success'}
+                    className={this.props.message.success !== '' ? this.props.message.success ? 'snack-success' : 'snack-fail' : 'snack-success'}
                     ContentProps={{
                         'aria-describedby': 'message-id',
                     }}

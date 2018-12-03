@@ -26,7 +26,7 @@ class NewForm extends Container {
             activity: '',
             fields: [],
             errors: {},
-            snack: { open: false, msg:'', success: false }
+            snack: { open: false, msg: '', success: false }
         };
 
         const offices = [
@@ -56,14 +56,14 @@ class NewForm extends Container {
     }
 
     render() {
-        const { snackHandleOpen, snackHandleClose } = this.controller;
+        const { snackHandleClose } = this.controller;
         return (
             <div className="newFormContainer">
                 <Snackbar
-                    anchorOrigin={{ vertical:'top', horizontal:'right' }}
-                    open={this.state.snack.open}
+                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    open={(this.state.snack.open)}
                     onClose={snackHandleClose}
-                    className={this.state.snack.success ? 'snack-success' : 'snack-fail' }
+                    className={this.state.snack.success ? 'snack-success' : 'snack-fail'}
                     ContentProps={{
                         'aria-describedby': 'message-id',
                     }}
@@ -172,6 +172,6 @@ const mstp = (state) => {
 };
 
 const mdtp = dispatch =>
-    bindActionCreators({setMsg}, dispatch);
+    bindActionCreators({ setMsg }, dispatch);
 
 export default connect(mstp, mdtp)(NewForm);

@@ -118,7 +118,7 @@ export class NewFormController {
             console.log(token);
             this.smpedapi.post_with_token('forms', form, token)
                 .then((resp) => {
-                    this.setMsg('Formulário salvo com sucesso!', 'snack-success', 'true')
+                    this.setMsg('Formulário salvo com sucesso!', 'snack-success', true)
                     this.snackHandleOpen('Formulário salvo com sucesso!', true);
                     this.navigator.navigateTo('/dashboard');
                 })
