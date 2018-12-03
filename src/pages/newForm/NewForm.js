@@ -10,6 +10,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { FormItem } from './components/FormItem';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
+import Snackbar from '@material-ui/core/Snackbar';
+import { setMsg } from '../../actions/MessageActions';
 
 class NewForm extends Container {
 
@@ -23,7 +25,8 @@ class NewForm extends Container {
             office: 'smped',
             activity: '',
             fields: [],
-            errors: {}
+            errors: {},
+            snack: { open: false, msg: '', success: false }
         };
 
         const offices = [
@@ -41,9 +44,10 @@ class NewForm extends Container {
             callback: this.callback,
             getState: this.getState,
             getProps: this.getProps,
-            router: props.router
+            router: props.router,
+            setMsg: props.setMsg
         };
-        
+
         this.controller = new NewFormController(toController);
         this.offices = offices;
     }
@@ -52,8 +56,19 @@ class NewForm extends Container {
     }
 
     render() {
+        const { snackHandleClose } = this.controller;
         return (
             <div className="newFormContainer">
+                <Snackbar
+                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    open={(this.state.snack.open)}
+                    onClose={snackHandleClose}
+                    className={this.state.snack.success ? 'snack-success' : 'snack-fail'}
+                    ContentProps={{
+                        'aria-describedby': 'message-id',
+                    }}
+                    message={<span id="message-id">{this.state.snack.msg}</span>}
+                />
                 <Paper>
                     <Grid container spacing={16} alignItems="center" justify='space-evenly'>
                         <Grid item container justify='center'>
@@ -157,6 +172,6 @@ const mstp = (state) => {
 };
 
 const mdtp = dispatch =>
-    bindActionCreators({}, dispatch);
+    bindActionCreators({ setMsg }, dispatch);
 
 export default connect(mstp, mdtp)(NewForm);

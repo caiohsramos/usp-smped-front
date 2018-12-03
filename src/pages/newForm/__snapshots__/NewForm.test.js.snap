@@ -5,13 +5,13 @@ exports[`renders correctly 1`] = `
   className="newFormContainer"
 >
   <div
-    className="MuiPaper-root-1 MuiPaper-elevation2-5 MuiPaper-rounded-2"
+    className="MuiPaper-root-8 MuiPaper-elevation2-12 MuiPaper-rounded-9"
   >
     <div
-      className="MuiGrid-container-28 MuiGrid-spacing-xs-16-51 MuiGrid-align-items-xs-center-36 MuiGrid-justify-xs-space-evenly-49"
+      className="MuiGrid-container-35 MuiGrid-spacing-xs-16-58 MuiGrid-align-items-xs-center-43 MuiGrid-justify-xs-space-evenly-56"
     >
       <div
-        className="MuiGrid-container-28 MuiGrid-item-29 MuiGrid-justify-xs-center-45"
+        className="MuiGrid-container-35 MuiGrid-item-36 MuiGrid-justify-xs-center-52"
       >
         <div
           className=""
@@ -22,25 +22,25 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiGrid-item-29 MuiGrid-zeroMinWidth-30"
+        className="MuiGrid-item-36 MuiGrid-zeroMinWidth-37"
       >
         <div
-          className="MuiFormControl-root-125 MuiFormControl-marginNormal-126 field-name"
+          className="MuiFormControl-root-132 MuiFormControl-marginNormal-133 field-name"
         >
           <label
-            className="MuiFormLabel-root-140 MuiInputLabel-root-129 MuiInputLabel-formControl-134 MuiInputLabel-animated-137"
+            className="MuiFormLabel-root-147 MuiInputLabel-root-136 MuiInputLabel-formControl-141 MuiInputLabel-animated-144"
             data-shrink={false}
             htmlFor="form-name"
           >
             Nome do formulário
           </label>
           <div
-            className="MuiInputBase-root-160 MuiInput-root-147 MuiInput-underline-151 MuiInputBase-formControl-161 MuiInput-formControl-148"
+            className="MuiInputBase-root-167 MuiInput-root-154 MuiInput-underline-158 MuiInputBase-formControl-168 MuiInput-formControl-155"
             onClick={[Function]}
           >
             <input
               aria-invalid={false}
-              className="MuiInputBase-input-170 MuiInput-input-155"
+              className="MuiInputBase-input-177 MuiInput-input-162"
               disabled={false}
               id="form-name"
               onBlur={[Function]}
@@ -54,29 +54,29 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiGrid-item-29"
+        className="MuiGrid-item-36"
       >
         <div
-          className="MuiFormControl-root-125 MuiFormControl-marginNormal-126 select-type"
+          className="MuiFormControl-root-132 MuiFormControl-marginNormal-133 select-type"
         >
           <label
-            className="MuiFormLabel-root-140 MuiFormLabel-filled-144 MuiInputLabel-root-129 MuiInputLabel-formControl-134 MuiInputLabel-animated-137 MuiInputLabel-shrink-136"
+            className="MuiFormLabel-root-147 MuiFormLabel-filled-151 MuiInputLabel-root-136 MuiInputLabel-formControl-141 MuiInputLabel-animated-144 MuiInputLabel-shrink-143"
             data-shrink={true}
             htmlFor="office"
           >
             Secretaria
           </label>
           <div
-            className="MuiInputBase-root-160 MuiInput-root-147 MuiInput-underline-151 MuiInputBase-formControl-161 MuiInput-formControl-148"
+            className="MuiInputBase-root-167 MuiInput-root-154 MuiInput-underline-158 MuiInputBase-formControl-168 MuiInput-formControl-155"
             onClick={[Function]}
           >
             <div
-              className="MuiSelect-root-177"
+              className="MuiSelect-root-184"
             >
               <div
                 aria-haspopup="true"
                 aria-pressed="false"
-                className="MuiSelect-select-178 MuiSelect-selectMenu-181 MuiInputBase-input-170 MuiInput-input-155"
+                className="MuiSelect-select-185 MuiSelect-selectMenu-188 MuiInputBase-input-177 MuiInput-input-162"
                 onBlur={[Function]}
                 onClick={[Function]}
                 onFocus={[Function]}
@@ -93,7 +93,7 @@ exports[`renders correctly 1`] = `
               />
               <svg
                 aria-hidden="true"
-                className="MuiSvgIcon-root-184 MuiSelect-icon-183"
+                className="MuiSvgIcon-root-191 MuiSelect-icon-190"
                 focusable="false"
                 role="presentation"
                 viewBox="0 0 24 24"
@@ -107,25 +107,25 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiGrid-item-29 MuiGrid-zeroMinWidth-30"
+        className="MuiGrid-item-36 MuiGrid-zeroMinWidth-37"
       >
         <div
-          className="MuiFormControl-root-125 MuiFormControl-marginNormal-126 field-name"
+          className="MuiFormControl-root-132 MuiFormControl-marginNormal-133 field-name"
         >
           <label
-            className="MuiFormLabel-root-140 MuiInputLabel-root-129 MuiInputLabel-formControl-134 MuiInputLabel-animated-137"
+            className="MuiFormLabel-root-147 MuiInputLabel-root-136 MuiInputLabel-formControl-141 MuiInputLabel-animated-144"
             data-shrink={false}
             htmlFor="form-activity"
           >
             Atividade
           </label>
           <div
-            className="MuiInputBase-root-160 MuiInput-root-147 MuiInput-underline-151 MuiInputBase-formControl-161 MuiInput-formControl-148"
+            className="MuiInputBase-root-167 MuiInput-root-154 MuiInput-underline-158 MuiInputBase-formControl-168 MuiInput-formControl-155"
             onClick={[Function]}
           >
             <input
               aria-invalid={false}
-              className="MuiInputBase-input-170 MuiInput-input-155"
+              className="MuiInputBase-input-177 MuiInput-input-162"
               disabled={false}
               id="form-activity"
               onBlur={[Function]}
@@ -139,7 +139,7 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="MuiGrid-container-28 MuiGrid-item-29 MuiGrid-direction-xs-column-31"
+        className="MuiGrid-container-35 MuiGrid-item-36 MuiGrid-direction-xs-column-38"
       >
         <div
           aria-live="polite"
@@ -147,10 +147,10 @@ exports[`renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="MuiGrid-container-28 MuiGrid-align-items-xs-center-36 MuiGrid-justify-xs-space-evenly-49"
+      className="MuiGrid-container-35 MuiGrid-align-items-xs-center-43 MuiGrid-justify-xs-space-evenly-56"
     >
       <button
-        className="MuiButtonBase-root-223 MuiButton-root-197 MuiButton-contained-208 MuiButton-containedPrimary-209 MuiButton-raised-211 MuiButton-raisedPrimary-212"
+        className="MuiButtonBase-root-230 MuiButton-root-204 MuiButton-contained-215 MuiButton-containedPrimary-216 MuiButton-raised-218 MuiButton-raisedPrimary-219"
         disabled={false}
         id="novo-btn"
         onBlur={[Function]}
@@ -168,16 +168,16 @@ exports[`renders correctly 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-198"
+          className="MuiButton-label-205"
         >
           Novo item
         </span>
         <span
-          className="MuiTouchRipple-root-226"
+          className="MuiTouchRipple-root-233"
         />
       </button>
       <button
-        className="MuiButtonBase-root-223 MuiButtonBase-disabled-224 MuiButton-root-197 MuiButton-contained-208 MuiButton-containedSecondary-210 MuiButton-raised-211 MuiButton-raisedSecondary-213 MuiButton-disabled-217"
+        className="MuiButtonBase-root-230 MuiButtonBase-disabled-231 MuiButton-root-204 MuiButton-contained-215 MuiButton-containedSecondary-217 MuiButton-raised-218 MuiButton-raisedSecondary-220 MuiButton-disabled-224"
         disabled={true}
         id="remover-btn"
         onBlur={[Function]}
@@ -195,18 +195,18 @@ exports[`renders correctly 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-198"
+          className="MuiButton-label-205"
         >
           Remover Item
         </span>
       </button>
     </div>
     <div
-      className="MuiGrid-container-28 MuiGrid-justify-xs-center-45"
+      className="MuiGrid-container-35 MuiGrid-justify-xs-center-52"
       id="fields-grid"
     >
       <button
-        className="MuiButtonBase-root-223 MuiButtonBase-disabled-224 MuiButton-root-197 MuiButton-contained-208 MuiButton-containedPrimary-209 MuiButton-raised-211 MuiButton-raisedPrimary-212 MuiButton-disabled-217"
+        className="MuiButtonBase-root-230 MuiButtonBase-disabled-231 MuiButton-root-204 MuiButton-contained-215 MuiButton-containedPrimary-216 MuiButton-raised-218 MuiButton-raisedPrimary-219 MuiButton-disabled-224"
         disabled={true}
         id="salvar-btn"
         onBlur={[Function]}
@@ -224,12 +224,12 @@ exports[`renders correctly 1`] = `
         type="button"
       >
         <span
-          className="MuiButton-label-198"
+          className="MuiButton-label-205"
         >
           Salvar formulário
           <svg
             aria-hidden="true"
-            className="MuiSvgIcon-root-184"
+            className="MuiSvgIcon-root-191"
             focusable="false"
             role="presentation"
             viewBox="0 0 24 24"
