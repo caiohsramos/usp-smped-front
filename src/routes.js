@@ -15,12 +15,12 @@ export default store => {
         <Router history={browserHistory}>
             <Route component={App} >
                 <Route path='/' component={Login} />
+                <Route path='/newuser/:iduser' component={NewUser} />
                 <Route component={Main}>
                     <Route path='/dashboard' component={Dashboard} />
-                    <Route path='/newform' component={NewForm} />
                     <Route path='/invite' component={Invite} />
-                    <Route path='/newuser/:iduser' component={NewUser} />
                     <Route path='/form/:id' component={Form} />
+                    <Route path='/newform' component={NewForm} />
                 </Route>
             </Route>
         </Router>);

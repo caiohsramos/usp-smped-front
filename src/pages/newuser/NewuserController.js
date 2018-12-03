@@ -67,8 +67,9 @@ export class NewuserController {
         }
         else {
             let payload = {};
-            payload.PASSWORD = state.PASSWORD1;
-            this.smpedapi.patch('accounts', state.id, payload)
+            payload.password = state.PASSWORD1;
+
+            this.smpedapi.patch('accounts', state.IDUSER, payload)
                 .then((resp) => { console.log(resp); })
                 .catch((error) => { console.log(error); });
         }

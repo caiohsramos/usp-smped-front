@@ -88,11 +88,11 @@ export class InviteController {
                 let payloadEmail = {};
                 console.log("entrou no then")
                 payloadEmail.emails = [state.EMAIL];
-                payloadEmail.subject = "Oi," + state.NAME + " foi convidado(a) para SMPED";
+                payloadEmail.subject = "Oi," + state.NAME + " foi convidado(a) para o sistema SMPED";
                 payloadEmail.message = state.MENSAGEM +
                     "\nO seu Id e " + resp.data._id +
                     ", para acessar o sistema SMPED clique no link abaixo para cadastrar a sua senha" +
-                    "\nhttp://localhost:3000/newuser/" + resp.data._id +
+                    "\nhttp://labxp2018-smped-front.35.238.186.104.nip.io/newuser/" + resp.data._id +
                     "\nO seu usuario: " + state.NAME;
 
                 //Não colocar acento, pois ocorre erro. Temos que tratar depois no Back.

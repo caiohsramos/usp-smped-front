@@ -20,8 +20,9 @@ export class MainController {
     }
 
     logout() {
+        this.getProps().clearToken();
         window.localStorage.setItem('session_token', '');
-        window.localStorage.setItem('user_id', '');
+        window.localStorage.setItem('refresh_token', '');
         this.navigator.navigateTo('/');
     }
     redirectTo(id) {

@@ -43,12 +43,14 @@ class NewUser extends Container {
                     id='PASSWORD1'
                     value={PASSWORD1}
                     changeAction={handleChange}
+                    type="password"
                 />
                 <InputLabel htmlFor="name-simple">PASSWORD</InputLabel>
                 <TextInput
                     id='PASSWORD2'
                     value={PASSWORD2}
                     changeAction={handleChange}
+                    type="password"
                 />
                 <div>
                     <Button variant="contained" color="primary" className='button-submit' onClick={handleSubmit}>
