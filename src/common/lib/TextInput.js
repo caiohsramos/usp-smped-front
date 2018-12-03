@@ -12,7 +12,7 @@ const TextInput = props => {
                 id={id}
                 value={value}
                 placeholder={placeholder}
-                readonly={read}
+                readOnly={read}
             />
         </div>
     );

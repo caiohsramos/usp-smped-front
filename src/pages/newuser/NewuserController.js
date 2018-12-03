@@ -35,13 +35,13 @@ export class NewuserController {
 
 
     handleChange(event) {
-        if (event.target.id == 'IDUSER') {
+        if (event.target.id === 'IDUSER') {
             this.callback({ IDUSER: event.target.value });
         }
-        else if (event.target.id == 'PASSWORD1') {
+        else if (event.target.id === 'PASSWORD1') {
             this.callback({ PASSWORD1: event.target.value });
         }
-        else if (event.target.id == 'PASSWORD2') {
+        else if (event.target.id === 'PASSWORD2') {
             this.callback({ PASSWORD2: event.target.value });
         }
         else {
@@ -54,15 +54,15 @@ export class NewuserController {
         const state = this.getState();
         var error = ''
 
-        if (state.PASSWORD1 != state.PASSWORD2) {
+        if (state.PASSWORD1 !== state.PASSWORD2) {
             error = 'As senhas cadastradas são divergentes'
         }
-        else if (state.PASSWORD1 == '' || state.PASSWORD2 == '') {
+        else if (state.PASSWORD1 === '' || state.PASSWORD2 === '') {
             error = 'Senhas não podem ser vazias'
         }
         error = this.ValidarPassword(state.PASSWORD1, error)
 
-        if (error != '') {
+        if (error !== '') {
             alert(error)
         }
         else {
