@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container } from '../Container';
 import { NewFormController } from './NewFormController';
-import Paper from '@material-ui/core/Paper';
+import { PaperContainer } from '../../common';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -12,6 +12,11 @@ import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';
 import Snackbar from '@material-ui/core/Snackbar';
 import { setMsg } from '../../actions/MessageActions';
+import styled from 'styled-components'
+
+const SelectSecretary = styled(TextField)`
+    && {width:10em}
+`
 
 class NewForm extends Container {
 
@@ -58,7 +63,7 @@ class NewForm extends Container {
     render() {
         const { snackHandleClose } = this.controller;
         return (
-            <div>
+            <>
                 <Snackbar
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                     open={(this.state.snack.open)}
@@ -69,7 +74,7 @@ class NewForm extends Container {
                     }}
                     message={<span id="message-id">{this.state.snack.msg}</span>}
                 />
-                <Paper className="newFormContainer">
+                <PaperContainer>
                     <Grid container spacing={16} alignItems="center" justify='space-evenly'>
                         <Grid item container justify='center'>
                             <Grid><h1>Novo formulário</h1></Grid>
@@ -86,11 +91,10 @@ class NewForm extends Container {
                             />
                         </Grid>
                         <Grid item>
-                            <TextField
+                            <SelectSecretary
                                 id="office"
                                 select
                                 label="Secretaria"
-                                className="select-type"
                                 value={this.state.office}
                                 onChange={this.controller.handleChange('office')}
                                 margin="normal">
@@ -99,7 +103,7 @@ class NewForm extends Container {
                                         {option.label}
                                     </MenuItem>
                                 ))}
-                            </TextField>
+                            </SelectSecretary>
                         </Grid>
                         <Grid item zeroMinWidth>
                             <TextField
@@ -157,8 +161,8 @@ class NewForm extends Container {
                             <SaveIcon />
                         </Button>
                     </Grid>
-                </Paper>
-            </div>
+                </PaperContainer>
+            </>
         );
     }
 

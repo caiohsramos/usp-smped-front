@@ -6,23 +6,24 @@ import { LoginForm } from './components/LoginForm';
 import { setToken } from '../../actions/TokenActions';
 import { bindActionCreators } from 'redux';
 import { Logo } from '../../common';
+import styled from 'styled-components'
 
-const LoginLogo = props => {
-	return (
-        <div className='login-logo'>
-            <Logo/>
-            <div></div>
-        </div>
-	);
-};
+const LoginDiv = styled.div`
+    height:100vh;
+    text-align:center!important;
+    -webkit-box-align:center;
+    justify-content:center;
+    background-color:#f5f5f5;
+    padding-top:40px;
+`
 
-const LoginFooter = props => {
-	return (
-        <div className='login-foot'>
-            LabXP IME-USP © 2018
-        </div>
-	);
-};
+const LoginLogo = styled(Logo)`
+	display:block;
+`
+
+const LoginFooter = styled(LoginDiv)`
+	display:block;
+`
 
 class Login extends Container {
 	constructor(props) {
@@ -48,17 +49,19 @@ class Login extends Container {
 		const { handleChangeAction, handleSubmitAction } = this.controller;
 		const { EMAIL, PASSWORD, LOGINERROR } = this.state;
 		return (
-            <div className='login'>
-                <LoginLogo />
-                <LoginForm
-                    email={EMAIL}
-                    password={PASSWORD}
-                    loginError={LOGINERROR}
-                    changeAction={handleChangeAction}
-                    submitAction={handleSubmitAction}
-                />
-                <LoginFooter/>
-            </div>
+			<LoginDiv>
+				<LoginLogo />
+				<LoginForm
+					email={EMAIL}
+					password={PASSWORD}
+					loginError={LOGINERROR}
+					changeAction={handleChangeAction}
+					submitAction={handleSubmitAction}
+				/>
+				<LoginFooter>
+					LabXP IME-USP © 2018
+				</LoginFooter>
+			</LoginDiv>
 		);
 	}
 }
@@ -67,8 +70,8 @@ const mstp = state => {
 	return {};
 };
 
-const mdtp = dispatch => 
-    bindActionCreators({setToken}, dispatch);
+const mdtp = dispatch =>
+	bindActionCreators({ setToken }, dispatch);
 
 export default connect(mstp, mdtp)(Login);
 

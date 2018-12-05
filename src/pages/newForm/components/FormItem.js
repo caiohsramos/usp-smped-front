@@ -6,6 +6,11 @@ import Grid from '@material-ui/core/Grid';
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import styled from 'styled-components'
+
+const SelectType = styled(TextField)`
+    && {width:10em}
+`
 
 const FormItem = props => {
     const { formItem, handleChangeFormItem, errors } = props;
@@ -39,10 +44,9 @@ const FormItem = props => {
                                 />
                             </Grid>
                             <Grid item>
-                                <TextField
+                                <SelectType
                                     select
                                     label="Tipo do campo"
-                                    className="select-type"
                                     value={formItem.type}
                                     onChange={(e) => handleChangeFormItem('type', e)}
                                     margin="normal"
@@ -52,7 +56,7 @@ const FormItem = props => {
                                             {option.label}
                                         </MenuItem>
                                     ))}
-                                </TextField>
+                                </SelectType>
                             </Grid>
                         </Grid>
                         <Grid item container justify='flex-end' sm={12} md={6}>

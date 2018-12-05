@@ -2,9 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from '../Container';
 import { InviteController } from './InviteController';
-import { SelectButton, TextInput, TextArea } from '../../common';
-import InputLabel from '@material-ui/core/InputLabel'
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
+import MenuItem from '@material-ui/core/MenuItem'
+import styled from 'styled-components'
+
+const SelectUser = styled(TextField)`
+    && {width:14em}
+`
 
 class Invite extends Container {
     constructor(props) {
@@ -13,8 +19,7 @@ class Invite extends Container {
             NAME: '',
             EMAIL: '',
             USERTYPE: 0,
-            MENSAGEM: 'Voce foi convidado(a) para SMPED',
-            open: false,
+            MENSAGEM: 'Voce foi convidado(a) para SMPED'
         };
 
         const toController = {
@@ -27,43 +32,57 @@ class Invite extends Container {
     }
 
     render() {
-        const { handleChange, handleOpen, handleClose, handleSubmit } = this.controller;
-        const { NAME, EMAIL, USERTYPE, MENSAGEM, open } = this.state;
+        const { handleChange, handleSubmit } = this.controller;
+        const { NAME, EMAIL, USERTYPE, MENSAGEM } = this.state;
         return (
-            <div className='invite'>
-                <InputLabel htmlFor="name-simple">Usuário</InputLabel>
-                <TextInput
+            <Grid
+                container
+                direction='column'
+                alignItems='center'
+            >
+                <TextField
                     id='NAME'
                     value={NAME}
-                    changeAction={handleChange}
+                    label='Usuário'
+                    onChange={handleChange}
+                    margin="normal"
+                    variant="outlined"
                 />
-                <InputLabel htmlFor="name-simple">Email</InputLabel>
-                <TextInput
+                <TextField
                     id='EMAIL'
                     value={EMAIL}
-                    changeAction={handleChange}
+                    label='Email'
+                    onChange={handleChange}
+                    margin="normal"
+                    variant="outlined"
                 />
-                <InputLabel htmlFor="demo-controlled-open-select">Tipo de usuário</InputLabel>
-                <SelectButton
-                    handleOpen={handleOpen}
-                    handleClose={handleClose}
-                    handleChange={handleChange}
-                    userType={USERTYPE}
-                    dropDownState={open}
-                />
+                <SelectUser
+                    select
+                    label="Tipo de usuário"
+                    value={USERTYPE}
+                    onChange={handleChange}
+                    margin="normal"
+                    variant="outlined"
+                >
+                    <MenuItem value={0}>Selecione</MenuItem>
+                    <MenuItem value={1}>Administrador</MenuItem>
+                    <MenuItem value={2}>Digitador</MenuItem>
+                    <MenuItem value={3}>Convidado</MenuItem>
+                </SelectUser>
 
-                <InputLabel htmlFor="name-simple">Mensagem de convite</InputLabel>
-                <TextArea
+                <TextField
                     id='MENSAGEM'
                     value={MENSAGEM}
-                    changeAction={handleChange}
+                    label='Mensagem de convite'
+                    onChange={handleChange}
+                    multiline
+                    margin="normal"
+                    variant="outlined"
                 />
-                <div>
-                    <Button variant="contained" color="primary" className='button-submit' onClick={handleSubmit}>
-                        Convidar
-      			 </Button>
-                </div>
-            </div>
+                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                    Convidar
+      			</Button>
+            </Grid>
 
         );
     }

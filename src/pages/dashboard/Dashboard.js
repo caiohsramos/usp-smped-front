@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Container } from '../Container';
 import CenteredTabs from './components/Tabs';
 import { DashboardController } from './DashboardController';
-import { Button } from '../../common';
 import { Table } from './components/Table';
 import { setMsg, clearMsg } from '../../actions/MessageActions';
 import Snackbar from '@material-ui/core/Snackbar';
+import Button from '@material-ui/core/Button';
 import { bindActionCreators } from 'redux';
 
 class Dashboard extends Container {
@@ -60,11 +60,13 @@ class Dashboard extends Container {
                     handleFormDelete={handleFormDelete}
                 />
                 <Button
-                    id='button'
-                    type='button'
-                    label='Novo formulário'
-                    clickAction={handleClick}
-                />
+                    onClick={handleClick}
+                    color='primary'
+                    variant='contained'
+                    size='large'
+                >
+                    Novo formulário
+                </Button>
             </div>
         );
     }

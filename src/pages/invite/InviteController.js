@@ -6,22 +6,10 @@ export class InviteController {
         this.callback = callback;
         this.getState = getState;
         this.getProps = getProps;
-        this.handleClose = this.handleClose.bind(this);
-        this.handleOpen = this.handleOpen.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.smpedapi = new SMPEDRepository();
-
-
     }
-    handleClose() {
-        this.callback({ open: false });
-    };
-
-    handleOpen() {
-        this.callback({ open: true });
-
-    };
 
     removeAcento(text) {
         text = text.replace(new RegExp('[ÁÀÂÃÄ]', 'g'), 'A');

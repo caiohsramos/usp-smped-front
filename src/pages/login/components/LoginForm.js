@@ -1,36 +1,66 @@
 import React from 'react';
+import Button from '@material-ui/core/Button'
+import TextField from '@material-ui/core/TextField'
+import styled from 'styled-components'
 
-import { Button, TextInput } from '../../../common';
+const Form = styled.form`
+    width:100%;
+    max-width:330px;
+    padding:15px;
+    margin:0 auto;
+`
+const EmailField = styled(TextField)`
+    && {
+        margin-bottom:-1px;
+        border-bottom-right-radius:0;
+        border-bottom-left-radius:0
+    }
+`
+const PasswordField = styled(TextField)`
+    && {
+        margin-bottom:10px;
+        border-top-right-radius:0;
+        border-top-left-radius:0
+    }
+`
 
 const LoginForm = props => {
-	const { email, password, loginError, changeAction, submitAction } = props;
+    const { email, password, loginError, changeAction, submitAction } = props;
 
-	return (
-        <form className={`login-form${loginError ? ' -error' : ''}`}>
-            { loginError ? <div className='error-msg'>{loginError}</div> : null }
-            <TextInput
-                id='EMAIL'
-                label='E-MAIL'
+    return (
+        <Form>
+            {loginError ? <div className='error-msg'>{loginError}</div> : null}
+            <EmailField
+                id="EMAIL"
+                label="Usuário"
+                type="email"
+                name="email"
+                autoComplete="email"
+                margin="normal"
+                variant="outlined"
                 value={email}
-                changeAction={changeAction}
-                placeholder='Endereço de email'
+                onChange={changeAction}
             />
-            <TextInput
-                type='password'
-                id='PASSWORD'
-                label='SENHA'
+            <PasswordField
+                id="PASSWORD"
+                label="Senha"
+                type="password"
+                autoComplete="current-password"
+                margin="normal"
+                variant="outlined"
                 value={password}
-                changeAction={changeAction}
-                placeholder='Senha'
+                onChange={changeAction}
             />
             <Button
-                id='submit'
-                type='submit'
-                label='Entrar'
-                clickAction={submitAction}
-            />
-        </form>
-	);
+                onClick={submitAction}
+                color="primary"
+                variant="contained"
+                type="submit"
+            >
+                Entrar
+            </Button>
+        </Form>
+    );
 };
 
 LoginForm.propTypes = {};

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from '../Container';
 import { FormController } from './FormController';
-import Paper from '@material-ui/core/Paper';
+import { PaperContainer } from '../../common';
 import FormHeader from './components/FormHeader';
 import FormQuestions from './components/FormQuestions';
 import Button from '@material-ui/core/Button';
@@ -32,13 +32,13 @@ export default class Form extends Container {
         return (
             !this.state.form ||
             <div>
-                <Paper className="formContainer">
+                <PaperContainer>
                     <FormHeader form={this.state.form} />
                     <FormQuestions fields={this.state.form.fields} edit={false} />
-                </Paper>
+                </PaperContainer>
                 <BackButton id='voltar-bt' size="large" variant="contained" color="primary" onFocus={null} onClick={goBack}>
                     Voltar
-                </BackButton>       
+                </BackButton>
             </div>
         )
     }

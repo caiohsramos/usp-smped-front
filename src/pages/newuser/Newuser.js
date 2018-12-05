@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Container } from '../Container';
 import { NewuserController } from './NewuserController';
-import InputLabel from '@material-ui/core/InputLabel'
 import Button from '@material-ui/core/Button';
-import { TextInput } from '../../common';
+import TextField from '@material-ui/core/TextField'
+import { Grid } from '@material-ui/core';
 
 class NewUser extends Container {
     constructor(props) {
@@ -29,35 +29,43 @@ class NewUser extends Container {
         const { handleChange, handleSubmit } = this.controller;
         const { IDUSER, PASSWORD1, PASSWORD2 } = this.state;
         return (
-            <div className='TrocaSenha'>
-                <InputLabel htmlFor="name-simple">Id Usuario </InputLabel>
-                <TextInput
+            <Grid
+                container
+                direction='column'
+                alignItems='center'
+            >
+                <TextField
                     id='IDUSER'
                     value={IDUSER}
-                    changeAction={handleChange}
-                    read='readonly'
-
+                    label='ID Usuário'
+                    onChange={handleChange}
+                    disabled
+                    margin="normal"
+                    variant="outlined"
                 />
-                <InputLabel htmlFor="name-simple">PASSWORD </InputLabel>
-                <TextInput
+                <TextField
                     id='PASSWORD1'
                     value={PASSWORD1}
-                    changeAction={handleChange}
+                    label='Senha'
+                    onChange={handleChange}
                     type="password"
+                    margin="normal"
+                    variant="outlined"
                 />
-                <InputLabel htmlFor="name-simple">PASSWORD</InputLabel>
-                <TextInput
+                <TextField
                     id='PASSWORD2'
                     value={PASSWORD2}
-                    changeAction={handleChange}
+                    label='Repetir Senha'
+                    onChange={handleChange}
                     type="password"
+                    margin="normal"
+                    variant="outlined"
                 />
-                <div>
-                    <Button variant="contained" color="primary" className='button-submit' onClick={handleSubmit}>
-                        Cadastrar Senha
-      			 </Button>
-                </div>
-            </div>
+
+                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                    Cadastrar Senha
+    		    </Button>
+            </Grid>
         );
     }
 }
