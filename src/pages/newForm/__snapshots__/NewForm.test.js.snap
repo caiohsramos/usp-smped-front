@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<div
-  className="newFormContainer"
->
+<div>
   <div
-    className="MuiPaper-root-8 MuiPaper-elevation2-12 MuiPaper-rounded-9"
+    className="MuiPaper-root-8 MuiPaper-elevation2-12 MuiPaper-rounded-9 newFormContainer"
   >
     <div
       className="MuiGrid-container-35 MuiGrid-spacing-xs-16-58 MuiGrid-align-items-xs-center-43 MuiGrid-justify-xs-space-evenly-56"
