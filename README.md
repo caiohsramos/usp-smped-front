@@ -1,44 +1,88 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Documentação do Sistema de Monitoramento da [SMPED](https://www.prefeitura.sp.gov.br/cidade/secretarias/pessoa_com_deficiencia/) de São Paulo
 
-## Available Scripts
+**Mais detalhes:**  
+[Sistema de Monitoramento da SMPED](https://tecs.ime.usp.br/MAC0213/projeto-1.pdf?fbclid=IwAR1Y-Ak710FLiXDv8FHAdmFotZllZrNcI2GXricxreO1dNVCbSVcYzIXmRY)
 
-In the project directory, you can run:
+## Pré-requisitos
+Para executar este projeto você precisa ter instalado o [Nodejs](https://nodejs.org/en/) em seu computador, versão 8 ou superior.  
 
-### `npm start`
+Na pasta do projeto, no terminal, execute o comando `npm install` para instalar as dependências (serão baixadas dentro da pasta node_modules que não fica versionada);
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Após isto execute o comando `npm start`.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Detalhes técnicos
+* Este projeto foi feito com [Create React App](https://github.com/facebook/create-react-app).
+* Estamos utilizando CSS puro (src/App.css)
+* Utilizamos também a biblioteca de componente [Material-UI](https://material-ui.com/)
+* Este projeto depende da sua [API](https://gitlab.com/LABXP2018/smped-api/)
 
-### `npm test`
+### Iniciando a aplicação com `npm start`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Este comando irá inicializar a aplicação em modo de desenvolvimento.<br>
+Abra no navegador a url [http://localhost:3000](http://localhost:3000) para ver a aplicação em seu computador.
 
-### `npm run build`
+A cada modificação no código fonte, o navegador será recarregado automaticamente (live-reload).<br>
+Também você poderá ver os erros no console do navegador.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Usuário padrão do sistema
+O usuário padrão é `admin` e senha `password`. Utilize ele para o ambiente de desenvolvimento.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+### Testes com `npm test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Este comando executa os testes de maneira interativa e fica observando modificações. Estamos usando Jest, que basicamente é uma comparação de alterações de tela usando snapshots.  
 
-### `npm run eject`
+Para mais detalhes sobre o Jest e testes, veja [running tests](https://facebook.github.io/create-react-app/docs/running-tests)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Integração contínua com Kuberbetes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Quando um commit é feito na master, a integração contínua faz o deploy da aplicação neste endereço para homologação: 
+[http://labxp2018-smped-front.35.238.186.104.nip.io/](http://labxp2018-smped-front.35.238.186.104.nip.io/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+A integração contínua executa os testes automatizados antes de efetuar o deploy, e caso falhem o deploy da aplicação não é efetuado. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Arquitetura do projeto
 
-## Learn More
+![UML_Front](https://gitlab.com/LABXP2018/smped-front/uploads/12ddc05f28af6a9ccec765d726bbae40/UML_Front.png)
+O projeto contém **páginas** e as páginas contém **componentes**.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Login
+**`src/pages/login`**
+![login](https://gitlab.com/LABXP2018/smped-front/uploads/ff02120abfa064a5e9c6a2eb7fd53dde/login.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Dashboard
+**`src/pages/dashboard`**  
+Esta página é carregada dentro do `src/pages/main` e dentro do **Main** tem o **menu** com todos os links para as páginas.  
+O dashboard é a primeira página a ser carregada após o login.
+![dashboard](https://gitlab.com/LABXP2018/smped-front/uploads/a9249ee9e637f6fc5665e736cbe04282/dashboard.png)
+
+### NewForm
+**`src/pages/newForm`**  
+Criador de formulários  
+![NewForm](https://gitlab.com/LABXP2018/smped-front/uploads/cb890c58d20b6019388a60590b6cf7e3/NewForm.png)
+
+#### FormItem
+**`src/pages/newForm/components/FormItem`**  
+Um formulário tem vários itens, ou seja, um form item é composto de label, input, e se vai ser campo obrigatório, e o tipo do campo (texto ou numérico):  
+![newForm_formItem](https://gitlab.com/LABXP2018/smped-front/uploads/9305ebc239762f88d8b99c76f2e31503/newForm_formItem.png)
+
+
+### Form
+**`src/pages/form`**  
+Página para visualizar o formulário criado pelo componente **NewForm**
+![form](https://gitlab.com/LABXP2018/smped-front/uploads/dc15dc5f9c2fc110a5b8237e26490f43/form.png)
+
+
+### Invite
+**`src/pages/invite`**  
+Página de cadastro de usuários, onde definimos, o username (login), email e seu papel no sistema. Quando se cria um "invite" (convite), o sistema envia um email para o novo usuário com o link para a pessoa terminar seu cadastro, informando uma senha.  
+
+![invite](https://gitlab.com/LABXP2018/smped-front/uploads/5ba0aa3739269af2d79888b40be95124/invite.png)
+
+
+
+
+
+
+
+

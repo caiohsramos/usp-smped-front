@@ -1,11 +1,18 @@
 {
-  "name": "SMPED-React-App",
+  "name": "smped-sistema-monitoramento",
   "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://gitlab.com/LABXP2018/smped-front.git"
   },
-  "author": "Aline, Caio, Gabrielly, Gustavo, Marcos, Vanessa",
+  "authors": [
+    "Aline Ioste <rodrigheri@yahoo.com.br>",
+    "Caio Ramos <caioramos97@gmail.com>",
+    "Gabriely Pereira <gabriely.pereira@usp.br>",
+    "Gustavo Estrela <estrela.gustavo.matos@gmail.com>",
+    "Marcos Vinicius <marcos.vinicius.wz@gmail.com>",
+    "Vanessa Tonini <vanessametonini@gmail.com>"
+  ],
   "license": "MIT",
   "dependencies": {
     "@material-ui/core": "^3.4.0",
