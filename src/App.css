@@ -88,6 +88,12 @@ div.login form.login-form input.input:focus{
     border-color:#80bdff;
     box-shadow:0 0 0 .2rem rgba(0,123,255,.25)
 }
+div.newFormContainer {
+    padding: 20px;
+}
+div.formContainer {
+    padding: 20px;
+}
 .flex{
     display:flex
 }

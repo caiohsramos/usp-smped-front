@@ -32,7 +32,7 @@ export default class Form extends Container {
         return (
             !this.state.form ||
             <div>
-                <Paper>
+                <Paper className="formContainer">
                     <FormHeader form={this.state.form} />
                     <FormQuestions fields={this.state.form.fields} edit={false} />
                 </Paper>

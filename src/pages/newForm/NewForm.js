@@ -58,7 +58,7 @@ class NewForm extends Container {
     render() {
         const { snackHandleClose } = this.controller;
         return (
-            <div className="newFormContainer">
+            <div>
                 <Snackbar
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                     open={(this.state.snack.open)}
@@ -69,7 +69,7 @@ class NewForm extends Container {
                     }}
                     message={<span id="message-id">{this.state.snack.msg}</span>}
                 />
-                <Paper>
+                <Paper className="newFormContainer">
                     <Grid container spacing={16} alignItems="center" justify='space-evenly'>
                         <Grid item container justify='center'>
                             <Grid><h1>Novo formulário</h1></Grid>
